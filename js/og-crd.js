@@ -3266,8 +3266,8 @@ const tableList = [
 	}, 
 	{
 		name: "Teleporter Cypher", 
-		cols: ["d00", "Type", "Power Level", ], 
-		colstyle: ["text-center og-nowrap", "",],
+		cols: ["d00", "Power", "Type", ], 
+		colstyle: ["text-center og-nowrap", "text-center", ""],
 		rows: [["01&ndash;50", "Medium", "<strong>Bounder:</strong> A location within 500 feet (150 m) that you can see, or up to 500 feet in the direction and distance you specify (such as \"200 feet west and 20 feet upward\").", ], ["51&ndash;80", "Advanced", "<strong>Traveler:</strong> A location within 500 miles (800 km) that you can see or have previously visited or seen.", ], ["81&ndash;95", "High", "<strong>Planetary:</strong> A location on the same planet that you can see or have previously visited or seen.", ], ["96&ndash;00", "Ultra", "<strong>Interstellar:</strong> A location in the same galaxy that you can see or have previously visited or seen.", ], ], 
 	}, 
 ];
@@ -3693,7 +3693,7 @@ function getSection(ch) {
 		chx += "<p class='lead'>&mdash;Old Gus</p>";
 		chx += createEdnote("If you'd like to support this work, buy Old Gus a <a href='https://ko-fi.com/oldgus'><span class='fst-normal'>&#9749;</span> Ko-fi</a>!");
 		chx += createHeader(3, "editorial-mission", "Editorial Mission", "og-border");
-		chx += "<dl><dt>Incorporate Cypher Content</dt><dd>Condense the Cyher Reference Document into fewer, more complete topics, and incorporate updates or Errata. Provide page number references for the Cypher Character Ruleboook (CCR), and Cypher Game Master's Guide (CGMG)</dd><dt>Use Plain Language</dt><dd>Edit explanations, instructions, definitions, and procedures in plain language so they are complete, clear, consistent, and concise. Correct suspected misprints. Preserve the text of character options.</dd><dt>Address Players First</dt><dd>Organize information for those who haven't played a tabletop role-playing game (TTRPG) before, and write to the player. \"You\" is you, the player&mdash;or your Player Character (PC). \"The GM\" is the Game Master (GM).</dd><dt>Improve Accessibility and Inclusion</dt><dd>Avoid flow charts the reader might not be able to use. Add metric unit conversions. Provide a mobile-friendly format, extensive hyperlinks, tooltips, and quick-references.</dd><dt>Add Tools</dt><dd>Add and expand useful indices and a <a href='#glossary'>glossary</a>.</dd><dt>Human-Made, Human-Forward</dt><dd>No ads. No accounts. No data collection. No algorithms. No machine learning. No large-language models. No vibe coding. This is a living document&mdash;revisions are an ongoing project.</dd></dl>";
+		chx += "<dl><dt>Incorporate Cypher Content</dt><dd>Condense the Cyher Reference Document into fewer, more complete topics, and incorporate updates or errata. Provide page number references for the <a href='https://www.montecookgames.com/store/product/cypher-corebooks/'>Cypher Character Ruleboook (CCR)</a> and Cypher Game Master's Guide (CGMG)</dd><dt>Use Plain Language</dt><dd>Edit explanations, instructions, definitions, and procedures in plain language so they are complete, clear, consistent, and concise. Correct suspected misprints. Preserve the text of character options.</dd><dt>Address Players First</dt><dd>Organize information for those who haven't played a tabletop role-playing game (TTRPG) before, and write to the player. \"You\" is you, the player&mdash;or your Player Character (PC). \"The GM\" is the Game Master (GM).</dd><dt>Improve Accessibility and Inclusion</dt><dd>Avoid flow charts the reader might not be able to use. Add metric unit conversions. Provide a mobile-friendly format, extensive hyperlinks, tooltips, and quick-references.</dd><dt>Add Tools</dt><dd>Add and expand useful indices and a <a href='#glossary'>glossary</a>.</dd><dt>Human-Made, Human-Forward</dt><dd>No ads. No accounts. No data collection. No algorithms. No machine learning. No large-language models. No vibe coding. This is a living document&mdash;revisions are an ongoing project.</dd></dl>";
 		chx += createHeader(3, "cypher-open-license", "Cypher Open License", "og-border");
 		chx += "<div class='d-table'>";
 		chx += "<div class='d-table-row'>";
@@ -3796,11 +3796,24 @@ function getSection(ch) {
 						skill += createHeader(5, createID("skill-" + skillList[sk].name), skillList[sk].name, "og-border");
 						skill += createRef(skillList[sk].ref);
 						skill += "<ul class='og-list-tag'>";
-						if (skillList[sk].combat == true) { skill += "<li class='og-tag-primary'>Combat Skill</li>"; }
+						// mark skill type
+						if (skillList[sk].combat == true) { skill += "<li class='og-tag-danger'>Combat Skill</li>"; }
 						else { skill += "<li>Noncombat Skill</li>"; }
 						if (skillList[sk].tierrestricted == true) {
 							skill += "<li class='og-tag-danger'>Tier-Restricted</li>";
 						}
+						for (let g = 0; g < genreList.length; g++) {
+							if (genreList[g].skillsoptions != undefined) {
+								for (let gs = 0; gs < genreList[g].skillsoptions.length; gs++) {
+									if (skillList[sk].name == genreList[g].skillsoptions[gs]) {
+										let gname = genreList[g].genre;
+										if (genreList[g].subgenre != undefined) { gname = genreList[g].subgenre; }
+										skill += "<li class='og-tag-primary'>" + gname + "</li>";
+									}
+								}
+							}
+						}
+						// mark skill genres
 						skill += "</ul>";
 						skill += "<p>" + skillList[sk].description + "</p>";
 						if (skillList[sk].name == "Scavenging") {
@@ -3907,10 +3920,10 @@ function getSection(ch) {
 						// genres
 						for (g = 0; g < typeList[t].genres.length; g++) {
 							if (typeList[t].genres[g] == "Superheroes") {
-								type += "<li>Type (Superhero, Rank " + typeList[t].rank + ")</li>";
+								type += "<li class='og-tag-primary'>Type (Superhero, Rank " + typeList[t].rank + ")</li>";
 							}
 							else {
-								type += "<li>Type (" + typeList[t].genres[g] + ")</li>";
+								type += "<li class='og-tag-primary'>Type (" + typeList[t].genres[g] + ")</li>";
 							}
 						}
 						type += "</ul>";
@@ -3980,10 +3993,10 @@ function getSection(ch) {
 						focusDef += createHeader(4, createID("focus-" + focusList[f].name), focusList[f].name, "og-border");
 						focusDef += createRef([focusList[f].ref]);
 						focusDef += "<ul class='og-list-tag'>";
-						focusDef += "<li>Focus</li>"
+						focusDef += "<li class='og-tag-primary'>Focus</li>"
 						// genre and themes
 						for (g = 0; g < focusList[f].genres.length; g++) {
-							focusDef += "<li>" + focusList[f].genres[g].name + " (" + focusList[f].genres[g].theme + ")</li>";
+							focusDef += "<li class='og-tag-primary'>" + focusList[f].genres[g].name + " (" + focusList[f].genres[g].theme + ")</li>";
 						}
 						focusDef += "</ul>";
 						// summary, equipment, and gm intrusions
@@ -4381,7 +4394,7 @@ function getSection(ch) {
 						for (let ps = 0; ps < genreList[g].abilitiespowershifts.length; ps++) {
 							def = createHeader((h + 3), createID("power-shifts-" + genreList[g].abilitiespowershifts[ps].dt), genreList[g].abilitiespowershifts[ps].dt, "og-border");
 							def += createRef(["CCR 127",]);
-							def += "<ul class='og-list-tag'><li>Power Shift</li></ul></ul>";
+							def += "<ul class='og-list-tag'><li class='og-tag-primary'>Power Shift</li></ul></ul>";
 							def += getBody([genreList[g].abilitiespowershifts[ps].dd]); 
 							if (genreList[g].abilitiespowershifts[ps].effort == false) {
 								def += "<p class='small'><em>This power shift doesn't act like a free level of <a href='#define-effort'>Effort</a>.</em></p>";
