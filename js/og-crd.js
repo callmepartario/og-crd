@@ -1,4 +1,4 @@
- const version = "1.0c";
+ const version = "1.0d";
  const updated = "2026-08-10";
 
 // reader mode
@@ -2847,7 +2847,7 @@ const genreList = [
 		equipmenttable: "Superheroes", 
 		manifestcyphers: ["These are possible, in the form of high-tech gadgets, strange serums, power jewels, and alien technology.", ], 
 		wounds: ["True to its name, superheroes is a <strong>heroic</strong> genre.", ["<strong>Rally:</strong> You can spend 10 Might points to <a href='#define-rallying'>rally</a> a <a href='#define-wound'>major wound</a> as an action.", ], ], 
-		advancement: [["<em>At tier 1:</em> You gain an ability from the Superhero Origin Abilities list. Use this choice to extend, supplement, or complement your <a href='#define-descriptor'>descriptor</a>, <a href='#define-type'>type</a>, and <a href='#define-focus'>focus</a>&mdash;for example, the the <a href='#define-ability-intangible'>Intangible</a> ability gives a speedster with the <a href='#define-focus-moves-like-the-wind'>Moves Like the Wind</a> focus the ability to vibrate through walls. If your character's powers already feel complete, choose <a href='#define-ability-power-cypher-use'>Power Cypher Use</a>, <a href='#define-ability-superhero-versatility'>Superhero Versatility</a>, or <A href='#define-ability-team-up-ally'>Team-Up Ally</a>.", "<em>At tier 1:</em> Choose a number of <a href='#define-power-shift'>power shifts</a> assigned by the rank of your <a href='#define-genre-superheroes-type'>type</a>, but no more than three power shifts in any one category.", "<em>At tier 3:</em> Choose an ability from the <a href='#superheroes-abilities-mid-tier'>Mid-Tier Superheroes Abilities</a> list.", "<em>At tier 6:</em> Choose an ability from the <a href='#superheroes-abilities-high-tier'>High-Tier Superheroes Abilities</a> list. You can also replace an ability you gained from the <a href='#superheroes-abilities-high-tier'>Mid-Tier Superheroes Abilities</a>.", ], ], 
+		advancement: [["<em>At tier 1:</em> Your <a href='#define-genre-superheroes-types'>superhero type</a> provides a choice from the <a href='#genre-superheroes-abilities-origin'>Origin Superhero Abilities</a> list. Use this choice to extend, supplement, or complement your <a href='#define-descriptor'>descriptor</a>, <a href='#define-type'>type</a>, and <a href='#define-focus'>focus</a>&mdash;for example, the the <a href='#define-ability-intangible'>Intangible</a> ability gives a speedster with the <a href='#define-focus-moves-like-the-wind'>Moves Like the Wind</a> focus the ability to vibrate through walls. If your character's powers already feel complete, choose <a href='#define-ability-power-cypher-use'>Power Cypher Use</a>, <a href='#define-ability-superhero-versatility'>Superhero Versatility</a>, or <A href='#define-ability-team-up-ally'>Team-Up Ally</a>.", "<em>At tier 1:</em> Choose a number of <a href='#define-power-shift'>power shifts</a> assigned by the rank of your <a href='#define-genre-superheroes-types'>type</a>, but no more than three power shifts in any one category.", "<em>At tier 3:</em> Choose an ability from the <a href='#superheroes-abilities-mid-tier'>Mid-Tier Superheroes Abilities</a> list.", "<em>At tier 6:</em> Choose an ability from the <a href='#superheroes-abilities-high-tier'>High-Tier Superheroes Abilities</a> list. You can also replace an ability you gained from the <a href='#superheroes-abilities-high-tier'>Mid-Tier Superheroes Abilities</a>.", ], ], 
 		abilitiesorigin: ["Adhesive Mobility", "Amazing Invulnerability", "Amazing Tools", "Armored Body", "Astonishing Teleport", "Awesome Force Field", "Duplicate", "Extraordinary Leap", "Fantastic Armament", "Fantastic Vehicle", "Incredible Instinct", "Incredible Velocity", "Intangible", "Invisible Knack", "Power Cypher Use", "Powerful Blast", "Regenerative Healing", "Shrink", "Skill Exemplar", "Stretchy", "Superhero Versatility", "Team-Up Ally", "Telepathic Prodigy", "Unbelievable Transformation", "Uncanny Flight", "Unyielding Shield", ], 
 		abilitiespowershifts: [
 			{ dt: "Accuracy", dd: "All attack rolls.", }, 
@@ -3251,8 +3251,14 @@ const tableList = [
 	{
 		name: "Superhero Types", 
 		cols: ["Type", "Rank", "Power Shifts",], 
-		rows: [["Crimefighter", "1", "2",], ["Vigilante", "1", "2",], ["Enhanced Hero", "2", "3",], ["Powerstar", "2", "3",], ["Superhuman", "3", "4",], ["Powerhouse", "4", "5",], ["Living God", "5", "6",], ], 
 		colstyle: ["", "text-center", "text-center",],
+		rows: [["Crimefighter", "1", "2",], ["Vigilante", "1", "2",], ["Enhanced Hero", "2", "3",], ["Powerstar", "2", "3",], ["Superhuman", "3", "4",], ["Powerhouse", "4", "5",], ["Living God", "5", "6",], ], 
+	}, 
+	{
+		name: "Superhero Type Adaptation", 
+		cols: ["Rank", "Pool Point Total", "Pool Bonus Max", "Superheroics Pool Bonus", "Power Shifts",], 
+		colstyle: ["", "text-center", "text-center", "text-center", "text-center", ], 
+		rows: [["Rank 1", "10", "+5", "&mdash;", "2",], ["Rank 2", "14", "+6", "+2", "3",], ["Rank 3", "18", "+6", "+4", "4"], ["Rank 4", "24", "+8", "+6", "5",], ["Rank 5", "30", "+10", "+8", "6",]], 
 	}, 
 	{
 		name: "Energy Blast Cypher", 
@@ -4321,6 +4327,14 @@ function getSection(ch) {
 				}
 				else if (genreList[g].typeoptions != undefined) { def += getGenreList(genreList[g].genre, genreList[g].subgenre, "types", "list-unstyled og-qr-compact", true); }
 				chx += createDef(createID("genre-" + gname + "-types"), def);
+
+				if (genreList[g].genre == "Superheroes" && genreList[g].subgenre == undefined) {
+					alert = createHeader((h + 2), createID("genre-" + gname + "-adapting-alternate-type"), "Adapting Types to the Superhero Genre", "");
+					alert += createRef(["CCR 129"]);
+					alert += getBody(["You can adapt or reskin <a href='#define-type'>types</a> to superhero by consulting the table and making the following changes:", ["Replace bonuses to Might, Speed, and Intellect <a href='#define-stat'>Pool</a> points with new totals and maximums (determined by rank).", "The <a href='#define-ability-superheroics'>Superheroics</a> ability.", "A number of additional points to the <A href='#define-stat'>Pool</a> you choose for the <a href='#define-ability-superheroics'>Superheroics</a> ability (determined by rank).", "One choice from the <a href='#genre-superheroes-abilities-origin'>Origin Superhero Abilities</a> list.", "A number of <a href='#define-power-shift'>power shifts</a> (determined by rank).", ]]);
+					alert += createTable("Superhero Type Adaptation");
+					chx += createAlert(alert);
+				}
 			}
 			// genre backgrounds (real world only)
 			if (genreList[g].backgroundoptions != undefined) { 
@@ -4462,12 +4476,12 @@ function getSection(ch) {
 				let ref = ["<span class='btn btn-danger'>!ERR</span>"];
 				if (gname == "Real World") ( ref = ["CCR 38"]);
 				if (gname == "Fantasy") ( ref = ["CCR 82"]);
-				else if (gname == "Science Fiction") ( ref = ["CCR 114&ndash;116"]);
+				else if (gname == "Science Fiction") ( ref = ["CCR 114"]);
 				else if (gname == "Epic Fantasy") ( ref = ["CCR 75"]);
 				else if (gname == "Hard Science Fiction") ( ref = ["CCR 91"]);
 				else if (gname == "Space Opera") ( ref = ["CCR 99"]);
 				else if (gname == "Postapocalypse") ( ref = ["CCR 109"]);
-				else if (gname == "Superheroes") ( ref = ["CCR 126", "CCR 138&ndash;142"]);
+				else if (gname == "Superheroes") ( ref = ["CCR 126&ndash;127", "CCR 138&ndash;142"]);
 				def += createRef(ref)
 				def += getBody(["In addition to the usual character advancement process, you gain the following benefits as you increase your <a href='#define-tier'>tier</a>."]);
 				def += getBody(genreList[g].advancement);
@@ -4476,7 +4490,8 @@ function getSection(ch) {
 				if (genreList[g].abilitiesmid != undefined | genreList[g].abilitieshigh != undefined) { 
 					// origin
 					if (genreList[g].abilitiesorigin != undefined) { 
-						alert = createHeader((h + 2), createID("genre-" + gname + "-abilities-origin"), ("Superhero Origin Abilities"), "");
+						alert = createHeader((h + 2), createID("genre-" + gname + "-abilities-origin"), ("Origin Superhero Abilities"), "");
+						alert += createRef(["CCR 138&ndash;142"]);
 						alert += getGenreList(genreList[g].genre, genreList[g].subgenre, "abilitiesorigin", "list-unstyled og-qr", false);
 						chx += createAlert(alert);
 					}// origin
@@ -4509,11 +4524,17 @@ function getSection(ch) {
 					// mid-tier
 					if (genreList[g].abilitiesmid != undefined) { 
 						alert += createHeader((h + 2), createID("genre-" + gname + "-abilities-mid-tier"), ("Mid-Tier " + gname + " Abilities"), "");
+						if (gname == "Fantasy") { alert += createRef(["CCR 82&ndash;83"]); }
+						else if (gname == "Science Fiction") { alert += createRef(["CCR 114&ndash;115"]); }
+						else if (gname == "Superheroes") { alert += createRef(["CCR 82&ndash;83", "CCR 114&ndash;115", "CCR 126"]); }
 						if (genreList[g].abilitiesmid != undefined) { alert += getGenreList(genreList[g].genre, genreList[g].subgenre, "abilitiesmid", "list-unstyled og-qr", false); }
 					}
 					// high-tier
 					if (genreList[g].abilitieshigh != undefined) { 
 						alert += createHeader((h + 2), createID("genre-" + gname + "-abilities-high-tier"), ("High-Tier " + gname + " Abilities"), "");
+						if (gname == "Fantasy") { alert += createRef(["CCR 84"]); }
+						else if (gname == "Science Fiction") { alert += createRef(["CCR 116"]);	 }
+						else if (gname == "Superheroes") { alert += createRef(["CCR 84", "CCR 116", "CCR 126"]); }
 						if (genreList[g].abilitieshigh != undefined) { alert += getGenreList(genreList[g].genre, genreList[g].subgenre, "abilitieshigh", "list-unstyled og-qr", false); }
 					}
 					chx += createAlert(alert);
@@ -4912,6 +4933,7 @@ function getSection(ch) {
 		// equipment index
 		alert = createHeader(4, "choose-equipment-fantasy", "Quick-Reference: Equipment", "h6");
 		alert += "<ul class='list-unstyled og-qr-compact'>";
+		alert += "<li><a href='#define-currency'>Currency</a></li>";
 		alert += "<li><a href='#define-equipment'>Equipment</a></li>";
 		alert += "<li><a href='#define-weapon'>Weapon</a></li>";
 		alert += "<li><a href='#define-armor'>Armor</a></li>";
