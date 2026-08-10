@@ -1,3 +1,6 @@
+ const version = "1.0c";
+ const updated = "2026-08-10";
+
 // reader mode
 var readerPreference = localStorage.getItem('readerMode');
 
@@ -5113,6 +5116,11 @@ function dyslexiaMode() {
 // assemble chapter structure to page
 function printContent() {
 	let chapter = "";
+	chapter += "<p class='small text-center'>version" + version + " (" + updated + ")</p>";
+	chapter += "<ul class='list-inline text-center'>";
+	chapter += "<li class='list-inline-item'><a class='btn btn-light mt-1 mb-1 theme-light border text-white' href='https://github.com/callmepartario/og-crd'>Github</a></li>";
+	chapter += "<li class='list-inline-item'><a class='btn btn-light mt-1 mb-1 theme-light border text-white' href='https://ko-fi.com/oldgus'>&#9749; Ko-fi</a></li>";
+	chapter += "</ul>";
 	for (let ch = 0; ch < sectionList.length; ch++) {
 		chapter += createHeader(2, createID(sectionList[ch].name), sectionList[ch].name, "og-tab");
 		// chapter += createRef(sectionList[ch].ref);
