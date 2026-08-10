@@ -382,7 +382,7 @@ const speciesList = [
 	{ name: "Gnome", ref: ["CCR 86",], genres: ["Fantasy",], summarybrief: "Standing about three and a half feet (100 cm) tall, you are curious and love discovering ways to turn found things into art, tools, or weapons.", summary: ["Standing about three and a half feet (100 cm) tall, you are curious and love discovering ways to turn found things into art, tools, or weapons. You might be a sculptor, smith, artist, chef, storyteller, or inventor. Alchemy, magic, and engineering fascinate you. Other beings may see you as a strange mix of a nature-loving elf and a craft-obsessed dwarf, but you and your kind are unique people with a passion for life, exploration, and creation."],  benefits: ["You don't get a GM intrusion if you roll a 1 on a dodge roll.", "You are trained in crafting.", "You inflict +1 damage with light melee weapons.", ], }, 
 	{ name: "Halfling", ref: ["CCR 86",], genres: ["Fantasy",], summarybrief: "Three feet (1 m) tall and proud of every inch, you are fond of the comforts of home but itching for a little adventure now and then.", summary: ["Three feet (1 m) tall and proud of every inch, you are fond of the comforts of home but itching for a little adventure now and then. Small and quick, you have a way of getting along with everyone. You might have been raised in a halfling village, a mixed community where humans and the small folk work and eat side by side as friends, or a less welcoming environment where your people get things done using deception and criminal activity. You and humans have a lot in common&mdash;you're just more compact and efficient about it."],  benefits: ["You don't get a GM intrusion if you roll a 1 on a stealth task.", "You are trained in escaping.", "You inflict +1 damage with light thrown weapons.", ], }, 
 	{ name: "Hellborn", ref: ["CCR 87",], genres: ["Fantasy",], summarybrief: "Part human and part something from another dimension, you might be the orphan of a supernatural dalliance, the result of a magical ritual gone wrong, a scion of a long-established bloodline, or just someone who spiritually \"ingested\" the demon that tried to possess you.", summary: ["Part human and part something from another dimension, you might be the orphan of a supernatural dalliance, the result of a magical ritual gone wrong, a scion of a long-established bloodline, or just someone who spiritually \"ingested\" the demon that tried to possess you. Some of your kind have horns, tails, and pointed teeth. Others are more subtle or more obvious in their differences&mdash;a shadow of a knife edge in their face and a touch that withers normal plants, a little too much fire in their eyes and a scent of ash in the air, a forked tongue, goatlike legs, or the inability to cast a shadow. Work with the GM on your particular hellborn appearance."],  benefits: ["Reduce the severity of wounds you receive from fire and heat by one step.", "You are trained in magic lore.", "You inflict +1 damage with unarmed attacks.", ], sidebar: "<p>Work with your GM if you want your hellborn character to have an inherently magical ability related to your alternate-dimensional heritage. You can easily adapt one of your type or focus abilities, such as Seeds of Fury, Sacred Smite, Tribulation, or something similar, so the effect is something you personally manifest instead of as presented in the ability description.</p>", }, 
-	{ name: "Human", ref: ["CCR 87", "CCR 120",], genres: ["Fantasy", "Science Fiction",], summarybrief: "Humans are among the youngest species, and perhaps that's why&mdash;when considered as a whole&mdash;they're more given to explore, conquer, and expand their communities, even if that means taking from other species or other humans.", summary: ["Humans are among the youngest species, and perhaps that's why&mdash;when considered as a whole&mdash;they're more given to explore, conquer, and expand their communities, even if that means taking from other species or other humans. Individually, humans couldn't be more diverse. Which means you could be under 5 feet (150 cm) tall and barely 100 pounds (45 kg), or well over 6 feet (180 cm) tall and weigh in at 250 pounds (113 kg); have blue eyes or brown, black, green, or some other variation; have no hair, flowing golden locks, amazing dreads, a mohawk, or some other rakish cut; be all about your faith, exploring ancient places, keeping evil at bay, enriching yourself, or some other disposition; and so on. What's definitely true is that you are not afraid to strive for what you want and believe in."],  benefits: ["Choose a second descriptor and add its benefits to your regular descriptor.", ], sidebar: "<p>If you choose Human as your species, your character sentence \"I am an adjective species noun who verbs\" gains another element: your second descriptor. For example, your sentence might be \"I am a Brash and Rugged Human Fighter who Masters Weaponry.\"</p><p>In a game where everyone's human, using the Human species option may not make sense. Your GM might grant you the option to choose Human as a species only if other species are also part of the game.</p>", }, 
+	{ name: "Human", ref: ["CCR 87", "CCR 120",], genres: ["Any Genre",], summarybrief: "Humans are among the youngest species, and perhaps that's why&mdash;when considered as a whole&mdash;they're more given to explore, conquer, and expand their communities, even if that means taking from other species or other humans.", summary: ["Humans are among the youngest species, and perhaps that's why&mdash;when considered as a whole&mdash;they're more given to explore, conquer, and expand their communities, even if that means taking from other species or other humans. Individually, humans couldn't be more diverse. Which means you could be under 5 feet (150 cm) tall and barely 100 pounds (45 kg), or well over 6 feet (180 cm) tall and weigh in at 250 pounds (113 kg); have blue eyes or brown, black, green, or some other variation; have no hair, flowing golden locks, amazing dreads, a mohawk, or some other rakish cut; be all about your faith, exploring ancient places, keeping evil at bay, enriching yourself, or some other disposition; and so on. What's definitely true is that you are not afraid to strive for what you want and believe in."],  benefits: ["Choose a second descriptor and add its benefits to your regular descriptor.", ], sidebar: "<p>If you choose Human as your species, your character sentence \"I am an adjective species noun who verbs\" gains another element: your second descriptor. For example, your sentence might be \"I am a Brash and Rugged Human Fighter who Masters Weaponry.\"</p><p>In a game where everyone's human, using the Human species option may not make sense. Your GM might grant you the option to choose Human as a species only if other species are also part of the game.</p>", }, 
 	{ name: "Mutant", ref: ["CCR 120",], genres: ["Science Fiction",], summarybrief: "Savage forces strong enough to destroy a world left you transformed.", summary: ["Savage forces strong enough to destroy a world left you transformed. Perhaps through latent mutations passed down from ancestors that survived the apocalypse, or because something about you reacts when exposed to radiation or some other mutagenic source, you've gained mutations. You might look relatively similar to others of your species, or you might have one or more obvious physical differences that make it hard to disguise your nature&mdash;work with your GM to decide your specific features. Not that you necessarily want to hide what you are; you might wish to proudly display what makes you different and, to your mind, better."],  benefits: ["You don't get a GM intrusion if you roll a 1 on a Might defense task.", "Choose any tier 1 ability from any focus; work with your GM to adapt that ability as your mutation.", ], }, 
 	{ name: "Naron", ref: ["CCR 120",], genres: ["Science Fiction",], summarybrief: "You are descended from a species of natural telepaths that communicate mind to mind, not via spoken language. ", summary: ["You are descended from a species of natural telepaths that communicate mind to mind, not via spoken language. Standing about 5 feet (1.5 m) tall, your prominence&mdash;usually a subtle glow that faintly silhouettes your bald head&mdash;moves in slow waves when you're relaxed, or flashes and pulses when you're excited or stressed (unless you consciously suppress it). The naron are generally a peaceful people, but some of you have found the wider galaxy offers interesting opportunities in all walks of society among creatures where psi is a rare to vanishing trait."],  benefits: ["You can't produce vocal sounds but instead telepathically communicate with one, some, or all intelligent creatures within short range as easily as if you were talking back and forth out loud.", "You are trained in charm or deception.", "You are trained in recognizing motive.", ], sidebar: "<p>Naron telepathy doesn't allow you to read others' thoughts or even talk with them if they want to shut you out. But if you are a naron who wants to explore your latent telepathic gifts, choose Psion as your type and/or a psi-heavy focus such as Commands Mental Powers. However, other foci could be adapted or reskinned so the abilities granted are considered to be generated by your latent psi.</p>", }, 
 	{ name: "Orc", ref: ["CCR 87",], genres: ["Fantasy",], summarybrief: "Other species are sometimes prejudiced against orcs, viewing them as misbegotten creatures destined to serve as fodder for more powerful evil overlords.", summary: ["Other species are sometimes prejudiced against orcs, viewing them as misbegotten creatures destined to serve as fodder for more powerful evil overlords. Perhaps that's true of some; however, you know orcs are a proud (if aggressive) people with a sense of honor. Though they can be deadly enemies, especially to humans and elves, they have been known to ally with others against a larger threat. Whatever your particular upbringing, you've ventured out into the wider world looking for new opportunities. How much your heritage affects your outlook is up to you&mdash;it might color everything, or it might only come up when someone flinches from your visage."],  benefits: ["You can  take one more minor wound than normal.", "You are trained in intimidation (except against other orcs).", "You inflict +1 damage with heavy melee weapons.", ], sidebar: "<p>Half-orcs gain either the Orc species characteristics or the <a href='#define-species-human'>Human</a> species characteristics, whichever you decide when creating your half-orc character.</p>", }, 
@@ -2748,6 +2748,7 @@ const genreList = [
 		touchstones: ["The Lord of the Rings", "King Arthur (various adaptations)", "and any myth where prophecy, destiny, and ancient evils are common themes", ], 
 		species: ["Choose or create a <a href='#define-descriptor'>descriptor</a>.", "Epic fantasy settings often feature <a href='#define-species-human'>Humans</a> but could also include additional fantasy species.", "Unless the GM says otherwise, PCs can't see in complete darkness&mdash;regardless of species."], 
 		speciesoptions: ["Dwarf", "Elf", "Halfling", "Human", "Orc", ], 
+		type: ["Each type includes suggestions for your character's background. Choose one or create your own.", ], 
 		typeoptions: ["Archer", "Burglar", "Noble Warrior", "Swashbuckler", "Warrior", "Wizard", ], 
 		focus: ["Viable foci in an epic fantasy game includes magical options&mdash;just not some of the most extreme ones.", ],
 		focusoptions: ["Casts Spells", "Consorts With the Dead", "Controls Beasts", "Crafts Illusions", "Doesn't Do Much", "Entertains", "Explores", "Fights Dirty", "Fights Unarmed", "Fights With Panache", "Howls at the Moon", "Hunts", "Infiltrates", "Leads", "Masters Weaponry", "Moves Like the Wind", "Never Says Die", "Performs Feats of Strength", "Quells Evil", "Reveres a Supernatural Force", "Sneaks Through the Shadows", "Speaks for the Land", "Strikes With Mystic Might", "Tends to the Wounded", ], 
@@ -2864,28 +2865,28 @@ const tableList = [
 		name: "Skill Training", 
 		ref: ["CCR 12", "CCR 290", ], 
 		cols: ["Skill Level", "Task", "Description", ], 
-		colstyle: ["text-center og-nowrap", "text-center og-nowrap", "", ],
+		colstyle: [" og-nowrap", "text-center og-nowrap", "", ],
 		rows: [["Inability", "Hindered", "An inability is a task your character isn't good at.", ], ["Freely Use", "&mdash;", "If you can't freely use a <a href='#define-weapon'>weapon</a>, attacks with it are hindered. If you can't freely use <a href='#define-armor'>armor</a>, its dodge penalty applies your Speed tasks.", ], ["Trained", "Eased", "If you become trained in a skill with which you have an inability, they cancel out.", ], ["Specialized", "Eased two steps", "At <a href='#define-tier'>tier 2</a>, if you gain second source of training you become specialized.", ], ["Expert", "Eased three steps", "Gaining expertise usually requires a special ability&mdash;for example, <a href='#define-ability-expert-combatant'>Expert Combatant</a>.", ], ], 
 	}, 
 	{
 		name: "Price Categories",
 		ref: ["CCR 237",], 
 		cols: ["Price Category", "Description", "Examples", ], 
-		colstyle: ["text-center og-nowrap", "", ""], 
+		colstyle: [" og-nowrap", "", ""], 
 		rows: [["Inexpensive", "Something that people commonly buy.", "A simple meal,  drink at the bar, pen and some paper, book or magazine", ], ["Moderately priced", "Something people buy, but not often or in quantity", "A small piece of furniture, concert ticket, expensive meal, or new outfit", ], ["Expensive", "Something that would strain most people's finances", "Rent, a major piece of furniture, fancy outfit, or travel expenses", ], ["Very expensive", "A rare purchase for most people", "Jewelry or luxury furnishings", ], ["Exorbitant", "Something only the rich can afford", "A very nice house, yacht, or rare artwork.", ], ], 
 	},
 	{
 		name: "Attacking",
 		ref: ["298",], 
 		cols: ["Type", "Range", "Stat", ], 
-		colstyle: ["text-center", "text-center", "text-center", ], 
+		colstyle: ["", "text-center", "text-center", ], 
 		rows: [["Melee", "<a href='#define-range'>Immediate</a>", "<a href='#define-stat'>Might</a> or <a href='#define-stat'>Speed</a>", ], ["Ranged", "<a href='#define-range'>Short</a> or further", "<a href='#define-stat'>Speed</a>", ], ["Special Ability", "<em>Varies</em>", "<em>Varies (usually tied to ability cost)</em>", ], ], 
 	},
 	{
 		name: "Defending",
 		ref: ["304",], 
 		cols: ["Defense", "Stat", "Success", ], 
-		colstyle: ["text-center", "text-center", "", ], 
+		colstyle: ["", "text-center", "", ], 
 		rows: [["Block", "<a href='#define-stat'>Might</a>", "Reduce <a href='#define-wound'>wound</a> severity by one step, but remain subject to any touch-based effects&mdash;for example, being grabbed by a giant", ], ["Dodge", "<a href='#define-stat'>Speed</a>", "Avoid being hit; hindered by <a href='#define-attack'>area attacks</a> and <a href='#define-armor'>armor</a> you can't <a href='#define-skill'>freely use</a>", ], ], 
 	},
 	{
@@ -2906,7 +2907,7 @@ const tableList = [
 		name: "Difficulty", 
 		ref: ["CCR 289",], 
 		cols: ["Level", "Difficulty", "Target Number", "Success Rate", "Description", ], 
-		colstyle: ["text-center", "text-center", "text-center", "text-center", "og-tooltip-omit", ], 
+		colstyle: ["", "text-center", "text-center", "text-center", "og-tooltip-omit", ], 
 		rows: [["0", "Routine", "0", "100%", "You can do this (no roll required).", ], 
 		["1", "Simple", "3", "90%", "Most people can do this most of the time.", ], 
 		["2", "Standard", "6", "75%", "Typical task, most people can usually do this.", ], 
@@ -2923,7 +2924,7 @@ const tableList = [
 		name: "Special Rolls", 
 		ref: ["CCR 292",], 
 		cols: ["d20", "Effects"], 
-		colstyle: ["text-center", "", "Effects"], 
+		colstyle: ["", "", "Effects"], 
 		rows: [
 			["1", "<a href='#define-earning-xp'>GM intrusion</a> (no XP awarded)", ], 
 			["17", "+1 damage", ], 
@@ -2936,14 +2937,14 @@ const tableList = [
 		name: "Range", 
 		ref: ["CCR 294",], 
 		cols: ["Range", "Approximate Distance", "Movement", ], 
-		colstyle: ["text-center og-nowrap", "text-center"], 
+		colstyle: [" og-nowrap", "text-center"], 
 		rows:[["Immediate", "10 feet (3.5 m)", "Move and take an <a href='#define-action'>action</a>."], ["Short", "50 feet (16 m)", "Move as an <a href='#define-action'>action</a>, or move and take an <a href='#define-action'>action</a>, but all your tasks are hindered until the end of your next turn."], ["Long", "100 feet (30 m)", "Move as a <a href='#define-action'>Last action</a>, but all your tasks are hindered by two steps until the end of your next turn.", ], ["Very long", "500 feet (150 m)", "&mdash;", ], ],
 	}, 
 	{
 		name: "Wounds",
 		ref: ["CCR 12", "CCR 299"], 
 		cols: ["Severity", "Effects", "Examples"],
-		colstyle: ["text-center", "", "", ], 
+		colstyle: ["", "", "", ], 
 		rows: [["Minor", "If you've take your last minor wound, any minor wounds you take are moderate wounds instead.", "Inconsequential injuries that no longer hurt after a few hours&mdash;Nicks, scratches, bruises", ], ["Moderate", "When you take your last moderate wound, all of your actions are hindered. If you've take your last moderate wound, any moderate wounds you take are major wounds instead.", "Injuries that no longer hurt after a few days&mdash;open cuts, weapon grazes, sprains, minor fractures"], ["Major", "Each major wound hinders your actions. If you take your last major wound, you die.", "Significant injuries that can take days or weeks to recover from&mdash;fractures, large open cuts, gunshot wounds", ], ], 
 	}, 
 	{
@@ -2977,20 +2978,20 @@ const tableList = [
 	{ 
 		name: "Cypher Crafting Requirements", 
 		cols: ["Resource Points", "Cypher Power Level", "Training Required", ], 
-		colstyle: ["text-center", "text-center", "text-center", ], 
+		colstyle: ["", "text-center", "text-center", ], 
 		rows: [["2", "Low power", "Trained", ], ["3", "Medium power", "Specialized", ], ["4", "Advanced power", "Expert", ], ],
 	}, 
 	{
 		name: "Research", 
 		cols: ["Resource Points", "Information Level", ], 
-		colstyle: ["text-center", "text-center", ], 
+		colstyle: ["", "text-center", ], 
 		rows: [["1", "1&ndash;3", ], ["2", "4&ndash;5", ], ["3", "6&ndash;7", ], ], 
 	}, 
 	{
 		name: "Scavenging and Related Tasks",
 		ref: ["CCR 23",], 
 		cols: ["Difficulty", "Description",], 
-		colstyle: ["text-center", "", "",],
+		colstyle: ["", "", "",],
 		rows: [["5", "<strong>Resources:</strong> Find enough food and clean water for one day.", ], ["5", "<strong>Refuge:</strong> Find a place of relative safety to regroup, take shelter from the elements, and hide from dangerous groups or creatures.", ], ["Hindered", "If searching for more than five people, the task is hindered one step every two additional people.", ], ["Eased", "If searching for less than five people, the task is eased one step every two fewer people.", ], ], 
 	}, 
 	{
@@ -3249,25 +3250,25 @@ const tableList = [
 	{
 		name: "Energy Blast Cypher", 
 		cols: ["d00", "Energy Type", ], 
-		colstyle: ["text-center og-nowrap", "",],
+		colstyle: [" og-nowrap", "",],
 		rows: [["01&ndash;15", "Cold", ], ["16&ndash;40", "Electricity", ], ["41&ndash;50", "Force", ], ["51&ndash;80", "Heat/concentrated light", ], ["81&ndash;85", "Magnetic wave", ], ["86&ndash;90", "Molecular bond disruption", ], ["91&ndash;00", "Radiation", ], ], 
 	}, 
 	{
 		name: "Image Projector Cypher", 
 		cols: ["d00", "Image", ], 
-		colstyle: ["text-center og-nowrap", "",],
+		colstyle: [" og-nowrap", "",],
 		rows: [["01&ndash;10", "Copy of you that imitates your movements and speech (10-foot [3.5 m] cube)", ], ["11&ndash;30", "Terrifying creature, perhaps extinct or fictional (10-foot [3.5 m] cube)", ], ["31&ndash;40", "Huge machine or natural feature that obscures sight (30-foot [9 m] cube)", ], ["41&ndash;50", "Beautiful pastoral scene (50-foot [16 m] cube)", ], ["51&ndash;60", "Food that looks delicious but may not be familiar (10-foot [3.5 m] cube)", ], ["61&ndash;80", "Solid color that obscures sight (50-foot [16 m] cube)", ], ["81&ndash;00", "Incomprehensible scene that is disorienting and strange (20-foot [6 m] cube)", ], ], 
 	}, 
 	{
 		name: "Knowledge Augmentation Cypher", 
 		cols: ["d00", "Knowledge", ], 
-		colstyle: ["text-center og-nowrap", "",],
+		colstyle: [" og-nowrap", "",],
 		rows: [["01&ndash;07", "Astronomy", ], ["08&ndash;15", "Biology", ], ["16&ndash;23", "Chemistry", ], ["24&ndash;31", "Geology", ], ["32&ndash;39", "History", ], ["40&ndash;47", "Magic lore", ], ["48&ndash;54", "Mathematics", ], ["55&ndash;61", "Philosophy", ], ["62&ndash;69", "Physics", ], ["70&ndash;77", "Psychic lore", ], ["78&ndash;84", "Psychology", ], ["85&ndash;92", "Religious lore", ], ["93&ndash;00", "Other (campaign-specific)", ], ], 
 	}, 
 	{
 		name: "Teleporter Cypher", 
 		cols: ["d00", "Power", "Type", ], 
-		colstyle: ["text-center og-nowrap", "text-center", ""],
+		colstyle: [" og-nowrap", "text-center", ""],
 		rows: [["01&ndash;50", "Medium", "<strong>Bounder:</strong> A location within 500 feet (150 m) that you can see, or up to 500 feet in the direction and distance you specify (such as \"200 feet west and 20 feet upward\").", ], ["51&ndash;80", "Advanced", "<strong>Traveler:</strong> A location within 500 miles (800 km) that you can see or have previously visited or seen.", ], ["81&ndash;95", "High", "<strong>Planetary:</strong> A location on the same planet that you can see or have previously visited or seen.", ], ["96&ndash;00", "Ultra", "<strong>Interstellar:</strong> A location in the same galaxy that you can see or have previously visited or seen.", ], ], 
 	}, 
 ];
@@ -3891,7 +3892,8 @@ function getSection(ch) {
 						species += createRef(speciesList[sp].ref);
 						species += "<ul class='og-list-tag'>";
 						for (g = 0; g < speciesList[sp].genres.length; g++) {
-							species += "<li>Species (" + speciesList[sp].genres[g] + ")</li>";
+							if (speciesList[sp].genres[g] == "Any Genre") { species += "<li>Species (" + speciesList[sp].genres[g] + ")</li>"; }
+							else { species += "<li class='og-tag-primary'>Species (" + speciesList[sp].genres[g] + ")</li>"; }
 						}
 						species += "</ul>";
 						species += "<p class='og-tooltip-only'>" + speciesList[sp].summarybrief + "</p>";
@@ -4129,6 +4131,7 @@ function getSection(ch) {
 					chx += "</div>"; // close accordion
 					chx += "<div class='mb-3'></div>"; // space accordion
 					chx += createSidebar(getBody(["It's common for PCs to help eachother through their character arcs, or even share them."]));
+					chx += createEdnote("There's additional detail on most of these arcs from the prior edition. See <a href='https://callmepartario.github.io/og-csrd/#character-arcs'>Old Gus' Cypher System Reference Document: Character Arcs</a>.");
 					def = createHeader(4, "spending-xp", "Spending XP", "");
 					def += createRef(["CCR 286", "CCR 312&mdash;313"]);
 					def += getBody([["<strong>Rerolling:</strong> Spend 1 XP to reroll any dice roll and use the better result&mdash;for example, an action roll, recovery roll, depletion roll&mdash;even a roll you didn't make. You can spend additional XP to keep rerolling.", "<strong>Player Intrusion:</strong> Spend 1 XP for a player intrusion, altering something in the campaign to benefit your character (no action required). Player intrusion usually introduces a change to the circumstances rather than changing your PC. If the GM refuses your intrusion, you don't spend any XP.", "<strong>Lucky Shot:</strong> If you know there's a foe nearby but you have no idea where they are&mdash;for example, they're invisible, or you're blinded by complete darkness. Normally, you can't attack, but if you spend 1 XP, you can attack that's hindered four steps."]]);
@@ -4217,7 +4220,7 @@ function getSection(ch) {
 		chx += createAlert(alert);
 		def = createHeader(3, "genre", "What is Genre?", "og-border-lg");
 		def += createRef(["Editorial Addition"]);
-		def += getBody(["Genre is a word used to describe artistic conventions shared by literature, music, and film. In a tabletop role-playing game like Cypher, it can best be summed up as a general idea of what the setting does and doesn't includes, and generally answers the questions <em>\"What happens in stories like these?\"</em>. ", "This section covers four genres: <a href='#define-genre-real-world'>Real World</a>, <a href='#define-genre-fantasy'>Fantasy</a>, <a href='#define-genre-science-fiction'>Science Fiction</a>, and <a href='#define-genre-superheroes'>Superheroes</a>. Each genre is divided into subgenres and their internal conventions.", "In actual practice many games span genres. The GM might borrow from any part of the genres listed here and combine them on a one-time or an ongoing basis&mdash;for example, mixing <a href='#define-genre-hard-science-fiction'>Hard Science Fiction</a> with <a href='#define-genre-horror'>Horror</a>."]);
+		def += getBody(["Genre is a word used to describe artistic conventions shared by literature, music, and film. In a tabletop role-playing game like Cypher, it can best be summed up as a general idea of what the setting does and doesn't include, and generally answers the question: <em>\"What happens in stories like these?\"</em>. ", "This section covers four genres: <a href='#define-genre-real-world'>Real World</a>, <a href='#define-genre-fantasy'>Fantasy</a>, <a href='#define-genre-science-fiction'>Science Fiction</a>, and <a href='#define-genre-superheroes'>Superheroes</a>. Each genre is divided into subgenres and their internal conventions.", "In actual practice many games span genres. The GM might borrow from any part of the genres listed here and combine them on a one-time or an ongoing basis&mdash;for example, mixing <a href='#define-genre-hard-science-fiction'>Hard Science Fiction</a> with <a href='#define-genre-horror'>Horror</a>."]);
 		chx += createDef("genre", def)
 		chx += createSidebar(getBody(["The Cypher Game Master's Guide contains optional rules and mechanics that make each genre an even more potent ingredient for a game setting."]))
 		// build genres
@@ -4231,8 +4234,8 @@ function getSection(ch) {
 			def = createHeader(h, createID("genre-" + gname), (gname), "og-border-lg")
 			def += createRef(genreList[g].ref);
 			def += "<ul class='og-list-tag'>";
-			if (genreList[g].subgenre == undefined) { def += "<li>Genre</li>"; } 
-			else { def += "<li>" + genreList[g].genre + " Subgenre</li>"; }
+			if (genreList[g].subgenre == undefined) { def += "<li class='og-tag-primary'>Genre</li>"; } 
+			else { def += "<li class='og-tag-primary'>" + genreList[g].genre + " Subgenre</li>"; }
 			def += "</ul>";
 			// summary
 			if (genreList[g].summary != undefined) { def += getBody(genreList[g].summary); }
@@ -4639,6 +4642,7 @@ function getSection(ch) {
 		def += createRef(["CCR 302",],)
 		def += getBody([["<strong>Normal light:</strong> the assumed level of light for most situations; outdoors in daylight", "<strong>Dim light:</strong> a night with a bright full moon, or the illumination provided by a torch, flashlight, or desk lamp", "<strong>Very dim light:</strong> starry night with no visible moon, or the glow provided by a candle or an illuminated computer control panel", "<strong>Darkness:</strong> no light at all, such as a moonless night with cloud cover or a room with no lights"]]);
 		chx += createDef("illumination", def);
+		chx += createSidebar(getBody(["For exampes of how illumination matters in play, see the examples of easing and hindering <a href='#define-difficulty'>difficulty</a>."]));
 		// attack
 		def = createHeader(3, "attack", "Attack", "og-border-lg");
 		def += createRef(["CCR 298&ndash;299", "CCR 305"],)
