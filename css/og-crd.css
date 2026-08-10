@@ -673,6 +673,11 @@ body.dyslexia { font-family: OpenDyslexic; }
 	padding-right: 0rem;
 }
 
+.dyslexia dl dt  { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.theme-light.dyslexia dl dt  { color: #056; }
+.theme-dark.dyslexia dl dt  { color: #9cd; }
+
+
 .dyslexia .og-list-tag li  { font-family: OpenDyslexic; }
 .dyslexia .og-ed { font-family: OpenDyslexic; }
 .dyslexia ul.og-ref li { font-family: OpenDyslexic; }
