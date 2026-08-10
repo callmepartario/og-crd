@@ -18,7 +18,7 @@
 	<link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png">
 </head>
 <!-- open body-->
-<body class="theme-light">
+<body class="theme-light" id="body-content">
 	<!-- open navbar -->
 	<nav id="og-navbar" class="container-xxl navbar navbar-expand-md navbar-light theme-light sticky-top og-navbar">
 		<div class="container-xxl">
@@ -29,6 +29,13 @@
 					<img class="og-icon img-dark d-block" src="images/mode-moon.svg" alt="Dark Mode">
 				</label>
 				<input class="form-check-input" type="checkbox" id="lightSwitch">
+			</div>
+			<div class="form-check form-switch ms-auto mt-2 me-2 float-end" aria-hidden="true" title="Dyslexia Reader Mode">
+				<label class="form-check-label" for="dyslexiaSwitch">
+					<img class="og-icon img-light d-block" src="images/access-light.svg" alt="Universal Access">
+					<img class="og-icon img-dark d-block" src="images/access-dark.svg" alt="Universal Access">
+				</label>
+				<input class="form-check-input" type="checkbox" id="dyslexiaSwitch">
 			</div>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -86,7 +93,7 @@
 							<li><a class="dropdown-item og-nav" href="#indices">Indices</a></li>
 							<li><hr class="dropdown-divider"></li>
 							<li><a class="dropdown-item og-nav" href="#cypher-tables">Cypher Tables</a></li>
-							<li><a class="dropdown-item og-nav" href="#equipment-index">Equipment Index</a></li>
+							<li><a class="dropdown-item og-nav" href="#equipment-tables">Equipment Tables</a></li>
 							<li><a class="dropdown-item og-nav" href="#ability-index">Ability Index</a></li>
 							<li><a class="dropdown-item og-nav" href="#glossary">Glossary</a></li>
 						</ul>

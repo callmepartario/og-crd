@@ -1,3 +1,6 @@
+// reader mode
+var readerPreference = localStorage.getItem('readerMode');
+
 // lists
 let printerror = "<p class='btn btn-danger'>!ERR</p>";
 // sourcesList CRD, CCR, CGMG
@@ -4942,7 +4945,7 @@ function getSection(ch) {
 		alert += "<li><a href='#equipment-superheroes-expensive'>Expensive</a></li>";
 		alert += "</ul>";
 		// equipment index
-		chx += createHeader(4, "equipment-index", "Equipment Index", "og-border-lg");
+		chx += createHeader(4, "equipment-tables", "Equipment Tables", "og-border-lg");
 		chx += createAlert(alert);
 		// real world equipment
 		chx += createHeader(4, "equipment-real-world", "Real World Equipment", "og-border");
@@ -5086,6 +5089,18 @@ function refreshTooltipsAbilities() {
 			}
 		})
 };
+function dyslexiaMode() {
+	if (document.getElementById("dyslexiaSwitch").checked == false) {
+		document.getElementById("body-content").classList.remove("dyslexia");
+		readerPreference = "standard";
+		localStorage.setItem('readerMode', 'standard');
+	}
+	else {
+		document.getElementById("body-content").classList.add("dyslexia");
+		readerPreference = "dyslexic";
+		localStorage.setItem('readerMode', 'dyslexic');
+	}
+};
 // assemble chapter structure to page
 function printContent() {
 	let chapter = "";
@@ -5098,6 +5113,14 @@ function printContent() {
 };
 // INITIALIZE ON LOAD
 window.addEventListener("load", (event) => { 
+	// dyslexiamode (load preference)
+	if (readerPreference == "dyslexic") { document.getElementById("dyslexiaSwitch").checked = true }
+	// dyslexiamode (switch)
+	if (document.getElementById("dyslexiaSwitch").checked == true) { dyslexiaMode(); }
+
+	document.querySelector('#dyslexiaSwitch').addEventListener("click", function(event) { dyslexiaMode(); });
+
+	// tooltips
 	refreshTooltips();
 	refreshTooltipsAbilities();
 });
