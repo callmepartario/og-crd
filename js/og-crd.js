@@ -3698,7 +3698,7 @@ function getSection(ch) {
 		chx += "<p class='lead'>&mdash;Old Gus</p>";
 		chx += createEdnote("If you'd like to support this work, buy Old Gus a <a href='https://ko-fi.com/oldgus'><span class='fst-normal'>&#9749;</span> Ko-fi</a>!");
 		chx += createHeader(3, "editorial-mission", "Editorial Mission", "og-border");
-		chx += "<dl><dt>Incorporate Cypher Content</dt><dd>Condense the Cyher Reference Document into fewer, more complete topics, and incorporate updates or errata. Provide page number references for the <a href='https://www.montecookgames.com/store/product/cypher-corebooks/'>Cypher Character Ruleboook (CCR)</a> and Cypher Game Master's Guide (CGMG)</dd><dt>Use Plain Language</dt><dd>Edit explanations, instructions, definitions, and procedures in plain language so they are complete, clear, consistent, and concise. Correct suspected misprints. Preserve the text of character options.</dd><dt>Address Players First</dt><dd>Organize information for those who haven't played a tabletop role-playing game (TTRPG) before, and write to the player. \"You\" is you, the player&mdash;or your Player Character (PC). \"The GM\" is the Game Master (GM).</dd><dt>Improve Accessibility and Inclusion</dt><dd>Avoid flow charts the reader might not be able to use. Add metric unit conversions. Provide a mobile-friendly format, extensive hyperlinks, tooltips, and quick-references.</dd><dt>Add Tools</dt><dd>Add and expand useful indices and a <a href='#glossary'>glossary</a>.</dd><dt>Human-Made, Human-Forward</dt><dd>No ads. No accounts. No data collection. No algorithms. No machine learning. No large-language models. No vibe coding. This is a living document&mdash;revisions are an ongoing project.</dd></dl>";
+		chx += "<dl><dt>Incorporate Cypher Content</dt><dd>Condense the Cyher Reference Document into fewer, more complete topics, and incorporate updates or errata. Provide page number references for the <a href='https://www.montecookgames.com/store/product/cypher-corebooks/'>Cypher Character Ruleboook (CCR)</a> and Cypher Game Master's Guide (CGMG)</dd><dt>Use Plain Language</dt><dd>Edit explanations, instructions, definitions, and procedures in plain language so they are complete, clear, consistent, and concise. Correct suspected misprints. Preserve the text of character options.</dd><dt>Address Players First</dt><dd>Organize information for those who haven't played a tabletop role-playing game (TTRPG) before, and write to the player. \"You\" is you, the player&mdash;or your Player Character (PC). \"The GM\" is the Game Master (GM).</dd><dt>Improve Accessibility and Inclusion</dt><dd>Avoid flow charts the reader might not be able to use. Add metric unit conversions. Provide a mobile-friendly format, extensive hyperlinks, tooltips, quick-references, and a variety of reader modes&mdash;for example, light mode, dark mode, and a dyslexic reader mode.</dd><dt>Add Tools</dt><dd>Add and expand useful indices and a <a href='#glossary'>glossary</a>.</dd><dt>Human-Made, Human-Forward</dt><dd>No ads. No accounts. No data collection. No algorithms. No machine learning. No large-language models. No vibe coding. This is a living document&mdash;revisions are an ongoing project.</dd></dl>";
 		chx += createHeader(3, "cypher-open-license", "Cypher Open License", "og-border");
 		chx += "<div class='row'>";
 		chx += "<div class='col-12 col-sm-4 col-md-3 col-lg-2 text-center'>";
@@ -4907,7 +4907,16 @@ function getSection(ch) {
 			chx += createDef(createID("cypher-" + cypherList[c].name), def);
 		}
 		// equipment index
-		alert = createHeader(4, "choose-equipment-real-world", "Quick-Reference: Real World Equipment", "h6");
+		alert = createHeader(4, "choose-equipment-fantasy", "Quick-Reference: Equipment", "h6");
+		alert += "<ul class='list-unstyled og-qr-compact'>";
+		alert += "<li><a href='#define-equipment'>Equipment</a></li>";
+		alert += "<li><a href='#define-weapon'>Weapon</a></li>";
+		alert += "<li><a href='#define-armor'>Armor</a></li>";
+		alert += "<li><a href='#define-asset'>Asset</a></li>";
+		alert += "<li><a href='#define-range'>Range</a></li>";
+		alert += "<li><a href='#define-crafting'>Crafting</a></li>";
+		alert += "</ul>";
+		alert += createHeader(4, "choose-equipment-real-world", "Quick-Reference: Real World Equipment", "h6");
 		alert += "<ul class='list-unstyled og-qr-compact'>";
 		alert += "<li><a href='#equipment-real-world-inexpensive'>Inexpensive</a></li>";
 		alert += "<li><a href='#equipment-real-world-moderately-priced'>Moderately Priced</a></li>";
@@ -4945,7 +4954,7 @@ function getSection(ch) {
 		alert += "<li><a href='#equipment-superheroes-expensive'>Expensive</a></li>";
 		alert += "</ul>";
 		// equipment index
-		chx += createHeader(4, "equipment-tables", "Equipment Tables", "og-border-lg");
+		chx += createHeader(3, "equipment-tables", "Equipment Tables", "og-border-lg");
 		chx += createAlert(alert);
 		// real world equipment
 		chx += createHeader(4, "equipment-real-world", "Real World Equipment", "og-border");
