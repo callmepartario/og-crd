@@ -11,7 +11,7 @@ const sectionList = [
 const glossaryList = [
 	{ dt: "ability", def: "abilities", }, 
 	{ dt: "action", def: "action", }, 
-	{ dt: "action", def: "genre-action-and-adventure", }, 
+	{ dt: "action and adventure", def: "genre-action-and-adventure", }, 
 	{ dt: "&mldr;and there's magic", def: "genre-and-theres-magic", }, 
 	{ dt: "area attack", def: "attack", }, 
 	{ dt: "area", def: "range", }, 
@@ -151,7 +151,7 @@ const characteristicList = [
 	{ dt: "Species", ref: ["CCR 85",], dd: ["Many genres only feature <a href='#define-species-human'>Humans</a> as PCs. If your game includes other species, add your species to your charcter sentence: <em>\"I am an adjective species noun who verbs\"</em>&mdash;for example, <em>\"I am a Jovial Dwarf Barbarian who Never Says Die\"</em>. Species offer a one-time package of characteristics for your character, much like a <a href='#define-descriptor'>descriptor</a>.", ], }, 
 	{ dt: "Type", ref: ["CCR 20",], dd: ["In many genres, types is a PC's core identity, and defines their role in the setting. It's the verb of the sentence <em>\"I am an adjective noun who verbs\"</em>.", "Type provides an array of benefits&mdash;for example:", ["Additional <a href='#define-wound'>wound</a> capacity", "Increases to <a href='#define-stat'>stats</a>", "<a href='#define-skill'>Skills</a> that allow you to <a href='#define-skill'>freely use</a> weapons or armor", "Abilities that improve as you reach new <a href='#define-tier'>tiers</a>.", "Equipment suggestions (and the occasional piece of extra equipment)", "Backround options"]], }, 
 	{ dt: "Focus", ref: ["CCR 143&ndash;145",], dd: ["Your focus helps make your character unique among the other PCs, even if you share a <a href='#define-type'>type</a>. No two PCs should have the same focus. It's the verb of the sentence <em>\"I am an adjective noun who verbs\"</em>.", "Each focus includes a short description, genre theme suggestions, GM intrusion suggestions, and any equipment required for you to use your focus abilities.", ["<em>At tier 1:</em> Choose two tier 1 abilities from your focus.", "<em>At tier 2, 3, 4, 5 and 6:</em> Choose another focus abilitiy from your tier or lower. Some abilities require you to have another focus ability in order for you to choose them. A few abilities allow you to gain them more than once."], ], }, 
-	{ dt: "Followers", ref: ["CCR 307",], dd: ["A follower is someone who you have inspired, asked, created, or otherwise recruited to help you with a variety of endeavors. You can gain followers from a type or focus ability&mdash;for example <a href='#define-ability-beast-companion'>Beast Companion</a>.", ["<strong>Level:</strong> A follower's level determines their health damage.", "<strong>Modifications:</strong> Modifications increase a follower's effective level for relevant tasks&mdash;for example, a level 2 scout follower with modifier for perception accomplishes related tasks as if they were level 3.", "<strong>Follower Assets:</strong> Your followers help you with actions you're taking, providing an <a href='#define-asset'>asset</a> on relevant tasks. If your follower's level or modification for the task is 5 or higher, their help provides two assets.", "<strong>Follower Progression:</strong> Every two tiers you gain after acquiring a follower, their level increases by 1. Abilities provide another way of increasing follower level.", "<strong>Losing Followers:</strong> If lose a follower, you can usually replace them by spending <a href='#define-resource-points'>resource points</a>. Any level increases or other improvements apply to the replacement."], ], }, 
+	{ dt: "Followers", ref: ["CCR 307",], dd: ["A follower is someone who you have inspired, asked, created, or otherwise recruited to help you with a variety of endeavors. You can gain followers from a type or focus ability&mdash;for example <a href='#define-ability-beast-companion'>Beast Companion</a>.", ["<strong>Level:</strong> A follower's damage is euqal to their <a href='#define-difficulty'>level</a>. Their <a href='#define-damage-to-npcs'>health</a> is their <a href='#define-difficulty'>level</a> &times; 3.", "<strong>Modifications:</strong> Modifications increase a follower's effective level for relevant tasks&mdash;for example, a level 2 scout follower with modifier for <a href='#define-skill-perception'>perception</a> accomplishes related tasks as if they were level 3.", "<strong>Follower Assets:</strong> Your followers help you with actions you're taking, providing an <a href='#define-asset'>asset</a> on relevant tasks. If your follower's level or modification for the task is 5 or higher, their help provides two assets.", "<strong>Follower Progression:</strong> Every two tiers you gain after acquiring a follower, their level increases by 1. Abilities provide another way of increasing follower level.", "<strong>Losing Followers:</strong> If lose a follower, you can usually replace them by spending <a href='#define-resource-points'>resource points</a>. Any level increases or other improvements apply to the replacement."], ], }, 
 	{ dt: "Cyphers", ref: ["CCR 12", "250&ndash;252",], dd: ["Cyphers are like single-use abilities. In some settings, cyphers are physical items&mdash;for example, a magic potion or high-tech gizmo, but they're not <a href='#define-equipment'>equipment</a>. Cyphers mean you always have a new trick up your sleeve each time for each challenge. Individual cyphers are listed in the <a href='#cypher-tables'>Cypher Tables</a>.", ], ddomit: ["Your cypher limit is the maximum number of cyphers you can have.", ["<strong>Standard cyphers:</strong> Memorable things a realistic character in a story could do. The GM determines when you gain standard cyphers&mdash;for example, during a one-hour <a href='#define-recoveries'>recovery</a>. Standard cyphers are instant: using one isn't an action. For example, you can use a <a href='#define-cypher-combat-enhancer'>combat enhancer</a> just before you make an attack or defense roll.", "<strong>Nonstandard cyphers:</strong> Create persitent effects with an assigned duration.", "<strong>Manifest:</strong> Have a phyiscal form and deliver supernatural effects&mdash;for example, a magic potion that turns you invisible, or a mysterious device that teleports you a hundred miles. A few types and foci allow you to choose a <a href='#random-manifest-cyphers'>manifest cypher</a> as an ability with a <a href='#define-stat'>Pool</a> point cost.", "<strong>Power Boost:</strong> Increase, modify, or improve abilities&mdash;for example, burst boost turns a single-target attack into an area attack. These are instant effects that only affects one task, but might have a physical form.", "<strong>Cypher Level:</strong> Standard and nonstandard cyphers are level 4 effects. Manifest cyphers are level 6 effects.", ], "Each cypher's description includes:", ["<strong>Name:</strong> Every cypher has a name, that summarizes its theme.", "<strong>Effect:</strong> This is what the cypher does. If you use an asset-granting cypher to help another character, they gain the cypher's assets, and that number of assets is their asset limit for the task. If you're trying to affect an unwilling target, you must succeed an attack roll.", "<strong>Explanation:</strong> Story-based suggestions for how to explain standard and nonstandard cyphers.", "<strong>Genre Items:</strong> Genre-based suggestions for a manifest cypher's form.", ], ], sidebar: ["Let the GM know when you're out of cyphers or haven't been at your cypher limit for a while. Even the best GMs forget!", ], },
 	{ dt: "Artifacts", ref: ["CCR 239",], dd: ["Artifacts are like <a href='#define-cyphers'>cyphers</a> in that they're more like special abilities than <a href='#define-equipment'>equipment</a>, but they can be used more than once.", ["<strong>Depletion:</strong> When you use an artifact, you might have to roll for depletion&mdash;for example, \"1&ndash;3 in 1d20\". If your roll result is in the depletion range, the artifact works, but can't be used again.", ], ], },
 	{ dt: "Experience Points (XP)", ref: ["CCR 285&ndash;286", "CCR 309", "CCR 313",], dd: ["You <a href='#define-earning-xp'>earn XP</a> in ways the GM decides. In a typical session, you gain 4 XP, but XP is not a goal unto itself. Instead, they represent how <em>experience</em>&mdash;time, blood, sweat, an tears&mdash;make you more skilled, powerful, and <em>interesting</em> character.", "You can <a href='#define-spending-xp'>spend XP</a> on rerolls, player intrusions, lucky shots, and <a href='#define-character-advancement'>character advancement</a>.", ], }, 
@@ -3697,15 +3697,13 @@ function getSection(ch) {
 		chx += createHeader(3, "editorial-mission", "Editorial Mission", "og-border");
 		chx += "<dl><dt>Incorporate Cypher Content</dt><dd>Condense the Cyher Reference Document into fewer, more complete topics, and incorporate updates or errata. Provide page number references for the <a href='https://www.montecookgames.com/store/product/cypher-corebooks/'>Cypher Character Ruleboook (CCR)</a> and Cypher Game Master's Guide (CGMG)</dd><dt>Use Plain Language</dt><dd>Edit explanations, instructions, definitions, and procedures in plain language so they are complete, clear, consistent, and concise. Correct suspected misprints. Preserve the text of character options.</dd><dt>Address Players First</dt><dd>Organize information for those who haven't played a tabletop role-playing game (TTRPG) before, and write to the player. \"You\" is you, the player&mdash;or your Player Character (PC). \"The GM\" is the Game Master (GM).</dd><dt>Improve Accessibility and Inclusion</dt><dd>Avoid flow charts the reader might not be able to use. Add metric unit conversions. Provide a mobile-friendly format, extensive hyperlinks, tooltips, and quick-references.</dd><dt>Add Tools</dt><dd>Add and expand useful indices and a <a href='#glossary'>glossary</a>.</dd><dt>Human-Made, Human-Forward</dt><dd>No ads. No accounts. No data collection. No algorithms. No machine learning. No large-language models. No vibe coding. This is a living document&mdash;revisions are an ongoing project.</dd></dl>";
 		chx += createHeader(3, "cypher-open-license", "Cypher Open License", "og-border");
-		chx += "<div class='d-table'>";
-		chx += "<div class='d-table-row'>";
-		chx += "<div class='d-table-cell align-middle'>";
-		chx += "<img style='width: 150px;' class='float-start ps-2 pe-2 pb-2 img-light' src='images/col-logo-black.png' alt='Cypher Combatible Logo'>";
-		chx += "<img style='width: 150px;' class='float-start ps-2 pe-2 pb-2 img-dark' src='images/col-logo-white.png' alt='Cypher Combatible Logo'>";
+		chx += "<div class='row'>";
+		chx += "<div class='col-12 col-sm-4 col-md-3 col-lg-2 text-center'>";
+		chx += "<img class='d-block ms-auto me-auto pb-2 img-light' style='width: 180px;' src='images/col-logo-black.png' alt='Cypher Combatible Logo'>";
+		chx += "<img class='d-block ms-auto me-auto pb-2 img-dark' style='width: 180px;' src='images/col-logo-white.png' alt='Cypher Combatible Logo'>";
 		chx += "</div>";
-		chx += "<div class='d-table-cell align-middle'>";
+		chx += "<div class='col'>";
 		chx += getBody(["This product is an independent production and is not affiliated with <a href='http://montecookgames.com'>Monte Cook Games, LLC</a>. It is published under the Cypher Open License, found at <a href='https://col.montecookgames.com'>https://col.montecookgames.com</a>.", "CYPHER and its logo are trademarks of Monte Cook Games, LLC in the U.S.A. and other countries. All Monte Cook Games characters and character names, and the distinctive likenesses thereof, are trademarks of Monte Cook Games, LLC."]);
-		chx += "</div>";
 		chx += "</div>";
 		chx += "</div>";
 		return chx;
@@ -4099,10 +4097,6 @@ function getSection(ch) {
 					}
 				}
 				else if (characteristicList[char].dt == "Experience Points (XP)") {
-					def = createHeader(4, "splitting-xp", "Optional Rule: Splitting XP", "");
-					def += createRef(["CCR 312"]);
-					def += getBody([["XP gained from <a href='#define-earning-xp'>GM intrusions</a> can only for <a href='#define-spending-xp'>rerolls and player intrusions</a>.", "XP from <a href='#define-earning-xp'>character arcs and story awards</a> can only be spent on <a href='#define-character-advancement'>character advancement</a>."]]);
-					chx += createAlert(createDef("splitting-xp", def));
 					def = createHeader(4, "earning-xp", "Earning XP", "");
 					def += createRef(["CCR 309&mdash;311"]);
 					def += getBody([["<strong>GM Intrusion:</strong> At any time, the GM can introduce a complication&mdash;for example, the rope you're climbing begins to fray. When the GM intrudes on you, you gain 1 XP, and choose another PC, who also gains 1 XP. Explain why&mdash;for example, they had a good idea, or they brought snacks.", "<strong>Story Awards:</strong> XP is awarded for progressing the story the GM wants to tell&mdash;for example, exploring a new area, rescuing someone, or learning significant information.", "<strong>Character Arcs:</strong> In lengthier campaigns, PCs progress through a personal story and changes over time. Work with the GM to choose a character arc. At the end of each session, talk to the GM your character arc progress. If the GM agrees that you have made a \"step\" in your arc, you gain 1 XP. Arcs reach a climax point where you succeed or fail. If you succeed, you earn 4 XP. If you fail, you still earn 2 XP. You can take on different character arcs by spending 1 XP (to a maximum of 4)."]]);
@@ -4156,6 +4150,10 @@ function getSection(ch) {
 					chx += "</div>"; // close accordion
 					chx += "<div class='mb-3'></div>"; // space accordion
 					chx += createSidebar(getBody(["<strong>React to a GM intrusion:</strong> You can't refuse a GM intrusion, but you can use a player intrusion to mitigate its effects."]));
+					def = createHeader(4, "splitting-xp", "Optional Rule: Splitting XP", "");
+					def += createRef(["CCR 312"]);
+					def += getBody([["XP gained from <a href='#define-earning-xp'>GM intrusions</a> can only for <a href='#define-spending-xp'>rerolls and player intrusions</a>.", "XP from <a href='#define-earning-xp'>character arcs and story awards</a> can only be spent on <a href='#define-character-advancement'>character advancement</a>."]]);
+					chx += createAlert(createDef("splitting-xp", def));
 				}
 				else if (characteristicList[char].dt == "Resource Points") {
 					chx += "<div class='accordion'>" // open accordion
@@ -4442,6 +4440,7 @@ function getSection(ch) {
 				if (gname == "Real World") ( ref = ["CCR 38"]);
 				else if (gname == "Dungeon Fantasy") ( ref = ["CCR 42"]);
 				else if (gname == "Swords &amp; Sorcery") ( ref = ["CCR 63"]);
+				else if (gname == "Epic Fantasy") ( ref = ["CCR 75"]);
 				else if (gname == "Hard Science Fiction") ( ref = ["CCR 90"]);
 				else if (gname == "Space Opera") ( ref = ["CCR 99"]);
 				else if (gname == "Postapocalypse") ( ref = ["CCR 108"]);
@@ -4904,6 +4903,121 @@ function getSection(ch) {
 			}
 			chx += createDef(createID("cypher-" + cypherList[c].name), def);
 		}
+		// equipment index
+		alert = createHeader(4, "choose-equipment-real-world", "Quick-Reference: Real World Equipment", "h6");
+		alert += "<ul class='list-unstyled og-qr-compact'>";
+		alert += "<li><a href='#equipment-real-world-inexpensive'>Inexpensive</a></li>";
+		alert += "<li><a href='#equipment-real-world-moderately-priced'>Moderately Priced</a></li>";
+		alert += "<li><a href='#equipment-real-world-expensive'>Expensive</a></li>";
+		alert += "<li><a href='#equipment-real-world-very-expensive'>Very Expensive</a></li>";
+		alert += "<li><a href='#equipment-real-world-exorbitant'>Exorbitant</a></li>";
+		alert += "</ul>";
+		alert += createHeader(4, "choose-equipment-fantasy", "Quick-Reference: Fantasy Equipment", "h6");
+		alert += "<ul class='list-unstyled og-qr-compact'>";
+		alert += "<li><a href='#equipment-fantasy-inexpensive'>Inexpensive</a></li>";
+		alert += "<li><a href='#equipment-fantasy-moderately-priced'>Moderately Priced</a></li>";
+		alert += "<li><a href='#equipment-fantasy-expensive'>Expensive</a></li>";
+		alert += "<li><a href='#equipment-fantasy-very-expensive'>Very Expensive</a></li>";
+		alert += "<li><a href='#equipment-fantasy-exorbitant'>Exorbitant</a></li>";
+		alert += "</ul>";
+		alert += createHeader(4, "choose-equipment-science-fiction", "Quick-Reference: Science Fiction Equipment", "h6");
+		alert += "<p class='small og-hang'>&dagger; &mdash; <em>fantastic technology only avaiable in far-future or advanced-technology settings</em></p>";
+		alert += "<ul class='list-unstyled og-qr-compact'>";
+		alert += "<li><a href='#equipment-science-fiction-inexpensive'>Inexpensive</a></li>";
+		alert += "<li><a href='#equipment-science-fiction-moderately-priced'>Moderately Priced</a></li>";
+		alert += "<li><a href='#equipment-science-fiction-expensive'>Expensive</a></li>";
+		alert += "<li><a href='#equipment-science-fiction-very-expensive'>Very Expensive</a></li>";
+		alert += "<li><a href='#equipment-science-fiction-exorbitant'>Exorbitant</a></li>";
+		alert += "</ul>";
+		alert += createHeader(4, "choose-equipment-postapocalypse", "Quick-Reference: Postapocalypse Equipment", "h6");
+		alert += "<ul class='list-unstyled og-qr-compact'>";
+		alert += "<li><a href='#equipment-postapocalypse-inexpensive'>Inexpensive</a></li>";
+		alert += "<li><a href='#equipment-postapocalypse-moderately-priced'>Moderately Priced</a></li>";
+		alert += "<li><a href='#equipment-postapocalypse-expensive'>Expensive</a></li>";
+		alert += "</ul>";
+		alert += createHeader(4, "choose-equipment-superhero", "Quick-Reference: Superhero Equipment", "h6");
+		alert += "<ul class='list-unstyled og-qr-compact'>";
+		alert += "<li><a href='#equipment-superheroes-inexpensive'>Inexpensive</a></li>";
+		alert += "<li><a href='#equipment-superheroes-moderately-priced'>Moderately Priced</a></li>";
+		alert += "<li><a href='#equipment-superheroes-expensive'>Expensive</a></li>";
+		alert += "</ul>";
+		// equipment index
+		chx += createHeader(4, "equipment-index", "Equipment Index", "og-border-lg");
+		chx += createAlert(alert);
+		// real world equipment
+		chx += createHeader(4, "equipment-real-world", "Real World Equipment", "og-border");
+		chx += createHeader(5, "equipment-real-world-inexpensive", "Inexpensive Real World Items", "h6");
+		chx += createRef(["CCR 240"]);
+		chx += createTable("Real World Inexpensive Items");
+		chx += createHeader(5, "equipment-real-world-moderately-priced", "Moderately Priced Real World Items", "h6");
+		chx += createRef(["CCR 240"]);
+		chx += createTable("Real World Moderately Priced Items");
+		chx += createHeader(5, "equipment-real-world-expensive", "Expensive Real World Items", "h6");
+		chx += createRef(["CCR 241"]);
+		chx += createTable("Real World Expensive Items");
+		chx += createHeader(5, "equipment-real-world-very-expensive", "Very Expensive Real World Items", "h6");
+		chx += createRef(["CCR 241"]);
+		chx += createTable("Real World Very Expensive Items");
+		chx += createHeader(5, "equipment-real-world-exorbitant", "Exorbitant Real World Items", "h6");
+		chx += createRef(["CCR 241"]);
+		chx += createTable("Real World Exorbitant Items");
+		// fantasy equipment
+		chx += createHeader(4, "equipment-fantasy", "Fantasy Equipment", "og-border");
+		chx += createHeader(5, "equipment-fantasy-inexpensive", "Inexpensive Fantasy Items", "h6");
+		chx += createRef(["CCR 242"]);
+		chx += createTable("Fantasy Inexpensive Items");
+		chx += createHeader(5, "equipment-fantasy-moderately-priced", "Moderately Priced Fantasy Items", "h6");
+		chx += createRef(["CCR 242"]);
+		chx += createTable("Fantasy Moderately Priced Items");
+		chx += createHeader(5, "equipment-fantasy-expensive", "Expensive Fantasy Items", "h6");
+		chx += createRef(["CCR 243"]);
+		chx += createTable("Fantasy Expensive Items");
+		chx += createHeader(5, "equipment-fantasy-very-expensive", "Very Expensive Fantasy Items", "h6");
+		chx += createRef(["CCR 243"]);
+		chx += createTable("Fantasy Very Expensive Items");
+		chx += createHeader(5, "equipment-fantasy-exorbitant", "Exorbitant Fantasy Items", "h6");
+		chx += createRef(["CCR 243"]);
+		chx += createTable("Fantasy Exorbitant Items");
+		// science fiction equipment
+		chx += createHeader(4, "equipment-science-fiction", "Science Fiction Equipment", "og-border");
+		chx += createHeader(5, "equipment-science-fiction-inexpensive", "Inexpensive Science Fiction Items", "h6");
+		chx += createRef(["CCR 244"]);
+		chx += createTable("Science Fiction Inexpensive Items");
+		chx += createHeader(5, "equipment-science-fiction-moderately-priced", "Moderately Priced Science Fiction Items", "h6");
+		chx += createRef(["CCR 245"]);
+		chx += createTable("Science Fiction Moderately Priced Items");
+		chx += createHeader(5, "equipment-science-fiction-expensive", "Expensive Science Fiction Items", "h6");
+		chx += createRef(["CCR 246"]);
+		chx += createTable("Science Fiction Expensive Items");
+		chx += createHeader(5, "equipment-science-fiction-very-expensive", "Very Expensive Science Fiction Items", "h6");
+		chx += createRef(["CCR 247"]);
+		chx += createTable("Science Fiction Very Expensive Items");
+		chx += createHeader(5, "equipment-science-fiction-exorbitant", "Exorbitant Science Fiction Items", "h6");
+		chx += createRef(["CCR 247"]);
+		chx += createTable("Science Fiction Exorbitant Items");
+		// postapocalypse equipment
+		chx += createHeader(4, "equipment-postapocalypse", "Postapocalypse Equipment", "og-border");
+		chx += createHeader(5, "equipment-postapocalypse-inexpensive", "Inexpensive Postapocalypse Items", "h6");
+		chx += createRef(["CCR 248"]);
+		chx += createTable("Postapocalypse Inexpensive Items");
+		chx += createHeader(5, "equipment-postapocalypse-moderately-priced", "Moderately Priced Postapocalypse Items", "h6");
+		chx += createRef(["CCR 248"]);
+		chx += createTable("Postapocalypse Moderately Priced Items");
+		chx += createHeader(5, "equipment-postapocalypse-expensive", "Expensive Postapocalypse Items", "h6");
+		chx += createRef(["CCR 248"]);
+		chx += createTable("Postapocalypse Expensive Items");
+		// superhero equipment
+		chx += createHeader(4, "equipment-superhero", "Superhero Equipment", "og-border");
+		chx += createHeader(5, "equipment-superheroes-inexpensive", "Inexpensive Superhero Items", "h6");
+		chx += createRef(["CCR 248"]);
+		chx += createTable("Superheroes Inexpensive Items");
+		chx += createHeader(5, "equipment-superheroes-moderately-priced", "Moderately Priced Superhero Items", "h6");
+		chx += createRef(["CCR 248"]);
+		chx += createTable("Superheroes Moderately Priced Items");
+		chx += createHeader(5, "equipment-superheroes-expensive", "Expensive Superhero Items", "h6");
+		chx += createRef(["CCR 248"]);
+		chx += createTable("Superheroes Expensive Items");
+		// ability index
 		chx += createHeader(3, "ability-index", "Ability Index", "og-border-lg");
 		// quick ref
 		alert = createHeader(4, "choose-ability-index", "Quick-Reference: Ability Index", "h6");
