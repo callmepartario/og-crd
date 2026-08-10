@@ -11,6 +11,7 @@ const sectionList = [
 const glossaryList = [
 	{ dt: "ability", def: "abilities", }, 
 	{ dt: "action", def: "action", }, 
+	{ dt: "action", def: "genre-action-and-adventure", }, 
 	{ dt: "&mldr;and there's magic", def: "genre-and-theres-magic", }, 
 	{ dt: "area attack", def: "attack", }, 
 	{ dt: "area", def: "range", }, 
@@ -2660,11 +2661,11 @@ const genreList = [
 	}, 
 	{ 
 		genre: "Real World", 
-		subgenre: "Action", 
+		subgenre: "Action and Adventure", 
 		ref: ["CCR 33",], 
 		summary: ["Real-world action and adventure RPG scenarios include situations like:", ["A secret service agent&mdash;or just someone in the wrong place at the wrong time&mdash;faces off against kidnappers who've taken a loved one or other person of interest, or radicals attacking or hijacking a skyscraper, a jetliner in mid-flight, a political capitol, a high-security prison, or some other high-value location.", "Archaeologists travel to foreign lands to unearth secrets guarded by traps and mazes built by ancient civilizations.", "Those living on the edge plan and attempt to execute a heist of well-guarded treasure secured by modern, high-tech means.", ], "Action games benefit from PCs with diverse <a href='#define-skill'>skill</a> specialties&mdash;for example, a tracker, a lockpicking professional, a surveillance expert, someone with a military background, an archaeologist, an animal handler, a con artist, a demolitions expert, a mechanic, or a driver.", ], 
 		touchstones: ["Die Hard", "Raiders of the Lost Ark (and other Indiana Jones movies)", "Fountain of Youth", "Ocean's 11", "Romancing the Stone", "Air Force One", "Olympus Has Fallen", "Speed", ], 
-		alert: { name: "Optional Rules for Action Games", description: [["<strong>Action Wounds:</strong> Your real-world action character can take two more minor wounds and one more moderate wound than normal for a core character.", "<strong>Wound Treatment:</strong> Even though it's The Real World Genre, action is usually a heroic genre, at least for the PCs. Using treatment to remove a wound takes a Last action for a minor wound, one minute for a moderate wound, and ten minutes for a major wound.", "<strong>Desperate Actions:</strong> The idea is that when the situation becomes desperate, your character rises to the occasion, as is expected of an action hero. The GM might trigger Desperate Actions for a particular encounter, or it might just be a staple of their action game, like the additional number of wounds your character can take and the amount of time it takes to rally. Under Desperate Actions, while you have at least two moderate wounds or at least one major wound, you get a free reroll on one action each round (as if you had spent 1 XP).",], ], }, 
+		alert: { name: "Optional Rules for Action and Adventure Games", description: [["<strong>Action Wounds:</strong> Your real-world action character can take two more <a href='#define-wound'>minor wounds</a> and one more <a href='#define-wound'>moderate wound</a>.", "<strong>Wound Treatment:</strong> <a href='#define-treatment'>Treatment</a> uses the <strong>heroic</strong> option.", "<strong>Desperate Actions:</strong> When the situation becomes desperate and the GM declares Desperate Actions mode, your character rises to the occasion, as is expected of an action hero. In Desperate Actions mode, if you have at at least two <a href='#define-wound'>moderate wounds</a> or one <a href='#define-wound'>major wound</a>, you get a free <a href='#define-spending-xp'>reroll</a> on one <a href='#define-action'>action</a> each round (as if you had <a href='#define-spending-xp'>spent 1 XP</a>).",], ], }, 
 	}, 
 	{ 
 		genre: "Real World", 
@@ -2806,7 +2807,7 @@ const genreList = [
 	{
 		genre: "Science Fiction", 
 		subgenre: "Postapocalypse", 
-		ref: ["CCR 108&ndash;109", "CCR 248&nddash;249",], 
+		ref: ["CCR 108&ndash;109", "CCR 248&ndash;249",], 
 		summary: ["Postapocalypse games are grounded in a (somewhat) realistic portrayal of life would bin the aftermath of a world-ending sequence of events. The world has transformed into a harsh place where the only answer is constant scavenging for food and water in a ruinscape of collapsing buildings, rotting food stores, radiation, crazed animals, and desperate bands of raiders after everything you have. Survival is a common theme.", ], 
 		touchstones: ["The Road", "Children of Men", "Mad Max", "The Walking Dead", ], 
 		skills: ["These skills are appropriate for postapocalypse games.", ], 
@@ -4251,15 +4252,29 @@ function getSection(ch) {
 				def += createSidebar(touch); 
 			}
 			chx += createDef(createID("genre-" + gname), def);
-			// character summary
+			// characters 
 			if (genreList[g].character != undefined) { 
 				def = createHeader((h + 1), createID("genre-" + gname + "-characters"), (gname + " characters"), "");
+				let ref = ["<span class='btn btn-danger'>!ERR</span>"];
+				if (gname == "Real World") ( ref = ["CCR 37"]);
+				else if (gname == "Fantasy") ( ref = ["CCR 43"]);
+				else if (gname == "Science Fiction") ( ref = ["CCR 89"]);
+				else if (gname == "Superheroes") ( ref = ["CCR 124"]);
+				def += createRef(ref)
 				def += getBody(genreList[g].character);
 				chx += createDef(createID("genre-" + gname + "-characters"), def);
 			}
 			// genre skills
 			if (genreList[g].skills != undefined) { 
 				def = createHeader((h + 1), createID("genre-" + gname + "-skills"), (gname + " Skills"), "");
+				let ref = ["<span class='btn btn-danger'>!ERR</span>"];
+				if (gname == "Real World") ( ref = ["CCR 37"]);
+				else if (gname == "Fantasy") ( ref = ["CCR 41"]);
+				else if (gname == "Hard Science Fiction") ( ref = ["CCR 89&ndash;90"]);
+				else if (gname == "Space Opera") ( ref = ["CCR 89", "CCR 98"]);
+				else if (gname == "Postapocalypse") ( ref = ["CCR 108"]);
+				else if (gname == "Superheroes") ( ref = ["CCR 124"]);
+				def += createRef(ref)
 				def += getBody(genreList[g].skills);
 				if (genreList[g].skillsoptions != undefined) { def += getGenreList(genreList[g].genre, genreList[g].subgenre, "skills", "list-unstyled og-qr-compact", true); }
 				chx += createDef(createID("genre-" + gname + "-skills"), def);
@@ -4267,6 +4282,16 @@ function getSection(ch) {
 			// genre descriptors and species
 			if (genreList[g].species != undefined) { 
 				def = createHeader((h + 1), createID("genre-" + gname + "-descriptors-and-species"), (gname + " Descriptors and Species"), "");
+				let ref = ["<span class='btn btn-danger'>!ERR</span>"];
+				if (gname == "Real World") ( ref = ["CCR 38"]);
+				else if (gname == "Dungeon Fantasy") ( ref = ["CCR 41"]);
+				else if (gname == "Swords &amp; Sorcery") ( ref = ["CCR 62"]);
+				else if (gname == "Epic Fantasy") ( ref = ["CCR 74"]);
+				else if (gname == "Hard Science Fiction") ( ref = ["CCR 90"]);
+				else if (gname == "Space Opera") ( ref = ["CCR 98"]);
+				else if (gname == "Postapocalypse") ( ref = ["CCR 108"]);
+				else if (gname == "Superheroes") ( ref = ["CCR 124"]);
+				def += createRef(ref)
 				def += getBody(genreList[g].species);
 				if (genreList[g].speciesoptions != undefined) { def += getGenreList(genreList[g].genre, genreList[g].subgenre, "species", "list-unstyled og-qr-compact", true); }
 				chx += createDef(createID("genre-" + gname + "-species"), def);
@@ -4274,6 +4299,17 @@ function getSection(ch) {
 			// genre types
 			if (genreList[g].type != undefined) { 
 				def = createHeader((h + 1), createID("genre-" + gname + "-type"), (gname + " Types"), "");
+				let ref = ["<span class='btn btn-danger'>!ERR</span>"];
+				if (gname == "Real World") ( ref = ["CCR 38&ndash;39"]);
+				if (gname == "Historical") ( ref = ["CCR 35"]);
+				else if (gname == "Hard Science Fiction") ( ref = ["CCR 91"]);
+				else if (gname == "Dungeon Fantasy") ( ref = ["CCR 43"]);
+				else if (gname == "Swords &amp; Sorcery") ( ref = ["CCR 63"]);
+				else if (gname == "Epic Fantasy") ( ref = ["CCR 75"]);
+				else if (gname == "Space Opera") ( ref = ["CCR 99"]);
+				else if (gname == "Postapocalypse") ( ref = ["CCR 109"]);
+				else if (gname == "Superheroes") ( ref = ["CCR 130"]);
+				def += createRef(ref)
 				def += getBody(genreList[g].type);
 				// superhero types displayed in a table instead
 				if (genreList[g].genre == "Superheroes" && genreList[g].subgenre == undefined) {
@@ -4301,6 +4337,16 @@ function getSection(ch) {
 			// genre foci
 			if (genreList[g].focus != undefined) { 
 				def = createHeader((h + 1), createID("genre-" + gname + "-foci"), (gname + " Foci"), "");
+				let ref = ["<span class='btn btn-danger'>!ERR</span>"];
+				if (gname == "Real World") ( ref = ["CCR 38"]);
+				else if (gname == "Dungeon Fantasy") ( ref = ["CCR 42"]);
+				else if (gname == "Swords &amp; Sorcery") ( ref = ["CCR 62"]);
+				else if (gname == "Epic Fantasy") ( ref = ["CCR 75"]);
+				else if (gname == "Hard Science Fiction") ( ref = ["CCR 90"]);
+				else if (gname == "Space Opera") ( ref = ["CCR 98"]);
+				else if (gname == "Postapocalypse") ( ref = ["CCR 108"]);
+				else if (gname == "Superheroes") ( ref = ["CCR 125"]);
+				def += createRef(ref)
 				def += getBody(genreList[g].focus);
 				if (genreList[g].focusoptions != undefined) { def += getGenreList(genreList[g].genre, genreList[g].subgenre, "focus", "list-unstyled og-qr", true); }
 				chx += createDef(createID("genre-" + gname + "-foci"), def);
@@ -4308,6 +4354,16 @@ function getSection(ch) {
 			// genre currency
 			if (genreList[g].currency != undefined) { 
 				def = createHeader((h + 1), createID("genre-" + gname + "-currency"), (gname + " Currency"), "");
+				let ref = ["<span class='btn btn-danger'>!ERR</span>"];
+				if (gname == "Real World") ( ref = ["CCR 241"]);
+				else if (gname == "Dungeon Fantasy") ( ref = ["CCR 42", "CCR 243"]);
+				else if (gname == "Swords &amp; Sorcery") ( ref = ["CCR 63"]);
+				else if (gname == "Epic Fantasy") ( ref = ["CCR 75"]);
+				else if (gname == "Hard Science Fiction") ( ref = ["CCR 91"]);
+				else if (gname == "Space Opera") ( ref = ["CCR 99"]);
+				else if (gname == "Postapocalypse") ( ref = ["CCR 109"]);
+				else if (gname == "Superheroes") ( ref = ["CCR 126"]);
+				def += createRef(ref)
 				def += getBody(genreList[g].currency);
 				for (let t = 0; t < tableList.length; t++) {
 					if (tableList[t].name == (gname + " Currency")) {
@@ -4319,6 +4375,14 @@ function getSection(ch) {
 			// genre equipment
 			if (genreList[g].equipment != undefined) { 
 				def = createHeader((h + 1), createID("genre-" + gname + "-equipment"), (gname + " Equipment"), "");
+				let ref = ["<span class='btn btn-danger'>!ERR</span>"];
+				if (gname == "Real World") ( ref = ["CCR 38", "CCR 240&ndash;241"]);
+				else if (gname == "Fantasy") ( ref = ["CCR 42", "CCR 63", "CCR 75", "CCR 242&ndash;243"]);
+				else if (gname == "Hard Science Fiction") ( ref = ["CCR 90", "CCR 244&ndash;247"]);
+				else if (gname == "Space Opera") ( ref = ["CCR 99", "CCR 244&ndash;247"]);
+				else if (gname == "Postapocalypse") ( ref = ["CCR 108", "CCR 248&ndash;249"]);
+				else if (gname == "Superheroes") ( ref = ["CCR 125", "CCR 249"]);
+				def += createRef(ref)
 				def += getBody(genreList[g].equipment);
 				chx += createDef(createID("genre-" + gname + "-equipment"), def);
 				if (genreList[g].equipmenttable != undefined) {
@@ -4358,12 +4422,31 @@ function getSection(ch) {
 			// genre manifest cyphers
 			if (genreList[g].manifestcyphers != undefined) { 
 				def = createHeader((h + 1), createID("genre-" + gname + "-manifestcyphers"), (gname + " Manifest Cyphers"), "");
+				let ref = ["<span class='btn btn-danger'>!ERR</span>"];
+				if (gname == "Real World") ( ref = ["CCR 38"]);
+				else if (gname == "Dungeon Fantasy") ( ref = ["CCR 42"]);
+				else if (gname == "Swords &amp; Sorcery") ( ref = ["CCR 63"]);
+				else if (gname == "Epic Fantasy") ( ref = ["CCR 75"]);
+				else if (gname == "Hard Science Fiction") ( ref = ["CCR 90"]);
+				else if (gname == "Space Opera") ( ref = ["CCR 99"]);
+				else if (gname == "Postapocalypse") ( ref = ["CCR 108"]);
+				else if (gname == "Superheroes") ( ref = ["CCR 126"]);
+				def += createRef(ref)
 				def += getBody(genreList[g].manifestcyphers);
 				chx += createDef(createID("genre-" + gname + "-manifest-cyphers"), def);
 			}
 			// genre wounds
 			if (genreList[g].wounds != undefined) { 
 				def = createHeader((h + 1), createID("genre-" + gname + "-wounds"), (gname + " Wounds"), "");
+				let ref = ["<span class='btn btn-danger'>!ERR</span>"];
+				if (gname == "Real World") ( ref = ["CCR 38"]);
+				else if (gname == "Dungeon Fantasy") ( ref = ["CCR 42"]);
+				else if (gname == "Swords &amp; Sorcery") ( ref = ["CCR 63"]);
+				else if (gname == "Hard Science Fiction") ( ref = ["CCR 90"]);
+				else if (gname == "Space Opera") ( ref = ["CCR 99"]);
+				else if (gname == "Postapocalypse") ( ref = ["CCR 108"]);
+				else if (gname == "Superheroes") ( ref = ["CCR 126"]);
+				def += createRef(ref)
 				def += getBody(genreList[g].wounds);
 				def += createTable("Treatment")
 				chx += createDef(createID("genre-" + gname + "-wounds"), def);
@@ -4371,6 +4454,16 @@ function getSection(ch) {
 			// genre advancement
 			if (genreList[g].advancement != undefined) { 
 				def = createHeader((h + 1), createID("genre-" + gname + "-advancement"), (gname + " Abilities and Advancement"), "");
+				let ref = ["<span class='btn btn-danger'>!ERR</span>"];
+				if (gname == "Real World") ( ref = ["CCR 38"]);
+				if (gname == "Fantasy") ( ref = ["CCR 82"]);
+				else if (gname == "Science Fiction") ( ref = ["CCR 114&ndash;116"]);
+				else if (gname == "Epic Fantasy") ( ref = ["CCR 75"]);
+				else if (gname == "Hard Science Fiction") ( ref = ["CCR 91"]);
+				else if (gname == "Space Opera") ( ref = ["CCR 99"]);
+				else if (gname == "Postapocalypse") ( ref = ["CCR 109"]);
+				else if (gname == "Superheroes") ( ref = ["CCR 126", "CCR 138&ndash;142"]);
+				def += createRef(ref)
 				def += getBody(["In addition to the usual character advancement process, you gain the following benefits as you increase your <a href='#define-tier'>tier</a>."]);
 				def += getBody(genreList[g].advancement);
 				chx += createDef(createID("genre-" + gname + "-advancement"), def);
