@@ -1,4 +1,4 @@
- const version = "1.00e";
+ const version = "1.00f";
  const updated = "2026-08-10";
 
 // reader mode
@@ -6,7 +6,6 @@ var readerPreference = localStorage.getItem('readerMode');
 
 // lists
 let printerror = "<p class='btn btn-danger'>!ERR</p>";
-// sourcesList CRD, CCR, CGMG
 const sectionList = [
 	{ name: "Introduction", }, 
 	{ name: "Player Characters", }, 
@@ -2914,18 +2913,18 @@ const tableList = [
 		name: "Difficulty", 
 		ref: ["CCR 289",], 
 		cols: ["Level", "Difficulty", "Target Number", "Success Rate", "Description", ], 
-		colstyle: ["", "text-center", "text-center", "text-center", "og-tooltip-omit", ], 
-		rows: [["0", "Routine", "0", "100%", "You can do this (no roll required).", ], 
+		colstyle: ["text-center", "", "text-center", "text-center", "og-tooltip-omit", ], 
+		rows: [["0", "Routine", "0", "100%", "You can do this (no <a href='#define-roll'>roll</a> required).", ], 
 		["1", "Simple", "3", "90%", "Most people can do this most of the time.", ], 
 		["2", "Standard", "6", "75%", "Typical task, most people can usually do this.", ], 
 		["3", "Demanding", "9", "60%", "Requires attention.", ], 
 		["4", "Difficult", "12", "45%", "<a href='#define-skill'>Training</a> would help.", ], 
 		["5", "Challenging", "15", "30%", "Even <a href='#define-skill'>trained</a> people fail.", ], 
 		["6", "Intimidating", "18", "15%", "Normal people almost never succeed.", ], 
-		["7", "Formidable", "21", "&mdash;", "Impossible without <a href='#define-skill'>skills</a> or great <a href='#define-effort'>effort</a>.", ], 
-		["8", "Heroic", "24", "&minus;15%", "A task worthy of tales told for years afterward.", ], 
-		["9", "Immortal", "27", "&minus;30%", "A task worthy of legends that last lifetimes.", ], 
-		["10", "Impossible", "30", "&minus;45%", "A task that normal humans couldn't consider (but one that doesn't break the laws of physics).", ], ],
+		["7", "Formidable", "21", "<span class='text-danger'>&mdash;</span>", "Impossible without <a href='#define-skill'>skills</a> or great <a href='#define-effort'>effort</a>.", ], 
+		["8", "Heroic", "24", "<span class='text-danger'>&minus;15%</a>", "A task worthy of tales told for years afterward.", ], 
+		["9", "Immortal", "27", "<span class='text-danger'>&minus;30%</a>", "A task worthy of legends that last lifetimes.", ], 
+		["10", "Impossible", "30", "<span class='text-danger'>&minus;45%</a>", "A task that normal humans couldn't consider (but one that doesn't break the laws of physics).", ], ],
 	}, 
 	{
 		name: "Special Rolls", 
@@ -2998,7 +2997,7 @@ const tableList = [
 		name: "Scavenging and Related Tasks",
 		ref: ["CCR 23",], 
 		cols: ["Difficulty", "Description",], 
-		colstyle: ["", "", "",],
+		colstyle: ["text-center", "", "",],
 		rows: [["5", "<strong>Resources:</strong> Find enough food and clean water for one day.", ], ["5", "<strong>Refuge:</strong> Find a place of relative safety to regroup, take shelter from the elements, and hide from dangerous groups or creatures.", ], ["Hindered", "If searching for more than five people, the task is hindered one step every two additional people.", ], ["Eased", "If searching for less than five people, the task is eased one step every two fewer people.", ], ], 
 	}, 
 	{
@@ -4943,6 +4942,7 @@ function getSection(ch) {
 		alert += "</ul>";
 		alert += createHeader(4, "choose-equipment-real-world", "Quick-Reference: Real World Equipment", "h6");
 		alert += "<ul class='list-unstyled og-qr-compact'>";
+		alert += "<li><a href='#equipment-real-world-currency'>Currency</a></li>";
 		alert += "<li><a href='#equipment-real-world-inexpensive'>Inexpensive</a></li>";
 		alert += "<li><a href='#equipment-real-world-moderately-priced'>Moderately Priced</a></li>";
 		alert += "<li><a href='#equipment-real-world-expensive'>Expensive</a></li>";
@@ -4951,6 +4951,7 @@ function getSection(ch) {
 		alert += "</ul>";
 		alert += createHeader(4, "choose-equipment-fantasy", "Quick-Reference: Fantasy Equipment", "h6");
 		alert += "<ul class='list-unstyled og-qr-compact'>";
+		alert += "<li><a href='#equipment-dungeon-fantasy-currency'>Currency</a></li>";
 		alert += "<li><a href='#equipment-fantasy-inexpensive'>Inexpensive</a></li>";
 		alert += "<li><a href='#equipment-fantasy-moderately-priced'>Moderately Priced</a></li>";
 		alert += "<li><a href='#equipment-fantasy-expensive'>Expensive</a></li>";
@@ -4960,6 +4961,7 @@ function getSection(ch) {
 		alert += createHeader(4, "choose-equipment-science-fiction", "Quick-Reference: Science Fiction Equipment", "h6");
 		alert += "<p class='small og-hang'>&dagger; &mdash; <em>fantastic technology only available in far-future or advanced-technology settings</em></p>";
 		alert += "<ul class='list-unstyled og-qr-compact'>";
+		alert += "<li><a href='#equipment-science-fiction-currency-equivalents'>Currency</a></li>";
 		alert += "<li><a href='#equipment-science-fiction-inexpensive'>Inexpensive</a></li>";
 		alert += "<li><a href='#equipment-science-fiction-moderately-priced'>Moderately Priced</a></li>";
 		alert += "<li><a href='#equipment-science-fiction-expensive'>Expensive</a></li>";
@@ -4968,6 +4970,7 @@ function getSection(ch) {
 		alert += "</ul>";
 		alert += createHeader(4, "choose-equipment-postapocalypse", "Quick-Reference: Postapocalypse Equipment", "h6");
 		alert += "<ul class='list-unstyled og-qr-compact'>";
+		alert += "<li><a href='#equipment-postapocalypse-currency'>Currency</a></li>";
 		alert += "<li><a href='#equipment-postapocalypse-inexpensive'>Inexpensive</a></li>";
 		alert += "<li><a href='#equipment-postapocalypse-moderately-priced'>Moderately Priced</a></li>";
 		alert += "<li><a href='#equipment-postapocalypse-expensive'>Expensive</a></li>";
@@ -4983,6 +4986,9 @@ function getSection(ch) {
 		chx += createAlert(alert);
 		// real world equipment
 		chx += createHeader(4, "equipment-real-world", "Real World Equipment", "og-border");
+		chx += createHeader(5, "equipment-real-world-currency", "Real World Currency", "h6");
+		chx += createRef(["CCR 241"]);
+		chx += createTable("Real World Currency");
 		chx += createHeader(5, "equipment-real-world-inexpensive", "Inexpensive Real World Items", "h6");
 		chx += createRef(["CCR 240"]);
 		chx += createTable("Real World Inexpensive Items");
@@ -5000,6 +5006,9 @@ function getSection(ch) {
 		chx += createTable("Real World Exorbitant Items");
 		// fantasy equipment
 		chx += createHeader(4, "equipment-fantasy", "Fantasy Equipment", "og-border");
+		chx += createHeader(5, "equipment-dungeon-fantasy-currency", "Dungeon Fantasy Currency", "h6");
+		chx += createRef(["CCR 243"]);
+		chx += createTable("Dungeon Fantasy Currency");
 		chx += createHeader(5, "equipment-fantasy-inexpensive", "Inexpensive Fantasy Items", "h6");
 		chx += createRef(["CCR 242"]);
 		chx += createTable("Fantasy Inexpensive Items");
@@ -5017,6 +5026,9 @@ function getSection(ch) {
 		chx += createTable("Fantasy Exorbitant Items");
 		// science fiction equipment
 		chx += createHeader(4, "equipment-science-fiction", "Science Fiction Equipment", "og-border");
+		chx += createHeader(5, "equipment-science-fiction-currency-equivalents", "Science Fiction Currency Equivalents", "h6");
+		chx += createRef(["CCR 247"]);
+		chx += createTable("Real World Currency");
 		chx += createHeader(5, "equipment-science-fiction-inexpensive", "Inexpensive Science Fiction Items", "h6");
 		chx += createRef(["CCR 244"]);
 		chx += createTable("Science Fiction Inexpensive Items");
@@ -5034,6 +5046,9 @@ function getSection(ch) {
 		chx += createTable("Science Fiction Exorbitant Items");
 		// postapocalypse equipment
 		chx += createHeader(4, "equipment-postapocalypse", "Postapocalypse Equipment", "og-border");
+		chx += createHeader(5, "equipment-postapocalypse-currency", "Postapocalypse Currency", "h6");
+		chx += createRef(["CCR 248"]);
+		chx += createTable("Postapocalypse Currency");
 		chx += createHeader(5, "equipment-postapocalypse-inexpensive", "Inexpensive Postapocalypse Items", "h6");
 		chx += createRef(["CCR 248"]);
 		chx += createTable("Postapocalypse Inexpensive Items");
