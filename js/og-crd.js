@@ -4113,22 +4113,41 @@ function getSection(ch) {
 					def += getBody([["<strong>GM Intrusion:</strong> At any time, the GM can introduce a complication&mdash;for example, the rope you're climbing begins to fray. When the GM intrudes on you, you gain 1 XP, and choose another PC, who also gains 1 XP. Explain why&mdash;for example, they had a good idea, or they brought snacks.", "<strong>Story Awards:</strong> XP is awarded for progressing the story the GM wants to tell&mdash;for example, exploring a new area, rescuing someone, or learning significant information.", "<strong>Character Arcs:</strong> In lengthier campaigns, PCs progress through a personal story and changes over time. Work with the GM to choose a character arc. At the end of each session, talk to the GM your character arc progress. If the GM agrees that you have made a \"step\" in your arc, you gain 1 XP. Arcs reach a climax point where you succeed or fail. If you succeed, you earn 4 XP. If you fail, you still earn 2 XP. You can take on different character arcs by spending 1 XP (to a maximum of 4)."]]);
 					chx += createDef("earning-xp", def);
 					chx += createSidebar(getBody(["Each session, the GM intrudes up to twice per character. You also a trigger a GM intrusion when you roll a 1 on an action roll, but triggered intrusions don't cause PCs to earn XP.", "It's not a good idea to hoard XP, and the GM might force you spend some on an advancement."]));
+					chx += createHeader(5, "example-character-arcs", "Example Character Arcs", "");
 					chx += "<div class='accordion'>" // open accordion
 					chx += "<div class='accordion-item'>"; // open item
-					chx += "<h5 class='accordion-header' id='example-character-arcs'>";
-					chx += "<button class='accordion-button collapsed text-uppercase p-2' type='button' data-bs-toggle='collapse' data-bs-target='#example-character-arcs-collapse' aria-expanded='false' aria-controls='example-character-arcs-collapse'>Example Character Arcs</button>";
-					chx += "</h5>";
-					chx += "<div id='example-character-arcs-collapse' class='accordion-collapse collapse' aria-labelledby='example-character-arcs'>"; // open collapse
+					chx += "<h6 class='accordion-header' id='arc-avenge'>";
+					chx += "<button class='accordion-button collapsed text-uppercase p-2' type='button' data-bs-toggle='collapse' data-bs-target='#arc-avenge-collapse' aria-expanded='false' aria-controls='arc-avenge-collapse'>Avenge</button>";
+					chx += "</h6>";
+					chx += "<div id='arc-avenge-collapse' class='accordion-collapse collapse' aria-labelledby='arc-avenge'>"; // open collapse
 					chx += "<div class='accordion-body p-2 pt-3 og-stripe'>"; // open body
 					// character arcs
-					chx += createHeader(6, "arc-avenge", "Avenge", "");
 					chx += getBody(["Someone close to you or important to you in some way has been wronged. The most overt version of this arc is to avenge someone's death. When you take this arc, you might declare (publicly or privately) your intentions, such as killing the offender, imprisoning them for their crime, or returning something valuable to its proper owner.", ["<strong>Step(s):</strong> <em>Tracking the Guilty</em>. You track down the guilty party. The details of this step depend on what you know&mdash;learning their identity, discovering their location, and so on. You repeat this step as many times as needed. Each of these steps is worth 1 XP.", "<strong>Step:</strong> <em>Finding the Guilty</em>. You finally find the guilty party, or find a path or make a plan to reach them. Now all that's left is to confront them. This step is worth 1 XP.", "<strong>Climax:</strong> <em>Confrontation</em>. You confront the guilty party. This might be a public accusation and demonstration of guilt, a trial, or an attack to kill, wound, or apprehend them&mdash;whatever you choose to be appropriate. Success means you earn 4 XP; failure means you earn 2 XP.", "<strong>Resolution:</strong> After a successful confrontation, you resolve the outcome and its later ramifications, then decide what to do next. This step is worth 1 XP and completes the arc."]]);
-					chx += createHeader(6, "arc-join-an-organization", "Join an Organization", "");
+					chx += "</div>"; // close body
+					chx += "</div>"; // close collapse
+					chx += "</div>"; // close item
+					chx += "<div class='accordion-item'>"; // open item
+					chx += "<h6 class='accordion-header' id='arc-join-an-organization'>";
+					chx += "<button class='accordion-button collapsed text-uppercase p-2' type='button' data-bs-toggle='collapse' data-bs-target='#arc-join-an-organization-collapse' aria-expanded='false' aria-controls='arc-join-an-organization-collapse'>Join an Organization</button>";
+					chx += "</h6>";
+					chx += "<div id='arc-join-an-organization-collapse' class='accordion-collapse collapse' aria-labelledby='arc-join-an-organization'>"; // open collapse
+					chx += "<div class='accordion-body p-2 pt-3 og-stripe'>"; // open body
+					// character arcs
 					chx += getBody(["You want to join an organization. This might be a guild, corporation, military organization, secret society, religion, or something else. There's probably a specific reward you're interested in for doing so, such as wealth, status, access to secrets, or learning a special combat technique or magic spell. When you take this arc, you've learned what you can about the organization and what you have to do to become a member, and you've decided to make it happen.", ["<strong>Step(s):</strong> <em>Making a Contact.</em> Friends on the inside are always important. With one or more people like this on your side, you can move forward to prove yourself to the organization. This step is worth 1 XP.", "<strong>Step(s):</strong> <em>Performing a Deed.</em> The organization might want to test your worth, or this might be a ceremony you must take part in. It might include paying some sort of dues or fee. Or all of these things. This step is worth 1 XP.", "<strong>Climax:</strong> <em>Proving Your Worth.</em> This is the point at which you attempt to show the organization that they would be better off with you as a member. This is usually a significant challenge related to the needs and goals of the organization, such as defeating a powerful member of a rival group, uncovering secret information or an object the group needs or wants, and so on. Success means you earn 4 XP; failure means you earn 2 XP.", "<strong>Resolution:</strong> After successful proof of your worth, you consider your efforts and assess what your membership gets you. This step is worth 1 XP and completes the arc."]]);
-					chx += createHeader(6, "arc-additional-ideas", "Additional Arc Ideas", "");	
+
+					chx += "</div>"; // close body
+					chx += "</div>"; // close collapse
+					chx += "</div>"; // close item
+					chx += "<div class='accordion-item'>"; // open item
+					chx += "<h6 class='accordion-header' id='additional-arc-ideas'>";
+					chx += "<button class='accordion-button collapsed text-uppercase p-2' type='button' data-bs-toggle='collapse' data-bs-target='#additional-arc-ideas-collapse' aria-expanded='false' aria-controls='additional-arc-ideas-collapse'>Additional Arc Ideas</button>";
+					chx += "</h6>";
+					chx += "<div id='additional-arc-ideas-collapse' class='accordion-collapse collapse' aria-labelledby='additional-arc-ideas'>"; // open collapse
+					chx += "<div class='accordion-body p-2 pt-3 og-stripe'>"; // open body
+					// character arcs
 					chx += "<ul>";
 					for (let a = 0; a < arcideasList.length; a++) {
-						chx += "<li class='mb-1'><strong>" + arcideasList[a].dt + ":</strong> " + arcideasList[a].dd + "</li>";
+						chx += "<li class='mb-1'><strong>" + arcideasList[a].dt + ": </strong> " + arcideasList[a].dd + "</li>";
 					}
 					chx += "</ul>";
 					chx += "</div>"; // close body
