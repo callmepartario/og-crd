@@ -3451,7 +3451,7 @@ function getAbility(ability, refs) {
 				}
 				ab += "</ul>";
 				// ability source references
-				ab += "<ul class='og-list-tag og-tooltip-omit'>";
+				ab += "<ul class='og-list-tag'>";
 				// duplicate type 
 				// ability types
 				for (let t = 0; t < typeList.length; t++) {
