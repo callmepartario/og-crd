@@ -5233,11 +5233,83 @@ function dyslexiaMode() {
 	if (document.getElementById("dyslexiaSwitch").checked == false) {
 		document.getElementById("body-content").classList.remove("dyslexia");
 		readerPreference = "standard";
+		// column toggling
+		const col = document.querySelectorAll('.col-inactive');
+		col.forEach(element => {
+			element.classList.remove("col-inactive");
+			element.classList.add("col");
+		});
+		const col12 = document.querySelectorAll('.col-12-inactive');
+		col12.forEach(element => {
+			element.classList.remove("col-12-inactive");
+			element.classList.add("col-12");
+		});
+		const colsm2 = document.querySelectorAll('.col-sm-2-inactive');
+		colsm2.forEach(element => {
+			element.classList.remove("col-sm-2-inactive");
+			element.classList.add("col-sm-2");
+		});
+		const colsm4 = document.querySelectorAll('.col-sm-4-inactive');
+		colsm4.forEach(element => {
+			element.classList.remove("col-sm-4-inactive");
+			element.classList.add("col-sm-4");
+		});
+		const colmd3 = document.querySelectorAll('.col-md-3');
+		colmd3.forEach(element => {
+			element.classList.remove("col-md-3");
+			element.classList.add("col-md-3");
+		});
+		const collg1 = document.querySelectorAll('.col-lg-1');
+		collg1.forEach(element => {
+			element.classList.remove("col-lg-1");
+			element.classList.add("col-lg-1");
+		});
+		const collg2 = document.querySelectorAll('.col-lg-2-inactive');
+		collg2.forEach(element => {
+			element.classList.remove("col-lg-2-inactive");
+			element.classList.add("col-lg-2");
+		});
 		localStorage.setItem('readerMode', 'standard');
 	}
 	else {
 		document.getElementById("body-content").classList.add("dyslexia");
 		readerPreference = "dyslexic";
+		// column toggling
+		const col = document.querySelectorAll('.col');
+		col.forEach(element => {
+			element.classList.remove("col");
+			element.classList.add("col-inactive");			
+		});
+		const col12 = document.querySelectorAll('.col-12');
+		col12.forEach(element => {
+			element.classList.remove("col-12");
+			element.classList.add("col-12-inactive");			
+		});
+		const colsm2 = document.querySelectorAll('.col-sm-2');
+		colsm2.forEach(element => {
+			element.classList.remove("col-sm-2");
+			element.classList.add("col-sm-2-inactive");			
+		});
+		const colsm4 = document.querySelectorAll('.col-sm-4');
+		colsm4.forEach(element => {
+			element.classList.remove("col-sm-4");
+			element.classList.add("col-sm-4-inactive");			
+		});
+		const colmd3 = document.querySelectorAll('.col-md-3');
+		colmd3.forEach(element => {
+			element.classList.remove("col-md-3");
+			element.classList.add("col-md-3-inactive");			
+		});
+		const collg1 = document.querySelectorAll('.col-lg-1');
+		collg1.forEach(element => {
+			element.classList.remove("col-lg-1");
+			element.classList.add("col-lg-1-inactive");			
+		});
+		const collg2 = document.querySelectorAll('.col-lg-2');
+		collg2.forEach(element => {
+			element.classList.remove("col-lg-2");
+			element.classList.add("col-lg-2-inactive");			
+		});
 		localStorage.setItem('readerMode', 'dyslexic');
 	}
 };
