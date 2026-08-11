@@ -1,5 +1,5 @@
 // versioning
-const version = "1.00i";
+const version = "1.00j";
 const updated = "2026-08-11";
 const printerror = "<p class='btn btn-danger'>!ERR</p>"; // reusable error throw for searching and debugging
 // user variables
@@ -157,7 +157,7 @@ const characteristicList = [
 	{ dt: "Type", ref: ["CCR 20",], dd: ["In many genres, types is a PC's core identity, and defines their role in the setting. It's the verb of the sentence <em>\"I am an adjective noun who verbs\"</em>.", "Type provides an array of benefits that improve a <a href='#define-core-character'>core character</a>&mdash;for example:", ["Additional <a href='#define-wound'>wound</a> capacity", "Increases to <a href='#define-stat'>stats</a>", "<a href='#define-skill'>Skills</a> that allow you to <a href='#define-skill'>freely use</a> different kinds of <a href='#define-weapon'>weapons</a> or <a href='#define-armor'>armor</a>", "<a href='#define-equipment'>Equipment</a> suggestions (and sometimes extra equipment)", "Background options", "<a href='#define-abilities'>Abilities</a> that improve as you reach new <a href='#define-tier'>tiers</a>.", ]], }, 
 	{ dt: "Focus", ref: ["CCR 143&ndash;145",], dd: ["Your focus helps make your character unique among the other PCs, even if you share a <a href='#define-type'>type</a>. No two PCs should have the same focus. It's the verb of the sentence <em>\"I am an adjective noun who verbs\"</em>.", "Each focus includes a short description, genre theme suggestions, GM intrusion suggestions, and any equipment required for you to use your focus abilities.", ["<em>At tier 1:</em> Choose two tier 1 abilities from your focus.", "<em>At tier 2, 3, 4, 5 and 6:</em> Choose another focus ability from your tier or lower. Some abilities require you to have another focus ability in order for you to choose them. A few abilities allow you to gain them more than once."], ], }, 
 	{ dt: "Followers", ref: ["CCR 307",], dd: ["A follower is someone who you have inspired, asked, created, or otherwise recruited to help you with a variety of endeavors. You can gain followers from a type or focus ability&mdash;for example <a href='#define-ability-beast-companion'>Beast Companion</a>.", ["<strong>Level:</strong> A follower's damage is equal to their <a href='#define-difficulty'>level</a>. Their <a href='#define-damage-to-npcs'>Health</a> is their <a href='#define-difficulty'>level</a> &times; 3.", "<strong>Modifications:</strong> Modifications increase a follower's effective level for relevant tasks&mdash;for example, a level 2 scout follower with modifier for <a href='#define-skill-perception'>perception</a> accomplishes related tasks as if they were level 3.", "<strong>Follower Assets:</strong> Your followers help you with actions you're taking, providing an <a href='#define-asset'>asset</a> on relevant tasks. If your follower's level or modification for the task is 5 or higher, their help provides two assets.", "<strong>Follower Progression:</strong> Every two tiers you gain after acquiring a follower, their level increases by 1. Abilities provide another way of increasing follower level.", "<strong>Losing Followers:</strong> If lose a follower, you can usually replace them by spending <a href='#define-resource-points'>resource points</a>. Any level increases or other improvements apply to the replacement."], ], }, 
-	{ dt: "Cyphers", ref: ["CCR 12", "250&ndash;252",], dd: ["Cyphers are like single-use abilities. In some settings, cyphers are physical items&mdash;for example, a magic potion or high-tech gizmo, but they're not <a href='#define-equipment'>equipment</a>. Cyphers mean you always have a new trick up your sleeve each time for each challenge. Individual cyphers are listed in the <a href='#cypher-tables'>Cypher Tables</a>.", ], ddomit: ["Your cypher limit is the maximum number of cyphers you can have.", ["<strong>Standard cyphers:</strong> Memorable things a realistic character in a story could do. The GM determines when you gain standard cyphers&mdash;for example, during a one-hour <a href='#define-recoveries'>recovery</a>. Standard cyphers are instant: using one isn't an action. For example, you can use a <a href='#define-cypher-combat-enhancer'>combat enhancer</a> just before you make an attack or defense roll.", "<strong>Nonstandard cyphers:</strong> Create ongoing effects with an assigned duration.", "<strong>Manifest:</strong> Have a physical form and deliver supernatural effects&mdash;for example, a magic potion that turns you invisible, or a mysterious device that teleports you a hundred miles. A few types and foci allow you to choose a <a href='#random-manifest-cyphers'>manifest cypher</a> as an ability with a <a href='#define-stat'>Pool</a> point cost.", "<strong>Power Boost:</strong> Increase, modify, or improve abilities&mdash;for example, burst boost turns a single-target attack into an area attack. These are instant effects that only affects one task, but might have a physical form.", "<strong>Cypher Level:</strong> Standard and nonstandard cyphers are level 4 effects. Manifest cyphers are level 6 effects.", ], "Each cypher's description includes:", ["<strong>Name:</strong> Every cypher has a name, that summarizes its theme.", "<strong>Effect:</strong> This is what the cypher does. If you use an asset-granting cypher to help another character, they gain the cypher's assets, and that number of assets is their asset limit for the task. If you're trying to affect an unwilling target, you must succeed an attack roll.", "<strong>Explanation:</strong> Story-based suggestions for how to explain standard and nonstandard cyphers.", "<strong>Genre Items:</strong> Genre-based suggestions for a manifest cypher's form.", ], ], sidebar: ["Let the GM know when you're out of cyphers or haven't been at your cypher limit for a while. Even the best GMs forget!", ], },
+	{ dt: "Cyphers", ref: ["CCR 12", "250&ndash;252",], dd: ["Cyphers are like single-use abilities. In some settings, cyphers are physical items&mdash;for example, a magic potion or high-tech gizmo, but they're not <a href='#define-equipment'>equipment</a>. Cyphers mean you always have a new trick up your sleeve each time for each challenge. Individual cyphers are listed in the <a href='#cypher-tables'>Cypher Tables</a>.", ], ddomit: ["Your cypher limit is the maximum number of cyphers you can have.", ["<div class='og-tooltip-mb' id='define-cypher-standard'><strong>Standard cyphers:</strong> Memorable things a realistic character in a story could do. The GM determines when you gain standard cyphers&mdash;for example, during a one-hour <a href='#define-recoveries'>recovery</a>. Standard cyphers are instant: using one isn't an action. For example, you can use a <a href='#define-cypher-combat-enhancer'>combat enhancer</a> just before you make an attack or defense roll.</div>", "<div class='og-tooltip-mb' id='define-cypher-nonstandard'><strong>Nonstandard cyphers:</strong> Create ongoing effects with an assigned duration.</div>", "<div class='og-tooltip-mb' id='define-cypher-manifest'><strong>Manifest:</strong> Have a physical form and deliver supernatural effects&mdash;for example, a magic potion that turns you invisible, or a mysterious device that teleports you a hundred miles. A few types and foci allow you to choose a <a href='#random-manifest-cyphers'>manifest cypher</a> as an ability with a <a href='#define-stat'>Pool</a> point cost.</div>", "<div class='og-tooltip-mb' id='define-cypher-power-boost'><strong>Power Boost:</strong> Increase, modify, or improve abilities&mdash;for example, burst boost turns a single-target attack into an area attack. These are instant effects that only affects one task, but might have a physical form.</div>", "<strong>Cypher Level:</strong> Standard and nonstandard cyphers are <a href='#define-difficulty'>level 4</a> effects. Manifest cyphers are <a href='#define-difficulty'>level 6</a> effects.", ], "Each cypher's description includes:", ["<strong>Name:</strong> Every cypher has a name, that summarizes its theme.", "<strong>Effect:</strong> This is what the cypher does. If you use an asset-granting cypher to help another character, they gain the cypher's assets, and that number of assets is their asset limit for the task. If you're trying to affect an unwilling target, you must succeed an attack roll.", "<strong>Explanation:</strong> Story-based suggestions for how to explain standard and nonstandard cyphers.", "<strong>Genre Items:</strong> Genre-based suggestions for a manifest cypher's form.", ], ], sidebar: ["Let the GM know when you're out of cyphers or haven't been at your cypher limit for a while. Even the best GMs forget!", ], },
 	{ dt: "Artifacts", ref: ["CCR 239",], dd: ["Artifacts are like <a href='#define-cyphers'>cyphers</a> in that they're more like special abilities than <a href='#define-equipment'>equipment</a>, but they can be used more than once.", ["<strong>Depletion:</strong> When you use an artifact (or for certain equipment or effects), you might have to roll for depletion&mdash;for example, \"1&ndash;3 in 1d20\". Roll the specificed die or dice. If the result is in the <a href='#define-artifacts'>depletion</a> range, the effect works, but whatever created it can't be used again.", ], ], },
 	{ dt: "Experience Points (XP)", ref: ["CCR 285&ndash;286", "CCR 309", "CCR 313",], dd: ["You <a href='#define-earning-xp'>earn XP</a> in ways the GM decides. In a typical session, you gain 4 XP, but XP is not a goal unto itself. Instead, they represent how <em>experience</em>&mdash;time, blood, sweat, an tears&mdash;make you more skilled, powerful, and <em>interesting</em> character.", "You can <a href='#define-spending-xp'>spend XP</a> on rerolls, player intrusions, lucky shots, and <a href='#define-character-advancement'>character advancement</a>.", ], }, 
 	{ dt: "Character Advancement", ref: ["CCR 313", "CCR 317"], dd: ["You can spend 4 <a href='#define-experience-points-xp'>XP</a> to purchase one of the following main character advancements. You can purchase each once per <a href='#define-tier'>tier</a>:", ["<strong>Increasing Capabilities:</strong> Gain 4 points to divide among your stat <a href='#define-stat'>Pools</a>.", "<strong>Moving Toward Perfection:</strong> Gain +1 to one stat's <a href='#define-stat'>Edge</a>.", "<strong>Extra Effort:</strong> Gain +1 to your <a href='#define-effort'>Effort</a> score.", "<strong>Skill:</strong> Become trained in a <a href='#define-skill'>skill</a> one of your abilities that requires a roll. <a href='#define-skill'>Tier-restricted skills</a> apply.", ], "Once each <a href='#define-tier'>tier</a>, you can purchase one of the following advancements instead:", ["<strong>Recovery:</strong> Add +2 to your <a href='#define-recovery'>recovery</a> rolls.", "<strong>Focus:</strong> Choose another <a href='#define-focus'>focus</a> ability of your tier or lower whose requirements you meet.", "<strong>Armor:</strong> Be able to <a href='#define-skill'>freely use</a> all kinds of <a href='#define-armor'>armor</a>.", "<strong>Weapons:</strong> Be able to <a href='#define-skill'>freely use</a> all kinds of <a href='#define-weapon'>weapons</a>.", "<strong>Genre:</strong> If you are <a href='#define-tier'>tier 3</a> or higher, choose a <a href='#define-genre'>genre</a> ability.", ], "Each time you purchase a character advancement, you gain 1 resource point.", ["<em>At tier 3:</em> Gain 2 resource points instead.", "<em>At tier 5:</em> Gain 3 resource points instead", ], "When you've purchased four advancements, you reach a new <a href='#define-tier'>tier</a>." ], sidebar: ["<strong>Milestone Advancement:</strong> Some GMs might award character advancements directly.", "<strong>Advancing Beyond Tier 6:</strong> The GM might allow you to purchase character advancements, gaining a new focus ability each tier, and a new genre ability every three tiers.", ], }, 
@@ -3856,10 +3856,10 @@ function getSection(ch) {
 						skill += createRef(skillList[sk].ref);
 						skill += "<ul class='og-list-tag'>";
 						// mark skill type
-						if (skillList[sk].combat == true) { skill += "<li class='og-tag-danger'>Combat Skill</li>"; }
-						else { skill += "<li>Noncombat Skill</li>"; }
+						if (skillList[sk].combat == true) { skill += "<li class='og-tag-danger'><a href='#define-skill'>Combat Skill</a></li>"; }
+						else { skill += "<li><a href='#define-skill'>Noncombat Skill</a></li>"; }
 						if (skillList[sk].tierrestricted == true) {
-							skill += "<li class='og-tag-danger'>Tier-Restricted</li>";
+							skill += "<li class='og-tag-danger'><a href='#define-skill'>Tier-Restricted</a></li>";
 						}
 						for (let g = 0; g < genreList.length; g++) {
 							if (genreList[g].skillsoptions != undefined) {
@@ -3867,7 +3867,7 @@ function getSection(ch) {
 									if (skillList[sk].name == genreList[g].skillsoptions[gs]) {
 										let gname = genreList[g].genre;
 										if (genreList[g].subgenre != undefined) { gname = genreList[g].subgenre; }
-										skill += "<li class='og-tag-primary'>" + gname + "</li>";
+										skill += "<li class='og-tag-primary'><a href='#" + createID("define-genre-" + gname) + "'>" + gname + "</a></li>";
 									}
 								}
 							}
@@ -3917,7 +3917,7 @@ function getSection(ch) {
 						desc += createHeader(4, createID("descriptor-" + descriptorList[d].name), descriptorList[d].name, "og-border");
 						desc += createRef(descriptorList[d].ref);
 						desc += "<ul class='og-list-tag'>";
-						desc += "<li>Descriptor</li>";
+						desc += "<li><a href='#define-descriptor'>Descriptor</a></li>";
 						desc += "</ul>";
 						desc += "<p>" + descriptorList[d].description + "</p>";
 						desc += "<p><strong>You gain the following characteristics:</strong></p>";
@@ -3949,9 +3949,9 @@ function getSection(ch) {
 						species += createHeader(4, createID("type-" + speciesList[sp].name), speciesList[sp].name, "og-border");
 						species += createRef(speciesList[sp].ref);
 						species += "<ul class='og-list-tag'>";
+						species += "<li><a href='#define-species'>Species</a></li>";
 						for (g = 0; g < speciesList[sp].genres.length; g++) {
-							if (speciesList[sp].genres[g] == "Any Genre") { species += "<li>Species (" + speciesList[sp].genres[g] + ")</li>"; }
-							else { species += "<li class='og-tag-primary'>Species (" + speciesList[sp].genres[g] + ")</li>"; }
+							if (speciesList[sp].genres[g] != "Any Genre") { species += "<li class='og-tag-primary'><a href='#" + createID("define-genre-" + speciesList[sp].genres[g]) + "'>" + speciesList[sp].genres[g] + "</a></li>"; }
 						}
 						species += "</ul>";
 						species += "<p class='og-tooltip-only'>" + speciesList[sp].summarybrief + "</p>";
@@ -3977,13 +3977,14 @@ function getSection(ch) {
 						type += createHeader(4, createID("type-" + typeList[t].name), typeList[t].name, "og-border");
 						type += createRef(typeList[t].ref);
 						type += "<ul class='og-list-tag'>";
+						type += "<li><a href='#define-type'>Type</a></li>";
 						// genres
 						for (g = 0; g < typeList[t].genres.length; g++) {
 							if (typeList[t].genres[g] == "Superheroes") {
-								type += "<li class='og-tag-primary'>Type (Superhero, Rank " + typeList[t].rank + ")</li>";
+								type += "<li class='og-tag-primary'><a href='#" + createID("define-genre-" + typeList[t].genres[g]) + "'>Superhero (Rank " + typeList[t].rank + ")</a></li>";
 							}
 							else {
-								type += "<li class='og-tag-primary'>Type (" + typeList[t].genres[g] + ")</li>";
+								type += "<li class='og-tag-primary'><a href='#" + createID("define-genre-" + typeList[t].genres[g]) + "'>" + typeList[t].genres[g] + "</a></li>";
 							}
 						}
 						type += "</ul>";
@@ -4067,10 +4068,10 @@ function getSection(ch) {
 						focusDef += createHeader(4, createID("focus-" + focusList[f].name), focusList[f].name, "og-border");
 						focusDef += createRef([focusList[f].ref]);
 						focusDef += "<ul class='og-list-tag'>";
-						focusDef += "<li class='og-tag-primary'>Focus</li>"
+						focusDef += "<li><a href='#define-focus'>Focus</a></li>"
 						// genre and themes
 						for (g = 0; g < focusList[f].genres.length; g++) {
-							focusDef += "<li class='og-tag-primary'>" + focusList[f].genres[g].name + " (" + focusList[f].genres[g].theme + ")</li>";
+							focusDef += "<li class='og-tag-primary'><a href='#" + createID("define-genre-" + focusList[f].genres[g].name) + "'>" + focusList[f].genres[g].name + " (" + focusList[f].genres[g].theme + ")</a></li>";
 						}
 						focusDef += "</ul>";
 						// summary, equipment, and gm intrusions
@@ -4328,8 +4329,8 @@ function getSection(ch) {
 			def = createHeader(h, createID("genre-" + gname), (gname), "og-border-lg")
 			def += createRef(genreList[g].ref);
 			def += "<ul class='og-list-tag'>";
-			if (genreList[g].subgenre == undefined) { def += "<li class='og-tag-primary'>Genre</li>"; } 
-			else { def += "<li class='og-tag-primary'>" + genreList[g].genre + " Subgenre</li>"; }
+			if (genreList[g].subgenre == undefined) { def += "<li class='og-tag-primary'><a href='#define-genre'>Genre</a></li>"; } 
+			else { def += "<li class='og-tag-primary'><a href='#" + createID("define-genre-" + genreList[g].genre) + "'>" + genreList[g].genre + " Subgenre</a></li>"; }
 			def += "</ul>";
 			// summary
 			if (genreList[g].summary != undefined) { def += getBody(genreList[g].summary); }
@@ -4953,22 +4954,22 @@ function getSection(ch) {
 			// type tagging
 			def += "<ul class='og-list-tag'>";
 			if (cypherList[c].powerboost == true) {
-				def += "<li class='og-tag-primary'>Power Boost Cypher</li>";
+				def += "<li class='og-tag-primary'><a href='#define-cypher-power-boost'>Power Boost Cypher</a></li>";
 			}
 			else if (cypherList[c].nonstandard == undefined && cypherList[c].manifest == undefined) {
-				def += "<li class=''>Standard Cypher</li>";
+				def += "<li><a href='#define-cypher-standard'>Standard Cypher</a></li>";
 			}
 			else if (cypherList[c].nonstandard == true) {
-				def += "<li class='og-tag-danger'>Nonstandard Cypher</li>";
+				def += "<li class='og-tag-danger'><a href='#define-cypher-nonstandard'>Nonstandard Cypher</a></li>";
 			}
 			else if (cypherList[c].manifest == true) {
 				if (cypherList[c].pow != undefined) {
 					for (let p = 0; p < cypherList[c].pow.length; p++) {
-						if (cypherList[c].pow[p] == "Low") { def += "<li class='og-tag-low'>Manifest Cypher (Low-Power)</li>"; }
-						if (cypherList[c].pow[p] == "Med") { def += "<li class='og-tag-medium'>Manifest Cypher (Medium-Power)</li>"; }
-						if (cypherList[c].pow[p] == "Adv") { def += "<li class='og-tag-advanced'>Manifest Cypher (Advanced-Power)</li>"; }
-						if (cypherList[c].pow[p] == "High") { def += "<li class='og-tag-high'>Manifest Cypher (High-Power)</li>"; }
-						if (cypherList[c].pow[p] == "Ultra") { def += "<li class='og-tag-ultra'>Manifest Cypher (Ultra-Power)</li>"; }
+						if (cypherList[c].pow[p] == "Low") { def += "<li class='og-tag-low'><a href='#define-cypher-manifest'>Manifest Cypher (Low-Power)</a></li>"; }
+						if (cypherList[c].pow[p] == "Med") { def += "<li class='og-tag-medium'><a href='#define-cypher-manifest'>Manifest Cypher (Medium-Power)</a></li>"; }
+						if (cypherList[c].pow[p] == "Adv") { def += "<li class='og-tag-advanced'><a href='#define-cypher-manifest'>Manifest Cypher (Advanced-Power)</a></li>"; }
+						if (cypherList[c].pow[p] == "High") { def += "<li class='og-tag-high'><a href='#define-cypher-manifest'>Manifest Cypher (High-Power)</a></li>"; }
+						if (cypherList[c].pow[p] == "Ultra") { def += "<li class='og-tag-ultra'><a href='#define-cypher-manifest'>Manifest Cypher (Ultra-Power)</a></li>"; }
 					}
 				}
 				else { def += "<li class='og-tag-warning'>!ERR</li>"; }
@@ -5156,7 +5157,7 @@ function getSection(ch) {
 		// ability index
 		chx += createHeader(3, "ability-index", "Ability Index", "og-border-lg");
 		chx += createRef(["Editorial Addition"]);
-		chx += getBody(["Abilities are noted by their source&mdash;for example, a <a href='#define-type'>type</a>, a <a href='#define-focus'>focus</a> and <a href='#define-tier'>tier</a>, or an ability list associated with a <a href='#define-genre'>genre</a>.", ["<div id='define-abilities-minor-differences'><strong>Minor Differences:</strong> These abilities have several entries in the <a href='https://www.montecookgames.com/store/product/cypher-corebooks/'>Cypher Character Rulebook</a> with different phrasing, but identical mechanics. The OG-CRD condenses these to a single entry, so you may notice small discrepancies between the two sources.</a>", "<div id='define-abilities-major-differences'><strong>Major Differences:</strong> These abilities share a name, but their exact mechanics differ depending on the source of the ability.</div>"]]);
+		chx += getBody(["Abilities are noted by their source&mdash;for example, a <a href='#define-type'>type</a>, a <a href='#define-focus'>focus</a> and <a href='#define-tier'>tier</a>, or an ability list associated with a <a href='#define-genre'>genre</a>.", ["<div class='og-tooltip-mb' id='define-abilities-minor-differences'><strong>Minor Differences:</strong> These abilities have several entries in the <a href='https://www.montecookgames.com/store/product/cypher-corebooks/'>Cypher Character Rulebook</a> with different phrasing, but identical mechanics. The OG-CRD condenses these to a single entry, so you may notice small discrepancies between the two sources.</a>", "<div class='og-tooltip-mb' id='define-abilities-major-differences'><strong>Major Differences:</strong> These abilities share a name, but their exact mechanics differ depending on the source of the ability.</div>"]]);
 		// quick ref
 		alert = createHeader(4, "choose-ability-index", "Quick-Reference: Ability Index", "h6");
 		alert += "<ul class='list-inline'>";
