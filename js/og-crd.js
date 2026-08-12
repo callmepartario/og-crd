@@ -1,6 +1,7 @@
 // versioning
-const version = "1.00k";
+const version = "1.00m";
 const updated = "2026-08-11";
+const mark = "<span class='ps-1'>&dagger;</span>";
 const printerror = "<p class='btn btn-danger'>!ERR</p>"; // reusable error throw for searching and debugging
 // user variables
 var readerPreference = localStorage.getItem('readerMode'); // dyslexic reader preference
@@ -388,7 +389,7 @@ const speciesList = [
 	{ name: "Gnome", ref: ["CCR 86",], genres: ["Fantasy",], summarybrief: "Standing about three and a half feet (100 cm) tall, you are curious and love discovering ways to turn found things into art, tools, or <a href='#define-weapon'>weapons</a>.", summary: ["Standing about three and a half feet (100 cm) tall, you are curious and love discovering ways to turn found things into art, tools, or <a href='#define-weapon'>weapons</a>. You might be a sculptor, smith, artist, chef, storyteller, or inventor. Alchemy, magic, and engineering fascinate you. Other beings may see you as a strange mix of a nature-loving elf and a craft-obsessed dwarf, but you and your kind are unique people with a passion for life, exploration, and creation."],  benefits: ["You don't get a <a href='#define-earning-xp'>GM intrusion</a> if you <a href='#define-roll'>roll</a> a 1 on a <a href='#define-defend'>dodge</a> roll.", "You are <a href='#define-skill'>trained</a> in <a href='#define-crafting'>crafting</a>.", "You inflict +1 <a href='#define-damage'>damage</a> with light melee <a href='#define-weapon'>weapons</a>.", ], }, 
 	{ name: "Halfling", ref: ["CCR 86",], genres: ["Fantasy",], summarybrief: "Three feet (1 m) tall and proud of every inch, you are fond of the comforts of home but itching for a little adventure now and then.", summary: ["Three feet (1 m) tall and proud of every inch, you are fond of the comforts of home but itching for a little adventure now and then. Small and quick, you have a way of getting along with everyone. You might have been raised in a halfling village, a mixed community where humans and the small folk work and eat side by side as friends, or a less welcoming environment where your people get things done using <a href='#define-skill-deception'>deception</a> and criminal activity. You and humans have a lot in common&mdash;you're just more compact and efficient about it."],  benefits: ["You don't get a <a href='#define-earning-xp'>GM intrusion</a> if you <a href='#define-roll'>roll</a> a 1 on a <a href='#define-skill-stealth'>stealth</a> task.", "You are <a href='#define-skill'>trained</a> in <a href='#define-skill-escaping'>escaping</a>.", "You inflict +1 <a href='#define-damage'>damage</a> with light thrown <a href='#define-weapon'>weapons</a>.", ], }, 
 	{ name: "Hellborn", ref: ["CCR 87",], genres: ["Fantasy",], summarybrief: "Part human and part something from another dimension, you might be the orphan of a supernatural dalliance, the result of a magical ritual gone wrong, a scion of a long-established bloodline, or just someone who spiritually \"ingested\" the demon that tried to possess you.", summary: ["Part human and part something from another dimension, you might be the orphan of a supernatural dalliance, the result of a magical ritual gone wrong, a scion of a long-established bloodline, or just someone who spiritually \"ingested\" the demon that tried to possess you. Some of your kind have horns, tails, and pointed teeth. Others are more subtle or more obvious in their differences&mdash;a shadow of a knife edge in their face and a touch that withers normal plants, a little too much fire in their eyes and a scent of ash in the air, a forked tongue, goatlike legs, or the inability to cast a shadow. Work with the GM on your particular hellborn appearance."],  benefits: ["Reduce the severity of <a href='#define-wound'>wounds</a> you receive from fire and heat by one step.", "You are <a href='#define-skill'>trained</a> in magic lore.", "You inflict +1 <a href='#define-damage'>damage</a> with unarmed attacks.", ], sidebar: "<p>Work with your GM if you want your hellborn character to have an inherently magical ability related to your alternate-dimensional heritage. You can easily adapt one of your type or focus abilities, such as Seeds of Fury, Sacred Smite, Tribulation, or something similar, so the effect is something you personally manifest instead of as presented in the ability description.</p>", }, 
-	{ name: "Human", ref: ["CCR 87", "CCR 120",], genres: ["Any Genre",], summarybrief: "Humans are among the youngest species, and perhaps that's why&mdash;when considered as a whole&mdash;they're more given to explore, conquer, and expand their communities, even if that means taking from other species or other humans.", summary: ["Humans are among the youngest species, and perhaps that's why&mdash;when considered as a whole&mdash;they're more given to explore, conquer, and expand their communities, even if that means taking from other species or other humans. Individually, humans couldn't be more diverse. Which means you could be under 5 feet (150 cm) tall and barely 100 pounds (45 kg), or well over 6 feet (180 cm) tall and weigh in at 250 pounds (113 kg); have blue eyes or brown, black, green, or some other variation; have no hair, flowing golden locks, amazing dreads, a mohawk, or some other rakish cut; be all about your faith, exploring ancient places, keeping evil at bay, enriching yourself, or some other disposition; and so on. What's definitely true is that you are not afraid to strive for what you want and believe in."],  benefits: ["Choose a second descriptor and add its benefits to your regular descriptor.", ], sidebar: "<p>If you choose Human as your species, your character sentence \"I am an adjective species noun who verbs\" gains another element: your second descriptor. For example, your sentence might be \"I am a Brash and Rugged Human Fighter who Masters Weaponry.\"</p><p>In a game where everyone's human, using the Human species option may not make sense. Your GM might grant you the option to choose Human as a species only if other species are also part of the game.</p>", }, 
+	{ name: "Human", ref: ["CCR 87", "CCR 120",], summarybrief: "Humans are among the youngest species, and perhaps that's why&mdash;when considered as a whole&mdash;they're more given to explore, conquer, and expand their communities, even if that means taking from other species or other humans.", summary: ["Humans are among the youngest species, and perhaps that's why&mdash;when considered as a whole&mdash;they're more given to explore, conquer, and expand their communities, even if that means taking from other species or other humans. Individually, humans couldn't be more diverse. Which means you could be under 5 feet (150 cm) tall and barely 100 pounds (45 kg), or well over 6 feet (180 cm) tall and weigh in at 250 pounds (113 kg); have blue eyes or brown, black, green, or some other variation; have no hair, flowing golden locks, amazing dreads, a mohawk, or some other rakish cut; be all about your faith, exploring ancient places, keeping evil at bay, enriching yourself, or some other disposition; and so on. What's definitely true is that you are not afraid to strive for what you want and believe in."],  benefits: ["Choose a second descriptor and add its benefits to your regular descriptor.", ], sidebar: "<p>If you choose Human as your species, your character sentence \"I am an adjective species noun who verbs\" gains another element: your second descriptor. For example, your sentence might be \"I am a Brash and Rugged Human Fighter who Masters Weaponry.\"</p><p>In a game where everyone's human, using the Human species option may not make sense. Your GM might grant you the option to choose Human as a species only if other species are also part of the game.</p>", }, 
 	{ name: "Mutant", ref: ["CCR 120",], genres: ["Science Fiction",], summarybrief: "Savage forces strong enough to destroy a world left you transformed.", summary: ["Savage forces strong enough to destroy a world left you transformed. Perhaps through latent mutations passed down from ancestors that survived the apocalypse, or because something about you reacts when exposed to radiation or some other mutagenic source, you've gained mutations. You might look relatively similar to others of your species, or you might have one or more obvious physical differences that make it hard to disguise your nature&mdash;work with your GM to decide your specific features. Not that you necessarily want to hide what you are; you might wish to proudly display what makes you different and, to your mind, better."],  benefits: ["You don't get a <a href='#define-earning-xp'>GM intrusion</a> if you <a href='#define-roll'>roll</a> a 1 on a <a href='#define-defend'>Might defense</a> task.", "Choose any tier 1 <a href='#define-abilities'>ability</a> from any <a href='#define-focus'>focus</a>; work with your GM to adapt that ability as your mutation.", ], }, 
 	{ name: "Naron", ref: ["CCR 120",], genres: ["Science Fiction",], summarybrief: "You are descended from a species of natural telepaths that communicate mind to mind, not via spoken language. ", summary: ["You are descended from a species of natural telepaths that communicate mind to mind, not via spoken language. Standing about 5 feet (1.5 m) tall, your prominence&mdash;usually a subtle glow that faintly silhouettes your bald head&mdash;moves in slow waves when you're relaxed, or flashes and pulses when you're excited or stressed (unless you consciously suppress it). The naron are generally a peaceful people, but some of you have found the wider galaxy offers interesting opportunities in all walks of society among creatures where psi is a rare to vanishing trait."],  benefits: ["You can't produce vocal sounds but instead telepathically communicate with one, some, or all intelligent creatures within short range as easily as if you were talking back and forth out loud.", "You are <a href='#define-skill'>trained</a> in <a href='#define-skill-charm'>charm</a> or <a href='#define-skill-deception'>deception</a>.", "You are <a href='#define-skill'>trained</a> in <a href='#define-skill'>recognizing motive</a>.", ], sidebar: "<p>Naron telepathy doesn't allow you to read others' thoughts or even talk with them if they want to shut you out. But if you are a naron who wants to explore your latent telepathic gifts, choose Psion as your type or a psi-heavy focus such as Commands Mental Powers. However, other foci could be adapted or reskinned so the abilities granted are considered to be generated by your latent psi.</p>", }, 
 	{ name: "Orc", ref: ["CCR 87",], genres: ["Fantasy",], summarybrief: "Other species are sometimes prejudiced against orcs, viewing them as misbegotten creatures destined to serve as fodder for more powerful evil overlords.", summary: ["Other species are sometimes prejudiced against orcs, viewing them as misbegotten creatures destined to serve as fodder for more powerful evil overlords. Perhaps that's true of some; however, you know orcs are a proud (if aggressive) people with a sense of honor. Though they can be deadly enemies, especially to humans and elves, they have been known to ally with others against a larger threat. Whatever your particular upbringing, you've ventured out into the wider world looking for new opportunities. How much your heritage affects your outlook is up to you&mdash;it might color everything, or it might only come up when someone flinches from your visage."],  benefits: ["You can take an additional <a href='#define-wound'>minor wound</a>.", "You are <a href='#define-skill'>trained</a> in <a href='#define-skill-intimidation'>intimidation</a> (except against other orcs).", "You inflict +1 <a href='#define-damage'>damage</a> with heavy melee <a href='#define-weapon'>weapons</a>.", ], sidebar: "<p>Half-orcs gain either the Orc species characteristics or the <a href='#define-species-human'>Human</a> species characteristics, whichever you decide when creating your half-orc character.</p>", }, 
@@ -1285,8 +1286,7 @@ abilities: [
 },
 { name: "Moves Like the Wind", ref: ["CCR 204&ndash;205",], genres: [ {name: "Fantasy", theme: "Coward, Messenger, Scout", }, {name: "Historical", theme: "Coward, Messenger, Scout", }, {name: "Real World", theme: "Athlete, Coward, Messenger, Scout", }, {name: "Science Fiction", theme: "Athlete, Coward, Scout", }, {name: "Superhero", theme: "Speedster", }, ], 
 summary: ["You are an incredibly fast runner, whether moving toward a foe or away from danger.", ], 
-gmintrusions: ["Quick movements sometimes lead to dropped items, slipping on uneven ground, or going the wrong way by accident.", ], 
-abilities: [
+gmintrusions: ["Quick movements sometimes lead to dropped items, slipping on uneven ground, or going the wrong way by accident.", ], sidebar: ["Some <strong>Moves Like the Wind</strong> abilities are genre-restricted&mdash;suitable only for <a href='#define-genre-space-opera'>space opera</a>, <a href='#define-genre-superheroes'>superheroes</a>, or other fantastic <a href='#define-genre'>genre</a>.", ], abilities: [
 		[
 			{ name: "Fleet of Foot", }, 
 			{ name: "Get Out", }, 
@@ -3515,8 +3515,12 @@ function getAbility(ability, refs) {
 function getAbilityIndex(abilityID, source, tier) {
 	// set up return
 	let aname = abilityList[abilityID].name;
-	if (abilityList[abilityID].dupmajor == true) { aname = aname.slice(0, -3); }
-	let li = "<li><a href='#" + createID("define-ability-" + abilityList[abilityID].name) + "'>" + aname + "</a></li>";
+	let tmark = "";
+	if (abilityList[abilityID].dupmajor == true) { 
+		aname = (aname.slice(0, -3)); 
+		tmark = mark;
+	}
+	let li = "<li><a href='#" + createID("define-ability-" + abilityList[abilityID].name) + "'>" + aname + "</a>" + tmark + "</li>";
 	// return type abilities
 	if (source == "type") {
 		for (let t = 0; t < typeList.length; t++) {
@@ -3597,7 +3601,6 @@ function getSkill(skill, lowercase) {
 function getGenreList(genre, subgenre, option, style, alert) {
 	let i = "";
 	let tr = "<p class='small'>&dagger; &mdash; <em><a href='#define-skill'>tier-restricted skill</a></em></p>";
-	let trx = "<span class='ps-1'>&dagger;</span>";
 	// skills
 	if (option == "skills") { 
 		// generic skills
@@ -3606,7 +3609,7 @@ function getGenreList(genre, subgenre, option, style, alert) {
 			i += "<ul class='" +  style + "'>";
 			for (li = 0; li < skillList.length; li++) {
 				i += "<li>" + getDef(createID("skill-" + skillList[li].name), skillList[li].name);
-				if (skillList[li].tierrestricted == true) { i += trx; }
+				if (skillList[li].tierrestricted == true) { i += mark; }
 				i += "</li>";
 			}
 			i += "</ul>";
@@ -3623,7 +3626,7 @@ function getGenreList(genre, subgenre, option, style, alert) {
 						for (let li = 0; li < skillList.length; li++) {
 							if (genreList[g].skillsoptions[gs] == skillList[li].name) {
 								i += "<li>" + getDef(createID("skill-" + skillList[li].name), skillList[li].name)
-							if (skillList[li].tierrestricted == true) { i += trx; }
+							if (skillList[li].tierrestricted == true) { i += mark; }
 							i += "</li>";
 							}
 						}
@@ -3743,9 +3746,7 @@ function getGenreList(genre, subgenre, option, style, alert) {
 	else if (option == "abilitiesmid" || option == "abilitieshigh" || option == "abilitiesorigin") { 
 		for (let g = 0; g < genreList.length; g++) {
 			if (genreList[g].genre == genre && genreList[g].subgenre == subgenre && genreList[g].abilitiesmid != undefined) {
-				let mark = "";
 				if (genre == "Fantasy" && subgenre == undefined) { 
-					mark = "<span class='ps-1'>&dagger;</span>";
 					i += "<p class='small'>&dagger; &mdash; <em>Magic ability</em></p>"; 
 				}
 				i += "<ul class='" + style + "'>";
@@ -3969,7 +3970,7 @@ function getSection(ch) {
 						desc += createHeader(4, createID("descriptor-" + descriptorList[d].name), descriptorList[d].name, "og-border");
 						desc += createRef(descriptorList[d].ref);
 						desc += "<ul class='og-list-tag'>";
-						desc += "<li><a href='#define-descriptor'>Descriptor</a></li>";
+						desc += "<li class='og-tag-low'><a href='#define-descriptor'>Descriptor</a></li>";
 						desc += "</ul>";
 						desc += "<p>" + descriptorList[d].description + "</p>";
 						desc += "<p><strong>You gain the following characteristics:</strong></p>";
@@ -4001,9 +4002,11 @@ function getSection(ch) {
 						species += createHeader(4, createID("type-" + speciesList[sp].name), speciesList[sp].name, "og-border");
 						species += createRef(speciesList[sp].ref);
 						species += "<ul class='og-list-tag'>";
-						species += "<li><a href='#define-species'>Species</a></li>";
-						for (g = 0; g < speciesList[sp].genres.length; g++) {
-							if (speciesList[sp].genres[g] != "Any Genre") { species += "<li class='og-tag-primary'><a href='#" + createID("define-genre-" + speciesList[sp].genres[g]) + "'>" + speciesList[sp].genres[g] + "</a></li>"; }
+						species += "<li class='og-tag-medium'><a href='#define-species'>Species</a></li>";
+						if (speciesList[sp].genres != undefined) { 
+							for (g = 0; g < speciesList[sp].genres.length; g++) {
+								species += "<li class='og-tag-primary'><a href='#" + createID("define-genre-" + speciesList[sp].genres[g]) + "'>" + speciesList[sp].genres[g] + "</a></li>";
+							}
 						}
 						species += "</ul>";
 						species += "<p class='og-tooltip-only'>" + speciesList[sp].summarybrief + "</p>";
@@ -4029,7 +4032,7 @@ function getSection(ch) {
 						type += createHeader(4, createID("type-" + typeList[t].name), typeList[t].name, "og-border");
 						type += createRef(typeList[t].ref);
 						type += "<ul class='og-list-tag'>";
-						type += "<li><a href='#define-type'>Type</a></li>";
+						type += "<li class='og-tag-advanced'><a href='#define-type'>Type</a></li>";
 						// genres
 						for (g = 0; g < typeList[t].genres.length; g++) {
 							if (typeList[t].genres[g] == "Superheroes") {
@@ -4120,7 +4123,7 @@ function getSection(ch) {
 						focusDef += createHeader(4, createID("focus-" + focusList[f].name), focusList[f].name, "og-border");
 						focusDef += createRef([focusList[f].ref]);
 						focusDef += "<ul class='og-list-tag'>";
-						focusDef += "<li><a href='#define-focus'>Focus</a></li>"
+						focusDef += "<li class='og-tag-high'><a href='#define-focus'>Focus</a></li>"
 						// genre and themes
 						for (g = 0; g < focusList[f].genres.length; g++) {
 							focusDef += "<li class='og-tag-primary'><a href='#" + createID("define-genre-" + focusList[f].genres[g].name) + "'>" + focusList[f].genres[g].name + " (" + focusList[f].genres[g].theme + ")</a></li>";
@@ -4132,6 +4135,9 @@ function getSection(ch) {
 							focusDef += "<p class='og-hang'><em>Additional Equipment:</em> " + focusList[f].equipment + "</p>";
 						}
 						focusDef += createSidebar("<p><em>GM intrusions:</em> " + focusList[f].gmintrusions + "</p>");
+						if (focusList[f].sidebar != undefined) {
+							focusDef += createSidebar(getBody(focusList[f].sidebar));
+						}
 						// tooltip ability table
 						focusDef += "<div class='table-responsive og-tooltip-only'>"; // open table container
 						focusDef += "<table class='table table-light table-striped table-sm'>";
@@ -4646,7 +4652,7 @@ function getSection(ch) {
 						for (let ps = 0; ps < genreList[g].abilitiespowershifts.length; ps++) {
 							def = createHeader((h + 3), createID("power-shifts-" + genreList[g].abilitiespowershifts[ps].dt), genreList[g].abilitiespowershifts[ps].dt, "og-border");
 							def += createRef(["CCR 127",]);
-							def += "<ul class='og-list-tag'><li class='og-tag-primary'>Power Shift</li></ul></ul>";
+							def += "<ul class='og-list-tag'><li class='og-tag-power'>Power Shift</li></ul></ul>";
 							def += getBody([genreList[g].abilitiespowershifts[ps].dd]); 
 							if (genreList[g].abilitiespowershifts[ps].effort == false) {
 								def += "<p class='small'><em>This power shift doesn't act like a free level of <a href='#define-effort'>Effort</a>.</em></p>";
@@ -5005,23 +5011,25 @@ function getSection(ch) {
 			def += createRef(cypherList[c].ref);
 			// type tagging
 			def += "<ul class='og-list-tag'>";
+			def += "<li><a href='#define-cyphers'>Cypher</a></li>";
 			if (cypherList[c].powerboost == true) {
-				def += "<li class='og-tag-primary'><a href='#define-cypher-power-boost'>Power Boost Cypher</a></li>";
+				def += "<li class='og-tag-power'><a href='#define-cypher-power-boost'>Power Boost</a></li>";
 			}
 			else if (cypherList[c].nonstandard == undefined && cypherList[c].manifest == undefined) {
-				def += "<li><a href='#define-cypher-standard'>Standard Cypher</a></li>";
+				def += "<li><a href='#define-cypher-standard'>Standard</a></li>";
 			}
 			else if (cypherList[c].nonstandard == true) {
-				def += "<li class='og-tag-danger'><a href='#define-cypher-nonstandard'>Nonstandard Cypher</a></li>";
+				def += "<li class='og-tag-danger'><a href='#define-cypher-nonstandard'>Nonstandard</a></li>";
 			}
 			else if (cypherList[c].manifest == true) {
 				if (cypherList[c].pow != undefined) {
+					def += "<li class='og-tag-primary'><a href='#define-cypher-manifest'>Manifest</a></li>";
 					for (let p = 0; p < cypherList[c].pow.length; p++) {
-						if (cypherList[c].pow[p] == "Low") { def += "<li class='og-tag-low'><a href='#define-cypher-manifest'>Manifest Cypher (Low-Power)</a></li>"; }
-						if (cypherList[c].pow[p] == "Med") { def += "<li class='og-tag-medium'><a href='#define-cypher-manifest'>Manifest Cypher (Medium-Power)</a></li>"; }
-						if (cypherList[c].pow[p] == "Adv") { def += "<li class='og-tag-advanced'><a href='#define-cypher-manifest'>Manifest Cypher (Advanced-Power)</a></li>"; }
-						if (cypherList[c].pow[p] == "High") { def += "<li class='og-tag-high'><a href='#define-cypher-manifest'>Manifest Cypher (High-Power)</a></li>"; }
-						if (cypherList[c].pow[p] == "Ultra") { def += "<li class='og-tag-ultra'><a href='#define-cypher-manifest'>Manifest Cypher (Ultra-Power)</a></li>"; }
+						if (cypherList[c].pow[p] == "Low") { def += "<li class='og-tag-low'><a href='#define-cypher-manifest'>Low-Power</a></li>"; }
+						if (cypherList[c].pow[p] == "Med") { def += "<li class='og-tag-medium'><a href='#define-cypher-manifest'>Medium-Power</a></li>"; }
+						if (cypherList[c].pow[p] == "Adv") { def += "<li class='og-tag-advanced'><a href='#define-cypher-manifest'>Advanced-Power</a></li>"; }
+						if (cypherList[c].pow[p] == "High") { def += "<li class='og-tag-high'><a href='#define-cypher-manifest'>High-Power</a></li>"; }
+						if (cypherList[c].pow[p] == "Ultra") { def += "<li class='og-tag-ultra'><a href='#define-cypher-manifest'>Ultra-Power</a></li>"; }
 					}
 				}
 				else { def += "<li class='og-tag-warning'>!ERR</li>"; }
@@ -5209,9 +5217,10 @@ function getSection(ch) {
 		// ability index
 		chx += createHeader(3, "ability-index", "Ability Index", "og-border-lg");
 		chx += createRef(["Editorial Addition"]);
-		chx += getBody(["Abilities are noted by their source&mdash;for example, a <a href='#define-type'>type</a>, a <a href='#define-focus'>focus</a> and <a href='#define-tier'>tier</a>, or an ability list associated with a <a href='#define-genre'>genre</a>.", ["<div class='og-tooltip-mb' id='define-abilities-minor-differences'><strong>Minor Differences:</strong> These abilities have several entries in the <a href='https://www.montecookgames.com/store/product/cypher-corebooks/'>Cypher Character Rulebook</a> with different phrasing, but identical mechanics. The OG-CRD condenses these to a single entry, so you may notice small discrepancies between the two sources.</a>", "<div class='og-tooltip-mb' id='define-abilities-major-differences'><strong>Major Differences:</strong> These abilities share a name, but their exact mechanics differ depending on the source of the ability.</div>"]]);
+		chx += getBody(["Abilities are noted by their source&mdash;for example, a <a href='#define-type'>type</a>, a <a href='#define-focus'>focus</a> and <a href='#define-tier'>tier</a>, or an ability list associated with a <a href='#define-genre'>genre</a>.", ["<div class='og-tooltip-mb' id='define-abilities-minor-differences'><strong>Minor Differences:</strong> These abilities have several entries in the <a href='https://www.montecookgames.com/store/product/cypher-corebooks/'>Cypher Character Rulebook</a> with different phrasing, but identical mechanics. The OG-CRD condenses these to a single entry, so you may notice small discrepancies between the two sources.</a>", "<div class='og-tooltip-mb' id='define-abilities-major-differences'><strong>Major Differences:</strong> These abilities share a name with another ability, but the exact mechanics differ depending on the source of the ability.</div>"]]);
 		// quick ref
 		alert = createHeader(4, "choose-ability-categories", "Quick-Reference: Ability Categories", "h6");
+		alert += "<p class='small'>&dagger; &mdash; <em>Ability with major differences</em>";
 		alert += "<ul class='list-unstyled og-qr'>";
 		alert += "<li><a href='#choose-ability-type'>Type</a></li>";
 		for (let t = 1; t < 7; t++) {
