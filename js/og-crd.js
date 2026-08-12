@@ -3457,7 +3457,7 @@ function getAbility(ability, refs) {
 				for (let t = 0; t < typeList.length; t++) {
 					for (let ta = 0; ta < typeList[t].abilities.length; ta++) {
 						if (abilityList[a].name == typeList[t].abilities[ta]) {
-							ab += "<li class='og-tag-primary'><a href='#" + createID("define-type-" + typeList[t].name) + "'>Type (" + typeList[t].name + ")</a></li>";
+							ab += "<li class='og-tag-advanced'><a href='#" + createID("define-type-" + typeList[t].name) + "'>Type (" + typeList[t].name + ")</a></li>";
 						}
 					}
 				}
@@ -3466,7 +3466,7 @@ function getAbility(ability, refs) {
 					for (ft = 0; ft < focusList[f].abilities.length; ft++) {
 						for (let fa = 0; fa < focusList[f].abilities[ft].length; fa++) {
 							if (abilityList[a].name == focusList[f].abilities[ft][fa].name) {
-								ab += "<li class='og-tag-primary'><a a href='#" + createID("define-focus-" + focusList[f].name) + "'>Focus (" + focusList[f].name + ", Tier " + (ft + 1) + ")</a></li>";
+								ab += "<li class='og-tag-high'><a a href='#" + createID("define-focus-" + focusList[f].name) + "'>Focus (" + focusList[f].name + ", Tier " + (ft + 1) + ")</a></li>";
 							}
 						}
 					}
@@ -3476,7 +3476,7 @@ function getAbility(ability, refs) {
 					if (genreList[g].abilitiesorigin != undefined) {
 						for (ga = 0; ga < genreList[g].abilitiesorigin.length; ga++) {
 							if (abilityList[a].name == genreList[g].abilitiesorigin[ga]) {
-								ab += "<li class='og-tag-primary'><a href='#define-genre-superheroes-advancement'>Origin Superhero Ability</a></li>";
+								ab += "<li class='og-tag-power'><a href='#define-genre-superheroes-advancement'>Origin Superhero Ability</a></li>";
 							}
 						}
 					}
@@ -3910,7 +3910,7 @@ function getSection(ch) {
 						skill += "<ul class='og-list-tag'>";
 						// mark skill type
 						if (skillList[sk].combat == true) { skill += "<li class='og-tag-danger'><a href='#define-skill'>Combat Skill</a></li>"; }
-						else { skill += "<li><a href='#define-skill'>Noncombat Skill</a></li>"; }
+						else { skill += "<li class='og-tag-low'><a href='#define-skill'>Noncombat Skill</a></li>"; }
 						if (skillList[sk].tierrestricted == true) {
 							skill += "<li class='og-tag-danger'><a href='#define-skill'>Tier-Restricted</a></li>";
 						}
@@ -3970,7 +3970,7 @@ function getSection(ch) {
 						desc += createHeader(4, createID("descriptor-" + descriptorList[d].name), descriptorList[d].name, "og-border");
 						desc += createRef(descriptorList[d].ref);
 						desc += "<ul class='og-list-tag'>";
-						desc += "<li class='og-tag-low'><a href='#define-descriptor'>Descriptor</a></li>";
+						desc += "<li class='og-tag-medium'><a href='#define-descriptor'>Descriptor</a></li>";
 						desc += "</ul>";
 						desc += "<p>" + descriptorList[d].description + "</p>";
 						desc += "<p><strong>You gain the following characteristics:</strong></p>";
@@ -4002,7 +4002,7 @@ function getSection(ch) {
 						species += createHeader(4, createID("type-" + speciesList[sp].name), speciesList[sp].name, "og-border");
 						species += createRef(speciesList[sp].ref);
 						species += "<ul class='og-list-tag'>";
-						species += "<li class='og-tag-medium'><a href='#define-species'>Species</a></li>";
+						species += "<li class='og-tag-advanced'><a href='#define-species'>Species</a></li>";
 						if (speciesList[sp].genres != undefined) { 
 							for (g = 0; g < speciesList[sp].genres.length; g++) {
 								species += "<li class='og-tag-primary'><a href='#" + createID("define-genre-" + speciesList[sp].genres[g]) + "'>" + speciesList[sp].genres[g] + "</a></li>";
@@ -4032,11 +4032,11 @@ function getSection(ch) {
 						type += createHeader(4, createID("type-" + typeList[t].name), typeList[t].name, "og-border");
 						type += createRef(typeList[t].ref);
 						type += "<ul class='og-list-tag'>";
-						type += "<li class='og-tag-advanced'><a href='#define-type'>Type</a></li>";
+						type += "<li class='og-tag-high'><a href='#define-type'>Type</a></li>";
 						// genres
 						for (g = 0; g < typeList[t].genres.length; g++) {
 							if (typeList[t].genres[g] == "Superheroes") {
-								type += "<li class='og-tag-primary'><a href='#" + createID("define-genre-" + typeList[t].genres[g]) + "'>Superhero (Rank " + typeList[t].rank + ")</a></li>";
+								type += "<li class='og-tag-power'><a href='#" + createID("define-genre-" + typeList[t].genres[g]) + "'>Superhero (Rank " + typeList[t].rank + ")</a></li>";
 							}
 							else {
 								type += "<li class='og-tag-primary'><a href='#" + createID("define-genre-" + typeList[t].genres[g]) + "'>" + typeList[t].genres[g] + "</a></li>";
@@ -4123,7 +4123,7 @@ function getSection(ch) {
 						focusDef += createHeader(4, createID("focus-" + focusList[f].name), focusList[f].name, "og-border");
 						focusDef += createRef([focusList[f].ref]);
 						focusDef += "<ul class='og-list-tag'>";
-						focusDef += "<li class='og-tag-high'><a href='#define-focus'>Focus</a></li>"
+						focusDef += "<li class='og-tag-ultra'><a href='#define-focus'>Focus</a></li>"
 						// genre and themes
 						for (g = 0; g < focusList[f].genres.length; g++) {
 							focusDef += "<li class='og-tag-primary'><a href='#" + createID("define-genre-" + focusList[f].genres[g].name) + "'>" + focusList[f].genres[g].name + " (" + focusList[f].genres[g].theme + ")</a></li>";
