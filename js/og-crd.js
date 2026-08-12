@@ -1,5 +1,5 @@
 // versioning
-const version = "1.00j";
+const version = "1.00k";
 const updated = "2026-08-11";
 const printerror = "<p class='btn btn-danger'>!ERR</p>"; // reusable error throw for searching and debugging
 // user variables
@@ -2296,7 +2296,7 @@ const abilityList = [
 	{ name: "Skill Exemplar", ref: ["CCR 141",], effects: ["You are among the best of the best when it comes to your area of expertise. Choose one skill that you are trained or specialized in (other than an attack skill or defense skill), such as healing, athletics, stealth, physics, pickpocketing, hacking, gymnastics, and so on. When you roll for this skill and your roll is less than a 15, treat the roll as a 15. (This means you don't get a GM intrusion if you roll a 1.)", "<em>Effort:</em> Increase the minimum number rolled for this ability by 3.", "<em>At tier 3:</em> The minimum number rolled for this ability increases to 18.", ], }, 
 	{ name: "Sleeker Beast Form", ref: ["CCR 191",], effects: ["When you use Beast Form, your beast form gains the following additional bonuses: +1 to your Might Edge, +2 to your Speed Pool, and +1 to your Speed Edge. Enabler."], }, 
 	{ name: "Sleuthing", dupminor: true, ref: ["CCR 130", "CCR 218",], cost: 3, pool: "Intellect", effects: ["When you're tracking a target of interest, looking for anything out of the ordinary (such as a clue or a single piece of evidence) at the scene of interest, or otherwise attempting to learn something about a mystery, you can ask the GM one question about the task and get a very short helpful answer that might be obvious to the character, but not to the player who doesn't have their character's experience. Action."], }, 
-	{ name: "Slip Into Shadow-v1", dupmajor: true, ref: ["CCR 76", "CCR 230",], effects: ["Even if in full view of a creature, your successful stealth task allows you to slip away from that creature and hide from view in a nearby shadow, behind a tree or furnishing, or in the next room as your action.", "<em>Effort:</em> Attempt to slip away from one additional target looking directly at you (attempt a separate stealth task against each).", "Enabler.", "<em>At tier 3:</em> You can attempt to hide from two additional creatures, whether or not you use Effort.", ], }, 
+	{ name: "Slip Into Shadow-v1", dupmajor: true, ref: ["CCR 76",], effects: ["Even if in full view of a creature, your successful stealth task allows you to slip away from that creature and hide from view in a nearby shadow, behind a tree or furnishing, or in the next room as your action.", "<em>Effort:</em> Attempt to slip away from one additional target looking directly at you (attempt a separate stealth task against each).", "Enabler.", "<em>At tier 3:</em> You can attempt to hide from two additional creatures, whether or not you use Effort.", ], }, 
 	{ name: "Slip Into Shadow-v2", dupmajor: true, ref: ["CCR 230",], cost: 0, plus: true, pool: "Intellect", effects: ["Even if in full view of a target, your successful stealth task allows you to slip away from that creature and hide from view in a nearby shadow, behind a tree or furnishing, or in the next room as your action.", "<em>Effort:</em> Increase the number of creatures you can hide from by one (attempt a separate stealth task against each).", "Enabler.", "<em>At tier 3:</em> The base number of targets you can attempt to hide from increases to three.", ], sidebar: "<p>Slipping into shadow and other stealth-based tasks for someone who Walks Through Walls is partly enabled by their ability to phase into translucence.</p>", }, 
 	{ name: "Slippery Customer", ref: ["CCR 217",], effects: ["You ignore all penalties from very dim light and darkness.", "You ignore penalties for actions in cramped spaces.", "You gain an asset on stealth tasks in dim light, very dim light, and darkness."], }, 
 	{ name: "Smooth Operator", ref: ["CCR 107",], cost: 2, plus: true, pool: "Intellect", effects: ["You purchase an expensive item for the cost of a moderately priced item. You can only use this ability in a location where services and items are routinely bought and sold.", "<em>Effort:</em> Purchase a very expensive item for the cost of an expensive item (this requires two levels of Effort). Purchase an exorbitant item for the cost of a very expensive item (this requires four levels of Effort).", "This ability renews when you access a new market or when at least a month has elapsed at the same market where you last used this ability.", "Enabler.", "<em>At tier 3:</em> You can use this ability twice before it must be renewed by going somewhere else or letting enough time pass.", ], }, 
@@ -3512,6 +3512,58 @@ function getAbility(ability, refs) {
 	}
 	return printerror;
 };
+function getAbilityIndex(abilityID, source, tier) {
+	// set up return
+	let aname = abilityList[abilityID].name;
+	if (abilityList[abilityID].dupmajor == true) { aname = aname.slice(0, -3); }
+	let li = "<li><a href='#" + createID("define-ability-" + abilityList[abilityID].name) + "'>" + aname + "</a></li>";
+	// return type abilities
+	if (source == "type") {
+		for (let t = 0; t < typeList.length; t++) {
+			for (let ta = 0; ta < typeList[t].abilities.length; ta++) {
+				if (abilityList[abilityID].name == typeList[t].abilities[ta]) {
+					return li;
+				}
+			}
+		}
+	}
+	// return tier abilities
+	else if (source == "tier") {
+		// is a focus ability at this tier
+		for (let f = 0; f < focusList.length; f++) {
+			for (let fa = 0; fa < focusList[f].abilities[tier].length; fa++) {
+				if (abilityList[abilityID].name == focusList[f].abilities[tier][fa].name) { 
+					return li;
+				}
+			}
+		}
+		// is a genre ability at tier 3
+		if ((tier + 1) == 3) {
+			for (let g = 0; g < genreList.length; g++) {
+				if (genreList[g].abilitiesmid != undefined) {
+					for (let ga = 0; ga < genreList[g].abilitiesmid.length; ga++) {
+						if (abilityList[abilityID].name == genreList[g].abilitiesmid[ga]) {
+							return li;
+						}
+					}
+				}
+			}
+		}
+		// is a genre ability at tier 6
+		if ((tier + 1) == 6) {
+			for (let g = 0; g < genreList.length; g++) {
+				if (genreList[g].abilitieshigh != undefined) {
+					for (let ga = 0; ga < genreList[g].abilitieshigh.length; ga++) {
+						if (abilityList[abilityID].name == genreList[g].abilitieshigh[ga]) {
+							return "<li><a href='#" + createID("define-ability-" + abilityList[abilityID].name) + "'>" + aname + "</a></li>";
+						}
+					}
+				}
+			}
+		}
+	}
+	return ""; // no returns
+}
 function getBody(p) {
 	let body = "";
 	for (let e = 0; e < p.length; e++) {
@@ -5159,28 +5211,42 @@ function getSection(ch) {
 		chx += createRef(["Editorial Addition"]);
 		chx += getBody(["Abilities are noted by their source&mdash;for example, a <a href='#define-type'>type</a>, a <a href='#define-focus'>focus</a> and <a href='#define-tier'>tier</a>, or an ability list associated with a <a href='#define-genre'>genre</a>.", ["<div class='og-tooltip-mb' id='define-abilities-minor-differences'><strong>Minor Differences:</strong> These abilities have several entries in the <a href='https://www.montecookgames.com/store/product/cypher-corebooks/'>Cypher Character Rulebook</a> with different phrasing, but identical mechanics. The OG-CRD condenses these to a single entry, so you may notice small discrepancies between the two sources.</a>", "<div class='og-tooltip-mb' id='define-abilities-major-differences'><strong>Major Differences:</strong> These abilities share a name, but their exact mechanics differ depending on the source of the ability.</div>"]]);
 		// quick ref
-		alert = createHeader(4, "choose-ability-index", "Quick-Reference: Ability Index", "h6");
-		alert += "<ul class='list-inline'>";
+		alert = createHeader(4, "choose-ability-categories", "Quick-Reference: Ability Categories", "h6");
+		alert += "<ul class='list-unstyled og-qr'>";
+		alert += "<li><a href='#choose-ability-type'>Type</a></li>";
+		for (let t = 1; t < 7; t++) {
+			alert += "<li><a href='#choose-ability-tier-'" + t + "'>Tier " + t + "</a></li>"
+		}
+		alert += "<li><a href='#genre-fantasy-abilities-mid-tier'>Fantasy (Mid-Tier)</a></li>";
+		alert += "<li><a href='#genre-fantasy-abilities-high-tier'>Fantasy (High-Tier)</a></li>";
+		alert += "<li><a href='#genre-science-fiction-abilities-mid-tier'>Science Fiction (Mid-Tier)</a></li>";
+		alert += "<li><a href='#genre-science-fiction-abilities-high-tier'>Science Fiction (High-Tier)</a></li>";
+		alert += "<li><a href='#genre-superheroes-abilities-origin'>Superheroes (Origin)</a></li>";
+		alert += "<li><a href='#genre-superheroes-abilities-mid-tier'>Superheroes (Mid-Tier)</a></li>";
+		alert += "<li><a href='#genre-superheroes-abilities-high-tier'>Superheroes (High-Tier)</a></li>";
+		alert += "</ul>";
+		alert += createHeader(5, "choose-ability-alpha", "Quick-Reference: Abilities in Alphabetical Order", "h6");
+		alert += "<ul class='list-unstyled'>";
 		for (let alpha = 0; alpha < abilitySortList.length; alpha++) {
 			alert += "<li class='list-inline-item pe-2'><a href='#" + createID("abilities-" + abilitySortList[alpha]) + "'>" + abilitySortList[alpha] + "</a></li>";
 		}
 		alert += "</ul>";
-		alert += createHeader(4, "choose-ability-index-minor", "Quick-Reference: Abilities with Minor Differences", "h6");
+		// abilities by type
+		alert += createHeader(5, "choose-ability-type", "Quick-Reference: Type Abilities", "h6");
 		alert += "<ul class='list-unstyled og-qr og-qr-abilities'>";
-		for (let m = 0; m < abilityList.length; m++) {
-			if (abilityList[m].dupminor == true) {
-				alert += "<li><a href='#" + createID("define-ability-" + abilityList[m].name) + "'>" + abilityList[m].name + "</a></li>";
-			}
+		for (let a = 0; a < abilityList.length; a++) {
+			alert += getAbilityIndex(a, "type", undefined);
 		}
 		alert += "</ul>";
-		alert += createHeader(4, "choose-ability-index-major", "Quick-Reference: Abilities with Major Differences", "h6");
-		alert += "<ul class='list-unstyled og-qr og-qr-abilities'>";
-		for (let m = 0; m < abilityList.length; m++) {
-			if (abilityList[m].dupmajor == true) {
-				alert += "<li><a href='#" + createID("define-ability-" + abilityList[m].name) + "'>" + abilityList[m].name.slice(0, -3) + "</a></li>";
+		// abilities by tier
+		for (let t = 0; t < 6; t++) {
+			alert += createHeader(5, ("choose-ability-tier-" + (t + 1)), ("Quick-Reference: Tier " + (t + 1) + " Abilities"), "h6");
+			alert += "<ul class='list-unstyled og-qr og-qr-abilities'>";
+			for (let a = 0; a < abilityList.length; a++) {
+				alert += getAbilityIndex(a, "tier", t);
 			}
+			alert += "</ul>";
 		}
-		alert += "</ul>";
 		chx += createAlert(alert);
 		for (let alpha = 0; alpha < abilitySortList.length; alpha++) {
 			chx += createHeader(4, createID("abilities-" + abilitySortList[alpha]), ("Abilities&mdash;" + abilitySortList[alpha]), "og-border");
