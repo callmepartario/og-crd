@@ -3457,7 +3457,7 @@ function getAbility(ability, refs) {
 				for (let t = 0; t < typeList.length; t++) {
 					for (let ta = 0; ta < typeList[t].abilities.length; ta++) {
 						if (abilityList[a].name == typeList[t].abilities[ta]) {
-							ab += "<li class='og-tag-advanced'><a href='#" + createID("define-type-" + typeList[t].name) + "'>Type (" + typeList[t].name + ")</a></li>";
+							ab += "<li class='og-tag-high'><a href='#" + createID("define-type-" + typeList[t].name) + "'>Type (" + typeList[t].name + ")</a></li>";
 						}
 					}
 				}
@@ -3466,7 +3466,7 @@ function getAbility(ability, refs) {
 					for (ft = 0; ft < focusList[f].abilities.length; ft++) {
 						for (let fa = 0; fa < focusList[f].abilities[ft].length; fa++) {
 							if (abilityList[a].name == focusList[f].abilities[ft][fa].name) {
-								ab += "<li class='og-tag-high'><a a href='#" + createID("define-focus-" + focusList[f].name) + "'>Focus (" + focusList[f].name + ", Tier " + (ft + 1) + ")</a></li>";
+								ab += "<li class='og-tag-ultra'><a a href='#" + createID("define-focus-" + focusList[f].name) + "'>Focus (" + focusList[f].name + ", Tier " + (ft + 1) + ")</a></li>";
 							}
 						}
 					}
@@ -3496,7 +3496,7 @@ function getAbility(ability, refs) {
 					}
 				}
 				if (abilityList[a].dupminor == true) {
-					ab += "<li class='og-tag-low'><a href='#define-abilities-minor-differences'>Minor Differences</a></li>";
+					ab += "<li class='og-tag-medium'><a href='#define-abilities-minor-differences'>Minor Differences</a></li>";
 				}
 				else if (abilityList[a].dupmajor == true) {
 					ab += "<li class='og-tag-danger'><a href='#define-abilities-major-differences'>Major Differences</a></li>";
