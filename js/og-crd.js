@@ -1,5 +1,5 @@
 // versioning
-const version = "1.00m";
+const version = "1.00n";
 const updated = "2026-08-11";
 const mark = "<span class='ps-1'>&dagger;</span>";
 const printerror = "<p class='btn btn-danger'>!ERR</p>"; // reusable error throw for searching and debugging
@@ -3427,8 +3427,7 @@ function getAbility(ability, refs) {
 					for (let li = 0; li < abilityList[a].effects[e].length; li++) {
 						// account for intra-list paragraphs
 						if (Array.isArray(abilityList[a].effects[e][li])) {
-							ab += "<li>"; 
-
+							ab += "<li>";
 							for (let lie = 0; lie < abilityList[a].effects[e][li].length; lie++) {
 								ab += "<p class='mb-1'>" + abilityList[a].effects[e][li][lie]; + "</p>";
 							}
@@ -3457,11 +3456,12 @@ function getAbility(ability, refs) {
 				for (let t = 0; t < typeList.length; t++) {
 					for (let ta = 0; ta < typeList[t].abilities.length; ta++) {
 						if (abilityList[a].name == typeList[t].abilities[ta]) {
-							ab += "<li class='og-tag-high'><a href='#" + createID("define-type-" + typeList[t].name) + "'>Type (" + typeList[t].name + ")</a></li>";
+							if (typeList[t].rank != undefined) { ab += "<li class='og-tag-power'><a href='#" + createID("define-type-" + typeList[t].name) + "'>Type (" + typeList[t].name + ")</a></li>"; }
+							else { ab += "<li class='og-tag-high'><a href='#" + createID("define-type-" + typeList[t].name) + "'>Type (" + typeList[t].name + ")</a></li>"; }
 						}
 					}
 				}
-				// ability types
+				// ability foci
 				for (let f = 0; f < focusList.length; f++) {
 					for (ft = 0; ft < focusList[f].abilities.length; ft++) {
 						for (let fa = 0; fa < focusList[f].abilities[ft].length; fa++) {
@@ -4186,7 +4186,7 @@ function getSection(ch) {
 								// tier and focus reminder for tooltips
 								faDef += "<ul class='og-list-tag og-tooltip-only'><li class='og-tag-primary'>Tier " + tier + " (" + focusList[f].name + ")</li></ul>";
 								// genre restriction
-								if (focusList[f].abilities[t][a].genre == true) { faDef += "<ul class='og-list-tag'><li class='og-tag-danger'>Genre-Restricted Ability</li></ul>"; }
+								if (focusList[f].abilities[t][a].genre == true) { faDef += "<ul class='og-list-tag'><li class='og-tag-power'>Genre-Restricted Ability</li></ul>"; }
 								// prerequisites, requirements, and advanced oxford comma logic
 								if (focusList[f].abilities[t][a].req != undefined) {
 									faDef += "<p class='fst-italic og-tooltip-omit'>Requires ";
