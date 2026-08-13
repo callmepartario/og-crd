@@ -2645,7 +2645,7 @@ const genreList = [
 		manifestcyphers: ["Usually none.", ], 
 		backgroundoptions: [["Life has been good to you for the most part. Now you feel like it's time to give back in some way&mdash;to volunteer, work for a charity, or take on some other new role that has a positive social component.", "You finally landed your dream job after years of hard work, only to have it eliminated. Now you're not sure what to do&mdash;though you do need to pay the bills.", "You've been working in your profession for years and had some success. But now you're feeling burned out and are looking for something different, or at least a break.", "You were raised in a loving family and were quite close to your siblings. However, one of them disappeared without a trace a few years ago, and you promised yourself you'd find them one day.", "Your spouse died five years ago, and only now do you feel like you're up for restarting your life.", "Your research partner and friend stole your research and published it as if they'd done the work. Nothing you can do about that, but now you're looking for validation and recognition elsewhere.", "A relative left you a large inheritance, but you've always abhorred how they made their money. You've sworn to give it all away to a charity or other group doing prosocial work.", "As the child of missionaries, you spent your young life traveling. As an adult, you haven't decided if you share your parents' faith, but you've definitely got their penchant for travel.", "One of your parents was a famous entertainer, but you never saw that as a plus. You spend most of your time trying to evade the notice of others, especially as it relates to fame.", "When you were young, you were positive magic was real. As you've grown older and wiser, you've come to realize you were probably wrong, and the sadness of that realization remains.", "Your medical practice was too small to go it alone in the face of all the consolidation and insurance overheads, so you shuttered it and are considering your options.", "You served in the military. You saw things during that time that left you questioning your choices and decided to go into business for yourself&mdash;but doing what?", ], ], 
 		currency: ["Currency underlying price categories is whatever is used in the setting&mdash;for example, dollars, euros, pounds, or pesos.", ], 
-		equipment: ["Choose the following from these equipment tables, or use the Real World Equipment Bundle:", ["Appropriate clothing", "One expensive item", "Five moderately priced items", "Up to six inexpensive items", "Currency equivalent to a moderately priced item"], "<strong>Real World Equipment Bundle:</strong> Appropriate clothing, a raincoat, a used vehicle, a smartphone, a smartwatch or wireless earbuds, a laptop or tablet computer, a basic purse or wallet, a sticky notes pad and pen, a tin of breath fresheners, a bottle of painkillers, and a penknife. You have currency equivalent to a <a href='#define-currency'>moderately priced item</a>", ], 
+		equipment: ["Choose the following from these equipment tables, or use the Real World Equipment Bundle:", ["Appropriate clothing", "One expensive item", "Five moderately priced items", "Up to six inexpensive items", "Currency equivalent to a <a href='#define-currency'>moderately priced item</a>"], ], 
 		equipmenttable: "Real World", 
 		wounds: ["True to its name, the real world is a <strong>realistic</strong> genre.", ], 
 		advancement: [["<em>At tier 3:</em> You gain training in a <a href='#define-skill'>skill</a>.", "<em>At tier 6:</em> you gain training in a <a href='#define-skill'>skill</a>.",], ], 
@@ -3318,6 +3318,7 @@ function createID(label) {
 	id = id.replace("&mdash;", "");
 	id = id.replace("&ndash;", "");
 	id = id.replace("&mldr;", "");
+	id = id.replace("/", "-");
 	id = id.replace(/\s/g, "-");
 	return id;
 };
@@ -4650,6 +4651,18 @@ function getSection(ch) {
 							chx += "</div>"; // close item
 							// end double wrap
 						}
+					}
+					if (gname == "Real World") {
+						chx += "<div class='accordion-item'>"; // open item
+						chx += "<h" + (h + 2) + " class='accordion-header' id='real-world-equipment-bundle'>";
+						chx += "<button class='accordion-button collapsed text-uppercase p-2' type='button' data-bs-toggle='collapse' data-bs-target='#real-world-equipment-bundle-collapse' aria-expanded='false' aria-controls='real-world-equipment-bundle-collapse'>Real World Equipment Bundle</button>";
+						chx += "</h" + (h + 2) + ">";
+						chx += "<div id='real-world-equipment-bundle-collapse' class='accordion-collapse collapse' aria-labelledby='real-world-equipment-bundle'>"; // open collapse
+						chx += "<div class='accordion-body p-2 pt-3 og-stripe'>"; // open body
+						chx += getBody([["appropriate clothing", "raincoat", "<a href='#define-equipment-real-world-very-expensive-used-car'>used car</a>", "<a href='#define-equipment-real-world-expensive-smartphone'>smartphone</a>", "smartwatch or wireless earbuds", "<a href='#define-equipment-real-world-expensive-computer-laptop'>laptop or tablet computer</a>", "purse or wallet", "sticky notes pad and pen", "tin of breath fresheners", "bottle of painkillers", "<a href='#define-equipment-real-world-inexpensive-knife-simple'>penknife</a>", "currency equivalent to a <a href='#define-currency'>moderately priced item</a>"]]);
+						chx += "</div>"; // close body
+						chx += "</div>"; // close collapse
+						chx += "</div>"; // close item
 					}
 					chx += "</div>"; // close accordion
 					chx += "<div class='mb-3'></div>"; // space accordion
