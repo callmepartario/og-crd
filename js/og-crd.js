@@ -3892,11 +3892,21 @@ function getSection(ch) {
 		return chx;
 	}
 	else if (sectionList[ch].name == "Player Characters") { 
-		alert = createHeader(3, "choose-characteristic", "Quick-Reference: Player Characters", "h6");
+		alert = createHeader(3, "choose-characteristic", "Quick-Reference: Characteristics", "h6");
 		alert += "<ul class='list-unstyled og-qr-compact'>";
 		alert += "<li><a href='#define-character'>Characters</a></li>";
 		for (let qr = 0; qr < characteristicList.length; qr++) {
 			alert += "<li><a href='#" + createID("define-" + characteristicList[qr].dt) + "'>" + characteristicList[qr].dt + "</a></li>";
+			if (characteristicList[qr].dt == "Abilities") {
+				alert += "</ul>";
+				alert += createHeader(4, "choose-character-sentence", "Quick-Reference: Character Sentence", "h6");
+				alert += "<ul class='list-unstyled og-qr-compact'>";
+			}
+			else if (characteristicList[qr].dt == "Focus") {
+				alert += "</ul>";
+				alert += createHeader(4, "choose-character-resources", "Quick-Reference: Character Resources", "h6");
+				alert += "<ul class='list-unstyled og-qr-compact'>";
+			}
 		}
 		alert += "</ul>";
 		chx += createAlert(alert);
