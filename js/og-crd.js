@@ -2706,6 +2706,9 @@ const genreList = [
 		typeoptions: ["Cleric", "Druid", "Mage", "Necromancer", "Priest", "Sorcerer", "Witch", "Wizard"], 
 		focus: ["The GM might incorporate these magic <a href='#define-focus'>foci</a>:"], 
 		focusoptions: ["Abides in Stone", "Blazes With Fire", "Casts Spells", "Commands Mental Powers", "Consorts With the Dead", "Controls Beasts", "Crafts Illusions", "Howls at the Moon", "Masters Telekinesis", "Reveres a Supernatural Force", "Rides the Lightning", "Speaks for the Land", "Strikes With Mystic Might", "Wears a Sheen of Ice"], 
+		advancement: ["The GM might incorporate magic abilities from the <a href='#define-genre-fantasy-advancement'>fantasy genre lists</a>:"], 
+		abilitiesmid: ["A Bit of Magic", "Elemental Protection", "Pry Open Defense"], 
+		abilitieshigh: ["Concussive Force", "Invisibility", "Magic Portal", "Mask", "Spellbreaker"], 
 	}, 
 	{
 		genre: "Fantasy", 
@@ -2890,7 +2893,7 @@ const tableList = [
 		name: "Attacking",
 		ref: ["298"], 
 		cols: ["Type", "Range", "Stat"], 
-		colstyle: ["", "text-center", "text-center"], 
+		colstyle: ["", "", ""], 
 		rows: [["Melee", "<a href='#define-range'>Immediate</a>", "<a href='#define-stat'>Might</a> or <a href='#define-stat'>Speed</a>"], ["Ranged", "<a href='#define-range'>Short</a> or further, hindered at extreme range", "<a href='#define-stat'>Speed</a>"], ["Special Ability", "<em>Varies</em>", "<em>Varies (usually tied to ability cost)</em>"], ], 
 	},
 	{
@@ -2949,7 +2952,7 @@ const tableList = [
 		ref: ["CCR 294"], 
 		cols: ["Range", "Approximate Distance", "Movement"], 
 		colstyle: [" og-nowrap", "text-center"], 
-		rows:[["Immediate", "10 feet (3.5 m)", "Move and take an <a href='#define-action'>action</a>."], ["Short", "50 feet (16 m)", "Move as an <a href='#define-action'>action</a>, or move and take an <a href='#define-action'>action</a>, but all your tasks are hindered until the end of your next turn."], ["Long", "100 feet (30 m)", "Move as a <a href='#define-action'>Last action</a>, but all your tasks are hindered by two steps until the end of your next turn."], ["Very long", "500 feet (150 m)", "&mdash;"], ],
+		rows:[["Immediate", "<span class='og-nowrap'>10 feet </span><span class='og-nowrap'>(3.5 m)</span>", "Move and take an <a href='#define-action'>action</a>."], ["Short", "<span class='og-nowrap'>50 feet </span><span class='og-nowrap'>(16 m)</span>", "Move as an <a href='#define-action'>action</a>, or move and take an <a href='#define-action'>action</a>, but all your tasks are hindered until the end of your next turn."], ["Long", "<span class='og-nowrap'>100 feet </span><span class='og-nowrap'>(30 m)</span>", "Move as a <a href='#define-action'>Last action</a>, but all your tasks are hindered by two steps until the end of your next turn."], ["Very long", "<span class='og-nowrap'>500 feet </span><span class='og-nowrap'>(150 m)</span>", "&mdash;"], ],
 	}, 
 	{
 		name: "Wounds",
@@ -2983,8 +2986,8 @@ const tableList = [
 		name: "Recoveries",
 		ref: ["CCR 12", "CCR 301"], 
 		cols: ["Recovery Time", "Pool Points", "Effects"], 
-		colstyle: ["og-nowrap", "og-nowrap text-center", "", ""], 
-		rows: [["One-action", "1d6 + <a href='#define-tier'>tier</a>", "If used as a <a href='#define-action'>Last action</a>, add +2 to the roll."], ["Ten-minute", "1d6 + <a href='#define-tier'>tier</a>", "Remove <em>all</em> <a href='#define-wound'>minor wounds</a>"], ["One-hour", "1d6 + <a href='#define-tier'>tier</a>", "Remove one <a href='#define-wound'>moderate wound</a> or <em>all</em> <a href='#define-wound'>minor wounds</a>"], ["Ten-hour", "1d6 + <a href='#define-tier'>tier</a>", "Remove <em>all</em> <a href='#define-wound'>moderate wounds</a>. You can remove <em>all</em> <a href='#define-wound'>minor wounds</a> instead of one <a href='#define-wound'>moderate wound</a>. If you succeed a difficulty 6 Might task, remove one <a href='#define-wound'>major wound</a>."], ], 
+		colstyle: ["", "og-nowrap text-center", "", ""], 
+		rows: [["One-action", "1d6 + <a href='#define-tier'>tier</a>", "If used as a <a href='#define-action'>Last action</a>, add +2 to the roll."], ["Ten-minute", "1d6 + <a href='#define-tier'>tier</a>", "Remove <em>all</em> <a href='#define-wound'>minor wounds</a>"], ["One-hour", "1d6 + <a href='#define-tier'>tier</a>", "Remove one <a href='#define-wound'>moderate wound</a> or <em>all</em> <a href='#define-wound'>minor wounds</a>"], ["Ten-hour", "1d6 + <a href='#define-tier'>tier</a>", "Remove <em>all</em> <a href='#define-wound'>moderate wounds</a>. You can remove <em>all</em> <a href='#define-wound'>minor wounds</a> instead of one <a href='#define-wound'>moderate wound</a>. If you succeed a difficulty 6 <a href='#define-stat'>Might</a> task, remove one <a href='#define-wound'>major wound</a>."], ], 
 	}, 
 	{ 
 		name: "Cypher Crafting Requirements", 
@@ -3568,17 +3571,21 @@ function getAbility(ability, refs) {
 							}
 						}
 					}
+					let gname = genreList[g].genre;
+					if (genreList[g].subgenre != undefined) {
+						gname = genreList[g].subgenre;
+					}
 					if (genreList[g].abilitiesmid != undefined) {
 						for (ga = 0; ga < genreList[g].abilitiesmid.length; ga++) {
 							if (abilityList[a].name == genreList[g].abilitiesmid[ga]) {
-								ab += "<li class='og-tag-primary'><a href='#" + createID("define-genre-" + genreList[g].genre + "-advancement") + "'>Mid-Tier Ability (" + genreList[g].genre + ")</a></li>";
+								ab += "<li class='og-tag-primary'><a href='#" + createID("define-genre-" + gname + "-advancement") + "'>Mid-Tier Ability (" + gname + ")</a></li>";
 							}
 						}
 					}
 					if (genreList[g].abilitieshigh != undefined) {
 						for (ga = 0; ga < genreList[g].abilitieshigh.length; ga++) {
 							if (abilityList[a].name == genreList[g].abilitieshigh[ga]) {
-								ab += "<li class='og-tag-primary'><a href='#" + createID("define-genre-" + genreList[g].genre + "-advancement") + "'>High-Tier Ability (" + genreList[g].genre + ")</a></li>";
+								ab += "<li class='og-tag-primary'><a href='#" + createID("define-genre-" + gname + "-advancement") + "'>High-Tier Ability (" + gname + ")</a></li>";
 							}
 						}
 					}
@@ -3863,7 +3870,7 @@ function getGenreList(genre, subgenre, option, style, alert) {
 								let aname = abilityList[li].name;
 								if (abilityList[li].dupmajor == true) { aname = aname.slice(0, -3); }
 								i += "<li>" + getDef(createID("ability-" + abilityList[li].name), aname);
-								if (abilityList[li].note == "Magic") { i += mark; }
+								if (genreList[g].genre == "Fantasy" && abilityList[li].note == "Magic") { i += mark; }
 								i += "</li>";
 							}
 						}
@@ -3877,7 +3884,7 @@ function getGenreList(genre, subgenre, option, style, alert) {
 								let aname = abilityList[li].name;
 								if (abilityList[li].dupmajor == true) { aname = aname.slice(0, -3); }
 								i += "<li>" + getDef(createID("ability-" + abilityList[li].name), aname);
-								if (abilityList[li].note == "Magic") { i += mark; }
+								if (genreList[g].genre == "Fantasy" && abilityList[li].note == "Magic") { i += mark; }
 								i += "</li>";
 							}
 						}
@@ -3898,11 +3905,11 @@ function getSection(ch) {
 	if (sectionList[ch].name == "Introduction") { 
 		chx = "";
 		chx += "<p class='lead'>Welcome Reader&mdash;</p>";
-		chx += getBody(["<strong>Old Gus' Cypher Reference Document (OG-CRD)</strong> is a hypertext version of the <a href='https://col.montecookgames.com/license/'>Cypher Reference Document</a> (revised July 29, 2026), published under the <a href=' http://col.montecookgames.com'>Cypher Open License</a>.", "This document has been edited and condensed. You can use this edition to quickly look up rules, share them with others, or copy text into a character sheet that works for you. Don't mistake anything you read here for the \"rules as written\".", "The OG-CRD contains most of the text of the <a href='https://www.montecookgames.com/store/product/cypher-corebooks/'>Cypher Character Rulebook</a>, but it is not a replacement for the real thing, which contains additional information, examples of play, and advice for playing Cypher&mdash;not to mention gorgeous artwork and the seductive odor of cardboard and book glue.", "You may also find some good use for material from <a href='https://callmepartario.github.io/og-csrd'>Old Gus' Cypher System Reference Document</a>, which covers the prior edition of the game published from 2015&ndash;2025.", "Thanks to <a href='https://www.montecookgames.com/'>Monte Cook Games</a> for this amazing resource, and thank you for reading&mdash;may this record bring you and yours many happy adventures!"]);
+		chx += getBody(["<strong>Old Gus' Cypher Reference Document (OG-CRD)</strong> is a hypertext version of the <a href='https://col.montecookgames.com/license/'>Cypher Reference Document</a> (revised July 29, 2026), published under the <a href=' http://col.montecookgames.com'>Cypher Open License</a>.", "This document has been edited and condensed. You can use this edition to quickly look up rules, share them with others, or copy text into a character sheet that works for you. Don't mistake anything you read here for the \"rules as written\".", "The OG-CRD contains most of the text of the <a href='https://www.montecookgames.com/store/product/cypher-corebooks/'>Cypher Character Rulebook</a>, but it is not a replacement for the real thing, which contains additional information, examples of play, and advice for playing Cypher&mdash;not to mention gorgeous artwork and the seductive odor of cardboard and book glue.", "You may also find some good use for material from <a href='https://callmepartario.github.io/og-csrd'>Old Gus' Cypher System Reference Document (OG-CSRD)</a>, which covers the 2015&ndash;2025 edition of the game.", "Thanks to <a href='https://www.montecookgames.com/'>Monte Cook Games</a> for this amazing resource, and thank you for reading&mdash;may this record bring you and yours many happy adventures!"]);
 		chx += "<p class='lead'>&mdash;Old Gus</p>";
 		chx += createEdnote("If you'd like to support this work, buy Old Gus a <a href='https://ko-fi.com/oldgus'><span class='fst-normal'>&#9749;</span> Ko-fi</a>!");
 		chx += createHeader(3, "editorial-mission", "Editorial Mission", "og-border");
-		chx += "<dl><dt>Incorporate Cypher Content</dt><dd>Condense the Cypher Reference Document into fewer, more complete topics, and incorporate updates or errata. Provide page number references for the <a href='https://www.montecookgames.com/store/product/cypher-corebooks/'>Cypher Character Rulebook (CCR)</a> and Cypher Game Master's Guide (CGMG).</dd><dt>Use Plain Language</dt><dd>Edit explanations, instructions, definitions, and procedures in plain language so they are complete, clear, consistent, and concise. Correct suspected misprints. Streamline consistency of presentation in character options&mdash;for example, omit <a href='#define-type'>type</a> characteristics that reiterate <a href='#define-core-character'>core character</a> statistics and benefits assigned by <a href='#define-genre'>genre</a>. Preserve the text of abilities, excepting <a href='#ability-index'>abilities with minor differences</a>.</dd><dt>Address Players First</dt><dd>Organize information for those who haven't played a tabletop role-playing game (TTRPG) before, and write to the player. \"You\" is you, the player&mdash;or your Player Character (PC). \"The GM\" is the Game Master (GM).</dd><dt>Improve Accessibility and Inclusion</dt><dd>Avoid flow charts the reader might not be able to use. Add metric unit conversions. Provide a mobile-friendly format, extensive hyperlinks, tooltips, quick-references, and a variety of reader modes&mdash;for example, light mode, dark mode, and a dyslexic reader mode.</dd><dt>Add Tools</dt><dd>Add and expand useful indices and a <a href='#glossary'>glossary</a>.</dd><dt>Human-Made, Human-Forward</dt><dd>No ads. No accounts. No data collection. No algorithms. No machine learning. No large-language models. No vibe coding. This is a living document&mdash;revisions are an ongoing project.</dd></dl>";
+		chx += "<dl><dt>Incorporate Cypher Content</dt><dd>Condense the Cypher Reference Document into fewer, more complete topics, and incorporate updates or errata. Provide page number references for the <a href='https://www.montecookgames.com/store/product/cypher-corebooks/'>Cypher Character Rulebook (CCR)</a> and Cypher Game Master's Guide (CGMG).</dd><dt>Use Plain Language</dt><dd>Edit explanations, instructions, definitions, and procedures in plain language so they are complete, clear, consistent, and concise. Correct suspected misprints. Streamline consistency of presentation in character options&mdash;for example, omit <a href='#define-type'>type</a> characteristics that reiterate <a href='#define-core-character'>core character</a> statistics and benefits assigned by <a href='#define-genre'>genre</a>. Preserve the text of abilities, excepting <a href='#ability-index'>abilities with minor differences</a>.</dd><dt>Address Players First</dt><dd>Organize information for those who haven't played a tabletop role-playing game (TTRPG) before, and write to the player. \"You\" is you, the player&mdash;or your Player Character (PC). \"The GM\" is the Game Master (GM).</dd><dt>Improve Accessibility and Inclusion</dt><dd>Avoid flow charts the reader might not be able to use. Add metric unit conversions. Provide a mobile-friendly format, extensive hyperlinks, tooltips, quick-references, and a variety of reader modes&mdash;for example, light mode, dark mode, and a dyslexic reader mode.</dd><dt>Add Tools</dt><dd>Add <a href='#cypher-tables'>cypher tables</a>, <a href='#equipment-tables'>equipment tables</a>, an <a href='#ability-index'>ability index</a>, a <a href='#glossary'>glossary</a>, and a digest of <a href='#differences'>changes from the Cypher System (2015&ndash;2025)</a>.</dd><dt>Human-Made, Human-Forward</dt><dd>No ads. No accounts. No data collection. No algorithms. No machine learning. No large-language models. No vibe coding. This is a living document&mdash;revisions are an ongoing project.</dd></dl>";
 		chx += createHeader(3, "cypher-open-license", "Cypher Open License", "og-border");
 		chx += "<div class='row'>";
 		chx += "<div class='col-12 col-sm-4 col-md-3 col-lg-2 text-center'>";
@@ -4745,6 +4752,7 @@ function getSection(ch) {
 				def = createHeader((h + 1), createID("genre-" + gname + "-advancement"), (gname + " Abilities and Advancement"), "");
 				let ref = ["<span class='btn btn-danger'>!ERR</span>"];
 				if (gname == "Real World") ( ref = ["CCR 38"]);
+				if (gname == "&mldr;and there's Magic") ( ref = ["CCMG 123"]);
 				if (gname == "Fantasy") ( ref = ["CCR 82"]);
 				else if (gname == "Science Fiction") ( ref = ["CCR 114"]);
 				else if (gname == "Epic Fantasy") ( ref = ["CCR 75"]);
@@ -4753,7 +4761,7 @@ function getSection(ch) {
 				else if (gname == "Postapocalypse") ( ref = ["CCR 109"]);
 				else if (gname == "Superheroes") ( ref = ["CCR 126&ndash;127", "CCR 138&ndash;142"]);
 				def += createRef(ref)
-				def += getBody(["In addition to the usual character advancement process, you gain the following benefits as you increase your <a href='#define-tier'>tier</a>."]);
+				def += getBody(["In addition to the usual <a href='#define-character-advancement'>character advancement</a> process, you gain the following benefits as you increase your <a href='#define-tier'>tier</a>."]);
 				def += getBody(genreList[g].advancement);
 				chx += createDef(createID("genre-" + gname + "-advancement"), def);
 				// genre abilities
