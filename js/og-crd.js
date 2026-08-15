@@ -5408,7 +5408,7 @@ function getSection(ch) {
 		chx += createRef(["Editorial Addition"]);
 		chx += getBody(["This section can help you understand changes from the prior games&mdash;for example, <em>Numenera</em>, <em>The Strange</em> or <em>Cypher System</em>."]);
 		for (let d = 0; d < differenceList.length; d++) {
-			chx += createHeader(4, createID("differences-" + differenceList[d].dt), differenceList[d].dt, "h6");		
+			chx += createHeader(4, createID("differences-" + differenceList[d].dt), differenceList[d].dt, "h6 og-border");		
 			chx += getBody(differenceList[d].dd);
 		}
 		// return chapter
