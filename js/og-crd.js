@@ -4339,7 +4339,7 @@ function getSection(ch) {
 									faDef += "</p>";
 								}
 								faDef += "<ul class='og-list-abilities'>";
-								faDef += "<li class='og-list-ability og-tooltip-focus-ability'>" + getAbility(focusList[f].abilities[t][a].name, false).replaceAll("class= 'og-abiity' href='#define-ability", ("class= 'og-abiity' href='#" + createID("define-focus-" + focusList[f].name + "-"))) + "</li>", 
+								faDef += "<li class='og-list-ability og-tooltip-focus-ability'>" + getAbility(focusList[f].abilities[t][a].name, false).replaceAll("class='og-ability' href='#define-ability", ("class= 'og-ability' href='#" + createID("define-focus-" + focusList[f].name))) + "</li>", 
 								faDef += "</ul>";
 								fa += createDef(createID("focus-" + focusList[f].name + "-" + focusList[f].abilities[t][a].name), faDef);
 							}
