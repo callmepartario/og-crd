@@ -2846,7 +2846,7 @@ const genreList = [
 		skills: ["These skills are appropriate for superhero games."], 
 		skillsoptions: ["Animal care", "Astronomy", "Athletics", "Attacking", "Biology", "Charm", "Chemistry", "Crafting", "Deception", "Defending", "Disguise", "Driving", "Engineering", "Escaping", "Farming", "Firefighting", "Forensics", "Gathering information", "Geology", "Gunnery", "Gymnastics", "Hacking", "Healing", "Heavy equipment", "operation", "History", "Identifying", "Initiative", "Intimidation", "Lockpicking", "Magic lore", "Mathematics", "Mechanics", "Mining", "Navigation", "Outdoor survival", "Perception", "Performance", "Philosophy", "Physics", "Pickpocketing", "Piloting", "Psychic lore", "Psychology", "Publishing", "Recognizing motive", "Religious lore", "Riding", "Scavenging", "Skilled trade", "Stealth", "Systems operation", "Tracking"], 
 		species: ["Choose or create a <a href='#define-descriptor'>descriptor</a>.", "Superhero settings usually feature <a href='#define-species-human'>Humans</a>, but it's possible your superpowers are from being an alien. Maybe your species isn't important as your <a href='#define-type'>type</a> and <a href='#define-focus'>focus</a>. But given how the genre tends to draw in elements from <a href='#define-genre-fantasy'>fantasy</a> and <a href='#define-genre-science-fiction'>science fiction</a>, alternate species could be an important part of the setting."],
-		type: ["Superhero types are different than types in other genres, as they are ranked from 1 to 5. Each rank indicates a higher power level than the one before. A rank 1 superhero is basically a well-trained, well-equipped human. A rank 3 Superhuman is far capable than a normal person.", "Each type includes the number of <a href='#define-power-shift'>power shifts</a> you gain, and suggestions for your character's background. Choose one or create your own."], 
+		type: ["Superhero types are different than types in other genres, as they are ranked from 1 to 5. Each rank indicates a higher power level than the one before. A rank 1 superhero is basically a well-trained, well-equipped human. A rank 3 Superhuman is far more capable than a normal person.", "Each rank assigns a number of <a href='#define-power-shift'>power shifts</a>, and suggestions for your character's background. Choose one or create your own."], 
 		typeoptions: ["Crimefighter", "Vigilante", "Enhanced Hero", "Powerstar", "Superhuman", "Powerhouse", "Living God"], 
 		focus: ["Superhero genre is a rambunctious, wide-open genre that can accommodate almost any focus."], 
 		focusoptions: ["Abides in Stone", "Blazes With Fire", "Builds Allies", "Carries a Gun", "Casts Spells", "Changes Shape", "Commands Mental Powers", "Consorts With the Dead", "Controls Beasts", "Crafts Illusions", "Doesn't Do Much", "Employs Magnetism", "Entertains", "Explores", "Fights Dirty", "Fights Unarmed", "Fights With Panache", "Fuses Flesh and Steel", "Fuses Mind and Machine", "Grows to Towering Heights", "Howls at the Moon", "Hunts", "Infiltrates", "Leads", "Masters Telekinesis", "Masters Weaponry", "Moves Like the Wind", "Never Says Die", "Performs Feats of Strength", "Quells Evil", "Reveres a Supernatural Force", "Rides the Lightning", "Sneaks Through the Shadows", "Solves Mysteries", "Speaks for the Land", "Stands Like a Bastion", "Strikes With Mystic Might", "Talks to Machines", "Tends to the Wounded", "Walks Through Walls", "Wears a Sheen of Ice", "Works for a Living"], 
@@ -3256,12 +3256,6 @@ const tableList = [
 		rows: [["01&ndash;04", "Amazing feat"], ["05&ndash;08", "Area boost"], ["09&ndash;12", "Burst boost"], ["13&ndash;16", "Damage boost"], ["17&ndash;20", "Efficacy boost"], ["21&ndash;24", "Range boost"], ["25&ndash;28", "Shift boost"], ["29&ndash;32", "Source boost"], ["33&ndash;36", "Split boost"], ["37&ndash;00", "Roll on Random Cypher table"], ], 
 	}, 
 	{
-		name: "Superhero Types", 
-		cols: ["Type", "Rank", "Power Shifts"], 
-		colstyle: ["", "text-center", "text-center"],
-		rows: [["Crimefighter", "1", "2"], ["Vigilante", "1", "2"], ["Enhanced Hero", "2", "3"], ["Powerstar", "2", "3"], ["Superhuman", "3", "4"], ["Powerhouse", "4", "5"], ["Living God", "5", "6"]], 
-	}, 
-	{
 		name: "Superhero Type Adaptation", 
 		cols: ["Rank", "Pool Point Total", "Pool Bonus Max", "Superheroics Pool Bonus", "Power Shifts"], 
 		colstyle: ["og-nowrap", "text-center", "text-center", "text-center", "text-center"], 
@@ -3398,11 +3392,7 @@ function createTable(table, equipment) {
 						if (tableList[t].colstyle != undefined && tableList[t].colstyle[c] != "") {
 							tc += " " + tableList[t].colstyle[c];
 						}
-						tc += "'>";
-						if (tableList[t].name == "Superhero Types") { tc += getDef(createID("type-" + tableList[t].rows[r][c]), tableList[t].rows[r][c]); }
-						// fill table data
-						else { tc += " " + tableList[t].rows[r][c]; }
-						tc += "</th>";
+						tc += "'>" + tableList[t].rows[r][c]; + "</th>";
 					}
 					// table 
 					else { 
@@ -3792,6 +3782,17 @@ function getGenreList(genre, subgenre, option, style, alert) {
 				let rank = "";
 				if (typeList[t].rank != undefined) { rank = " <span class='og-nowrap'>(Rank " + typeList[t].rank + ")</span>" }
 				i += "<li><a href='#" + createID("define-type-" + typeList[t].name) + "'>" + typeList[t].name + "</a>" + rank + "</li>";
+			}
+			i += "</ul>";
+			if (alert == true) { return createAlert(i); }
+			else { return i; }
+		}
+		else if (genre == "Superheroes" && subgenre == undefined) {
+			i += "<ul class='" + style + "'>";
+			for (let t = 0; t < typeList.length; t++) {
+				let rank = "";
+				if (typeList[t].rank != undefined) { rank = " <span class='og-nowrap'>(Rank " + typeList[t].rank + ")</span>" }
+				if (typeList[t].rank != undefined) { i += "<li><a href='#" + createID("define-type-" + typeList[t].name) + "'>" + typeList[t].name + "</a>" + rank + "</li>"; }
 			}
 			i += "</ul>";
 			if (alert == true) { return createAlert(i); }
@@ -4675,13 +4676,8 @@ function getSection(ch) {
 				else if (gname == "Superheroes") ( ref = ["CCR 130"]);
 				def += createRef(ref)
 				def += getBody(genreList[g].type);
-				// superhero types displayed in a table instead
-				if (genreList[g].genre == "Superheroes" && genreList[g].subgenre == undefined) {
-					def += createTable("Superhero Types");
-				}
-				else if (genreList[g].typeoptions != undefined) { def += getGenreList(genreList[g].genre, genreList[g].subgenre, "types", "list-unstyled og-qr-compact", true); }
+				if (genreList[g].typeoptions != undefined) { def += getGenreList(genreList[g].genre, genreList[g].subgenre, "types", "list-unstyled og-qr-compact", true); }
 				chx += createDef(createID("genre-" + gname + "-types"), def);
-
 				if (genreList[g].genre == "Superheroes" && genreList[g].subgenre == undefined) {
 					alert = "";
 					def = createHeader((h + 2), createID("genre-" + gname + "-adapting-types"), "Adapting Types to the Superhero Genre", "");
