@@ -4864,23 +4864,29 @@ function getSection(ch) {
 					if (genreList[g].abilitiespowershifts != undefined) { 
 						def = createHeader((h + 2), createID("power-shifts"), ("Power Shifts"), "");
 						alert = createHeader((h + 3), createID("power-shifts"), ("Quick-Reference: Power Shifts"), "h6");
+						alert += "<p class='small'>&dagger; &mdash; <em>Nonstandard power shift</em></p>";
 						alert += "<ul class='list-unstyled og-qr'>";
 						for (ps = 0; ps < genreList[g].abilitiespowershifts.length; ps++) {
-							alert += "<li><a href='#" + createID("define-power-shift-" + genreList[g].abilitiespowershifts[ps].dt) + "'>" + genreList[g].abilitiespowershifts[ps].dt + "</a></li>";
+							alert += "<li><a href='#" + createID("define-power-shift-" + genreList[g].abilitiespowershifts[ps].dt) + "'>" + genreList[g].abilitiespowershifts[ps].dt + "</a>";
+							if (genreList[g].abilitiespowershifts[ps].effort == false) {
+								alert += mark;
+							}
+							alert += "</li>";
 						}
 						alert += "</ul>"; 
 						def += createAlert(alert);
 						def += createRef(["CCR 127",]);
-						def += getBody(["Most power shifts act like a free level of <a href='#define-effort'>Effort</a> on relevant tasks, but that don't count against your limit. They allow you to ease rolls, increase damage, or increase effects&mdash;usually two of those. Choosing the right power shifts can make you strong enough to throw a car, durable enough to break through brick walls, or smart enough to build an interdimensional gateway.", "A few power shifts work differently and are noted as such.",]);
+						def += getBody(["Most power shifts function like a <a href='#define-effort'>free level of Effort</a> on relevant tasks, but don't count against the six-level maximum. They allow you to ease rolls, increase damage, or increase effects&mdash;usually two of those. Choosing the right power shifts can make you strong enough to throw a car, durable enough to break through brick walls, or smart enough to build an interdimensional gateway.", ["<strong>Nonstandard Power Shifts:</strong> A few power shifts work don't work like a <a href='#define-effort'>free level of Effort</a>."]]);
 						chx += createDef("power-shift", def);
 						for (let ps = 0; ps < genreList[g].abilitiespowershifts.length; ps++) {
 							def = createHeader((h + 3), createID("power-shifts-" + genreList[g].abilitiespowershifts[ps].dt), genreList[g].abilitiespowershifts[ps].dt, "og-border");
 							def += createRef(["CCR 127",]);
-							def += "<ul class='og-list-tag'><li class='og-tag-power'>Power Shift</li></ul></ul>";
-							def += getBody([genreList[g].abilitiespowershifts[ps].dd]); 
+							def += "<ul class='og-list-tag'><li class='og-tag-power'><a href='#define-power-shift'>Power Shift</a></li>";
 							if (genreList[g].abilitiespowershifts[ps].effort == false) {
-								def += "<p class='small'><em>This power shift doesn't act like a free level of <a href='#define-effort'>Effort</a>.</em></p>";
+								def += "<li class='og-tag-danger'><a href='#define-power-shift'>Nonstandard</a></li>";
 							}
+							def += "</ul>";
+							def += getBody([genreList[g].abilitiespowershifts[ps].dd]); 
 							chx += createDef(createID("power-shift-" + genreList[g].abilitiespowershifts[ps].dt), def);
 							if (ps == (genreList[g].abilitiespowershifts.length - 1)) { chx += "<div class='og-border'></div>"; }
 						}
