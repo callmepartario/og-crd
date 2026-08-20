@@ -2,7 +2,7 @@
 const version = "1.01c";
 const updated = "2026-08-19";
 const mark = "<span class='ps-1'>&dagger;</span>";
-const mark2 = "<span class='ps-1'>&ddagger;</span>";
+const mark2 = "<span class='ps-1'>&#9889;</span>";
 const printerror = "<p class='btn btn-danger'>!ERR</p>"; // reusable error throw for searching and debugging
 // user variables
 var readerPreference = localStorage.getItem('readerMode'); // dyslexic reader preference
@@ -3853,7 +3853,7 @@ function getGenreList(genre, subgenre, option, style, alert) {
 		for (let g = 0; g < genreList.length; g++) {
 			if (genreList[g].genre == genre && genreList[g].subgenre == subgenre && genreList[g].abilitiesmid != undefined) {
 				if (genre == "Fantasy" && subgenre == undefined) { 
-					i += "<p class='small'>&dagger; &mdash; <em>Magic ability</em></p>"; 
+					i += "<p class='small'>&#9889; &mdash; <em>Magic ability</em></p>"; 
 				}
 				i += "<ul class='" + style + "'>";
 				//origin
@@ -3874,7 +3874,7 @@ function getGenreList(genre, subgenre, option, style, alert) {
 								let aname = abilityList[li].name;
 								if (abilityList[li].dupmajor == true) { aname = aname.slice(0, -3); }
 								i += "<li>" + getDef(createID("ability-" + abilityList[li].name), aname);
-								if (genreList[g].genre == "Fantasy" && abilityList[li].note == "Magic") { i += mark; }
+								if (genreList[g].genre == "Fantasy" && abilityList[li].note == "Magic") { i += mark2; }
 								i += "</li>";
 							}
 						}
@@ -3888,7 +3888,7 @@ function getGenreList(genre, subgenre, option, style, alert) {
 								let aname = abilityList[li].name;
 								if (abilityList[li].dupmajor == true) { aname = aname.slice(0, -3); }
 								i += "<li>" + getDef(createID("ability-" + abilityList[li].name), aname);
-								if (genreList[g].genre == "Fantasy" && abilityList[li].note == "Magic") { i += mark; }
+								if (genreList[g].genre == "Fantasy" && abilityList[li].note == "Magic") { i += mark2; }
 								i += "</li>";
 							}
 						}
@@ -4682,7 +4682,7 @@ function getSection(ch) {
 					alert = "";
 					def = createHeader((h + 2), createID("genre-" + gname + "-adapting-types"), "Adapting Types to the Superhero Genre", "");
 					def += createRef(["CCR 129", "Editorial Addition"]);
-					def += getBody(["The GM can assign any <a href='#define-type'>type</a> a superhero rank by following these steps and consulting the accompanying table:", ["Assign increases to <a href='#define-stat'>Pool</a> point bonus totals and maximums and <a href='#define-power-shift'>power shifts</a>.", "<em>At rank 1:</em> Assign the <a class='og-ability' href='#define-ability-superheroics'>Superheroics</a> ability. If the type assigns the <a class='og-ability' href='#define-ability-expert-combatant'>Expert Combatant</a> ability, replace it with <a class='og-ability' href='#define-ability-super-combatant'>Super Combatant</a>. If the type assigns the <a class='og-ability' href='#define-ability-combat-prowess'>Combat Prowess</a> ability, replace it with <a class='og-ability' href='#define-ability-power-prowess'>Power Prowess</a>.", "<em>At rank 2:</em> Assign additional points to the <a href='#define-stat'>Pool</a> chosen for the <a class='og-ability' href='#define-ability-superheroics'>Superheroics</a> ability.", "<em>At rank 3:</em> Assign the <a class='og-ability' href='#define-ability-enhanced-energy'>Enhanced Energy</a> ability.", "<em>At rank 5:</em> Replace the <a class='og-ability' href='#define-ability-enhanced-energy'>Enhanced Energy</a> ability with <a class='og-ability' href='#define-ability-second-focus'>Second Focus</a>."]]);
+					def += getBody(["The GM can assign any <a href='#define-type'>type</a> a superhero rank by following these steps and consulting the accompanying table:", ["Assign increases to <a href='#define-stat'>Pool</a> point bonus totals and maximums and <a href='#define-power-shift'>power shifts</a>.", "<em>At rank 1:</em> Assign the <a class='og-ability' href='#define-ability-superheroics'>Superheroics</a> ability. If the type assigns the <a class='og-ability' href='#define-ability-expert-combatant'>Expert Combatant</a> ability, replace it with <a class='og-ability' href='#define-ability-super-combatant'>Super Combatant</a>. If the type assigns the <a class='og-ability' href='#define-ability-combat-prowess'>Combat Prowess</a> ability, replace it with <a class='og-ability' href='#define-ability-power-prowess'>Power Prowess</a>.", "<em>At rank 2:</em> Assign additional points to the <a href='#define-stat'>Pool</a> chosen for the <a class='og-ability' href='#define-ability-superheroics'>Superheroics</a> ability. Replace a less useful type ability with <a class='og-ability' href='#define-ability-wider-use'>Wider Use</a>.", "<em>At rank 3:</em> Replace a less useful type ability with <a class='og-ability' href='#define-ability-enhanced-energy'>Enhanced Energy</a> or <a class='og-ability' href='#define-ability-push-on-through'>Push On Through</a>.", "<em>At rank 5:</em> Replace a less useful type ability with <a class='og-ability' href='#define-ability-second-focus'>Second Focus</a>."]]);
 					def += createTable("Superhero Type Adaptation");
 					alert += createDef(createID("genre-" + gname + "-adapting-types"), def)
 					chx += createAlert(alert);
@@ -5451,7 +5451,7 @@ function getSection(ch) {
 		// quick ref
 		alert = createHeader(4, "choose-ability-categories", "Quick-Reference: Ability Categories", "h6");
 		alert += "<p class='small mb-0'>&dagger; &mdash; <em>Ability with major differences</em></p>";
-		alert += "<p class='small mt-1'>&ddagger; &mdash; <em>Genre-restricted ability</em></p>";
+		alert += "<p class='small mt-1'>&#9889; &mdash; <em>Genre-restricted ability</em></p>";
 		alert += "<ul class='list-unstyled og-qr'>";
 		alert += "<li><a href='#choose-ability-type'>Type</a></li>";
 		for (let t = 1; t < 7; t++) {
