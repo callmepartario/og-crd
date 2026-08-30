@@ -3112,7 +3112,7 @@ function getSection(ch) {
 		chx += createAlert(alert);
 		// how to play
 		chx += createHeader(3, "how-to-play", "How to Play", "og-border-lg");
-		chx += createRef(["CCR 7", "CCR 284", "CCR 289&ndash;292", "CGMG 22&dash;23"],)
+		chx += createRef(["CCR 7", "CCR 284", "CCR 289&ndash;292", "CGMG 19", "CGMG 22&dash;23"],)
 		chx += getBody(["The GM describes a scenario, establishing the surroundings and any dangers, NPCs, or other important details the PCs would notice. You can ask the GM questions, especially about information your character would know. Eventually, someone does something consequential."]);
 		def = "<div class='d-table'>"; // open table
 		def += "<div class='d-table-row'>"; // open table row
@@ -3157,7 +3157,7 @@ function getSection(ch) {
 		def += "</div>"; // close table row
 		def += "</div>"; // close table
 		chx += createAlert(createDef("how-to-play", def));
-		chx += createSidebar(getBody(["<strong>The Player Always Rolls:</strong> If you leap out of a moving vehicle, you roll to see if you succeed. If you search for a hidden panel, you roll to find it. If a rockslide falls on you, you roll to get out of the way. If you attack a foe, you roll to see if you hit. If a foe attacks you, you roll to see if you avoid it."]));
+		chx += createSidebar(getBody(["<strong>The Player Always Rolls:</strong> If you leap out of a moving vehicle, you roll to see if you succeed. If you search for a hidden panel, you roll to find it. If a rockslide falls on you, you roll to get out of the way. If you attack a foe, you roll to see if you hit. If a foe attacks you, you roll to see if you avoid it." , "<strong>Using the Rules:</strong> The GM uses the rules to simulate the world&mdash;including any strange or supernatural aspects. The GM isn't constrained by the rules&mdash;the rules are constrained by the GM. The GM is constrained by the setting and the players' suspsension of disbelief. If the rules produce frustrations, contradictions, or nonsense, don't just defer to what the rules say or don't say&mdash;change them to something more interesting, logical, or story-based!"]));
 		// action
 		def = createHeader(3, "action", "Action", "og-border-lg");
 		def += createRef(["CCR 7", "CCR 284", "CCR 287", "CCR 296-297", "CCR 289"],)
