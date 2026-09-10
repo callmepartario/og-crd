@@ -1,6 +1,6 @@
 // versioning
 const version = "1.01j";
-const updated = "2026-08-31";
+const updated = "2026-09-07";
 const mark = "<span class='ps-1'>&dagger;</span>";
 const mark2 = "<span class='ps-1'>&#9889;</span>";
 const printerror = "<p class='btn btn-danger'>!ERR</p>"; // reusable error throw for searching and debugging
@@ -2103,6 +2103,7 @@ function getSection(ch) {
 		alert += "<li><a href='https://tools.cypher-rpg.com/assets/Cypher%20Character%20Sheets-Form%20Fillable-2026-07-06-A4%20Size-DgDENh2p.pdf'>PDF Character Sheet (A4)</a></li>";
 		alert += "<li><a href='https://tools.cypher-rpg.com/assets/Cypher%20Character%20Sheets-Form%20Fillable-2026-07-06-Letter%20Size-CMhSw5e-.pdf'>PDF Character Sheet (Letter)</a></li>";
 		alert += "<li><a href='https://tools.cypher-rpg.com/'>Cypher Character Builder</a></li>";
+		alert += "<li><a href='https://www.montecookgames.com/store/product/consent-in-gaming/'>Consent in Gaming</a></li>";
 		alert += "</ul>";
 		chx += createAlert(alert);
 		def = createHeader(3, "Characters", "Characters", "");
@@ -2754,7 +2755,7 @@ function getSection(ch) {
 		def += createRef(["Editorial Addition"]);
 		def += getBody(["Genre is a word used to describe artistic conventions shared by literature, music, and film. In a tabletop role-playing game, it can best be summed up as a general idea of what the setting does and doesn't include, and generally answers two questions: <em>\"Who are the characters and what do they do?\"</em> and <em>\"What happens in stories like these?\"</em>. ", "This section covers four genres: <a href='#define-genre-real-world'>Real World</a>, <a href='#define-genre-fantasy'>Fantasy</a>, <a href='#define-genre-science-fiction'>Science Fiction</a>, and <a href='#define-genre-superheroes'>Superheroes</a>. Each is divided into subgenres and internal conventions, including:", ["Relevant <a href='#define-skill'>skills</a>", "<a href='#define-core-character'>Character sentence</a> options, including avalilable <a href='#define-descriptor'>descriptors</a>, <a href='#define-species'>species</a>, <a href='#define-type'>types</a>, and <a href='#define-focus'>foci</a>", "<a href='#define-currency'>Currency</a> used in the setting", "Avaiable <a href='#define-equipment'>equipment</a> in the setting", "The presence of <a href='#define-cypher-manifest'>manifest cyphers</a>", "Approach to <a href='#define-wound'>wounds</a>, especially establishing <a href='#define-treatment'>treatment</a> time", "Additional <a href='#define-abilities'>abilities</a> or <a href='#define-character-advancement'>character advancement</a> options", "Optional rules that support the genre through gameplay"]]);
 		chx += createDef("genre", def)
-		chx += createEdnote("In actual practice many, games span or mix genres. The GM might borrow from any part of the genres listed here and combine them on a one-time or an ongoing basis&mdash;for example, mixing <a href='#define-genre-hard-science-fiction'>Hard Science Fiction</a> with <a href='#define-genre-horror'>Horror</a>.");
+		chx += createEdnote("In actual practice, many games span or mix genres. The GM might borrow from any part of the genres listed here and combine them on a one-time or an ongoing basis&mdash;for example, mixing <a href='#define-genre-hard-science-fiction'>Hard Science Fiction</a> with <a href='#define-genre-horror'>Horror</a>.");
 		// build genres
 		for (let g = 0; g < genreList.length; g++) {
 			let h = 3;
