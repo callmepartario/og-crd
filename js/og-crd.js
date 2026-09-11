@@ -2879,7 +2879,7 @@ function getSection(ch) {
 			if (genreList[g].focus != undefined) { 
 				def = createHeader((h + 1), createID("genre-" + gname + "-foci"), (gname + " Foci"), "");
 				let ref = ["<span class='btn btn-danger'>!ERR</span>"];
-				if (gname == "Real World") ( ref = ["CCR 38"]);
+				if (gname == "Real World") ( ref = ["CCR 38", "Editorial Addition"]);
 				else if (gname == "&mldr;and there's Magic") ( ref = ["CGMG 123"]);
 				else if (gname == "Dungeon Fantasy") ( ref = ["CCR 42"]);
 				else if (gname == "Swords &amp; Sorcery") ( ref = ["CCR 62"]);
