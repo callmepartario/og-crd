@@ -1,6 +1,6 @@
 // versioning
-const version = "1.01m";
-const updated = "2026-10-05";
+const version = "1.01n";
+const updated = "2026-10-07";
 const mark = "<span class='ps-1'>&dagger;</span>";
 const mark2 = "<span class='ps-1'>&#9889;</span>";
 const printerror = "<p class='btn btn-danger'>!ERR</p>"; // reusable error throw for searching and debugging
@@ -2100,8 +2100,8 @@ function getSection(ch) {
 		alert += "</ul>";
 		alert += createHeader(4, "choose-character-official", "Quick-Reference: Official Tools", "h6");
 		alert += "<ul class='list-unstyled og-qr-compact'>";
-		alert += "<li><a href='https://tools.cypher-rpg.com/assets/Cypher%20Character%20Sheets-Form%20Fillable-2026-07-06-A4%20Size-DgDENh2p.pdf'>PDF Character Sheet (A4)</a></li>";
-		alert += "<li><a href='https://tools.cypher-rpg.com/assets/Cypher%20Character%20Sheets-Form%20Fillable-2026-07-06-Letter%20Size-CMhSw5e-.pdf'>PDF Character Sheet (Letter)</a></li>";
+		alert += "<li><a href='https://api.tools.cypher-rpg.com/content/books/ccb/blank_sheet?size=a4'>PDF Character Sheet (A4)</a></li>";
+		alert += "<li><a href='https://api.tools.cypher-rpg.com/content/books/ccb/blank_sheet'>PDF Character Sheet (Letter)</a></li>";
 		alert += "<li><a href='https://tools.cypher-rpg.com/'>Cypher Character Builder</a></li>";
 		alert += "<li><a href='https://www.montecookgames.com/store/product/consent-in-gaming/'>Consent in Gaming</a></li>";
 		alert += "</ul>";
