@@ -2,7 +2,8 @@
 const version = "1.01o";
 const updated = "2026-10-08";
 const mark = "<span class='ps-1'>&dagger;</span>";
-const mark2 = "<span class='ps-1'>&#9889;</span>";
+const mark2 = "<span class='ps-1'>&ddagger;</span>";
+const mark3 = "<span class='ps-1'>&#9889;</span>";
 const printerror = "<p class='btn btn-danger'>!ERR</p>"; // reusable error throw for searching and debugging
 // user variables
 var readerPreference = localStorage.getItem('readerMode'); // dyslexic reader preference
@@ -23,6 +24,7 @@ const glossaryList = [
 	{ dt: "area attack", def: "attack", }, 
 	{ dt: "area", def: "range", }, 
 	{ dt: "armor", def: "armor", }, 
+	{ dt: "Armor", def: "damage-to-npcs", }, 
 	{ dt: "artifact", def: "artifacts", }, 
 	{ dt: "asset", def: "asset", }, 
 	{ dt: "attack", def: "attack", }, 
@@ -1454,7 +1456,7 @@ const differenceList = [
 	{ dt: "Actions", dd: [["<a href='#define-action'>Actions</a> are divided into several types. Each is resolved in <a href='#define-time'>initiative</a> order each <a href='#define-time'>round</a>. This can have a profound effect on the the resoution of <a href='#define-weapon'>weapon</a> attacks and many <a href='#define-abilities'>abilities</a>.", "<a href='#define-cypher-standard'>Standard cyphers</a>&mdash;the new term for <em>subtle cyphers</em>&mdash;don't require an <a href='#define-action'>action</a> to activate, making them easier to combine with a related task."], ], }, 
 	{ dt: "Movement", dd: [["<a href='#define-range'>Moving</a> more than an <a href='#define-range'>immediate distance</a> in a <a href='#define-time'>round</a> hinders tasks until the end of your next <a href='#define-time'>turn</a>&mdash;or even longer.", "PCs wielding heavy <a href='#define-weapon'>weapons</a> have their movement restricted even further."], ], }, 
 	{ dt: "Defense Rolls", dd: [["PC <a href='#define-defend'>defenses</a> are now split into four tasks related to the <a href='#define-skill-defending'>defending</a> skill. Speed defense rolls are replaced by blocking and dodging, and there are still uses for Might defense and Intellect defense tasks. PCs who favor <a href='#define-stat'>Might</a> can mitigate <a href='#define-wound'>wound</a> accumulation with <a href='#define-armor'>armor</a> and <a href='#define-armor'>shields</a>.", "Being <a href='#define-skill'>freely able</a> to use <a href='#define-armor'>armor</a> can affect how a PC chooses to defend themselves." ]], }, 
-	{ dt: "Damage Track", dd: [["<a href='#define-wound'>Wounds</a> replace the damage track as the primary method of meaningful <a href='#define-damage-to-pcs'>damage to PCs</a>, leaving <a href='#define-stat'>Pool</a> points available to spend on <a href='#define-abilities'>abilities</a> and <a href='#define-effort'>Effort</a>. PCs regain expended and recover from wounds by <a href='#define-rallying'>rallying</a>, <a href='#define-treatment'>treatment</a>, and making <a href='#define-recovery'>recovery rolls</a>.", "Additional wound capacity from the <a href='#define-core-character'>core character</a> is a function of <a href='#define-genre'>genre</a>, and might be gained from <a href='#define-species'>species</a>, <a href='#define-type'>type</a>, or <a href='#define-focus'>focus</a>.", "<a href='#define-treatment'>Treatment</a> time also varies by genre and has a significant impact on how quickly PCs recover from <a href='#define-wound'>wounds</a>.", "A damage conversion guide for creatures from the prior edition is presented on CGMG 155."], ], }, 
+	{ dt: "Damage Track", dd: [["<a href='#define-wound'>Wounds</a> replace the damage track as the primary method of meaningful <a href='#define-damage-to-pcs'>damage to PCs</a>, leaving <a href='#define-stat'>Pool</a> points available to spend on <a href='#define-abilities'>abilities</a> and <a href='#define-effort'>Effort</a>. PCs regain expended and recover from wounds by <a href='#define-rallying'>rallying</a>, <a href='#define-treatment'>treatment</a>, and making <a href='#define-recovery'>recovery rolls</a>.", "Additional wound capacity from the <a href='#define-core-character'>core character</a> is a function of <a href='#define-genre'>genre</a>, and might be gained from <a href='#define-species'>species</a>, <a href='#define-type'>type</a>, or <a href='#define-focus'>focus</a>.", "<a href='#define-treatment'>Treatment</a> time also varies by genre and has a significant impact on how quickly PCs recover from <a href='#define-wound'>wounds</a>.", "A damage conversion guide for Cypher System creatures is presented under <a href='#define-damage-to-pcs'>damage to PCs</a> (and on CGMG 155)."], ], }, 
 	{ dt: "Damage", dd: [["<a href='#define-damage-to-objects'>Damage to objects</a> no longer relies on an object damage track. Instead, destroying an object requires minimum damage output, but gets easier after each successful task."], ], }, 
 	{ dt: "Crafting and Downtime", dd: [["Unless you have an <a href='#define-abilities'>ability</a> that allows for quick crafting during an adventure, <a href='#define-crafting'>crafting</a> and downtime are now mostly handled by spending <a href='#define-resource-points'>resource points</a>."], ], }, 
 	{ dt: "Vehicles", dd: [["Vehicle combat is considerably different, relying more on <a href='#define-skill-piloting'>piloting</a> skill. There's no information on vehicles in the CRD at the moment, but more information is presented on CGMG 79&ndash;84."], ], }, 
@@ -1734,14 +1736,14 @@ function getAbility(ability, refs) {
 						}
 					}
 				}
-				if (abilityList[a].gr == true) {
-					ab += "<li class='og-tag-danger'><a href='#define-abilities-genre-restricted'>Genre Restricted</a></li>";
-				}
 				if (abilityList[a].dupminor == true) {
 					ab += "<li class='og-tag-medium'><a href='#define-abilities-minor-differences'>Minor Differences</a></li>";
 				}
 				else if (abilityList[a].dupmajor == true) {
 					ab += "<li class='og-tag-danger'><a href='#define-abilities-major-differences'>Major Differences</a></li>";
+				}
+				if (abilityList[a].gr == true) {
+					ab += "<li class='og-tag-danger'><a href='#define-abilities-genre-restricted'>Genre Restricted</a></li>";
 				}
 				// end ability source references
 				ab += "</ul>";
@@ -1759,12 +1761,15 @@ function getAbilityIndex(abilityID, source, tier) {
 	let aname = abilityList[abilityID].name;
 	let tmark = "";
 	let gmark = "";
-	if (abilityList[abilityID].dupmajor == true) { 
-		aname = (aname.slice(0, -3)); 
+	if (abilityList[abilityID].dupminor == true) { 
 		tmark = mark;
 	}
+	if (abilityList[abilityID].dupmajor == true) { 
+		aname = (aname.slice(0, -3)); 
+		tmark = mark2;
+	}
 	if (abilityList[abilityID].gr == true) { 
-		gmark = mark2;
+		gmark = mark3;
 	}
 	let li = "<li><a href='#" + createID("define-ability-" + abilityList[abilityID].name) + "'>" + aname + "</a>" + tmark + gmark + "</li>";
 	// return type abilities
@@ -2027,7 +2032,7 @@ function getGenreList(genre, subgenre, option, style, alert) {
 								let aname = abilityList[li].name;
 								if (abilityList[li].dupmajor == true) { aname = aname.slice(0, -3); }
 								i += "<li>" + getDef(createID("ability-" + abilityList[li].name), aname);
-								if (genreList[g].genre == "Fantasy" && abilityList[li].note == "Magic") { i += mark2; }
+								if (genreList[g].genre == "Fantasy" && abilityList[li].note == "Magic") { i += mark3; }
 								i += "</li>";
 							}
 						}
@@ -2041,7 +2046,7 @@ function getGenreList(genre, subgenre, option, style, alert) {
 								let aname = abilityList[li].name;
 								if (abilityList[li].dupmajor == true) { aname = aname.slice(0, -3); }
 								i += "<li>" + getDef(createID("ability-" + abilityList[li].name), aname);
-								if (genreList[g].genre == "Fantasy" && abilityList[li].note == "Magic") { i += mark2; }
+								if (genreList[g].genre == "Fantasy" && abilityList[li].note == "Magic") { i += mark3; }
 								i += "</li>";
 							}
 						}
@@ -2237,7 +2242,7 @@ function getSection(ch) {
 					def = createHeader(4, "rallying", "Rallying", "");
 					def += createRef(["CCR 301", "CGMG 36"]);
 					def += getBody(["You can remove a <a href='#define-wound'>wound</a> by spending <a href='#define-stat'>Might</a> points. Your <a href='#define-stat'>Might Edge</a> doesn't reduce the cost of rallying. Narratively, rallying represents you shrugging it off, toughing it out, catching your breath, or just discovering you're lucky, and it wasn't as bad as it could have been."]);
-					def += "<p class='small'>" + mark2 + " &mdash; <em>Genre-restricted (for example, <a href='#define-genre-superheroes'>Superheroes</a>)</em></p>"
+					def += "<p class='small'>" + mark3 + " &mdash; <em>Genre-restricted (for example, <a href='#define-genre-superheroes'>Superheroes</a>)</em></p>"
 					def += createTable("Rallying");
 					chx += createDef("rallying", def)
 					// treatment
@@ -3325,11 +3330,11 @@ function getSection(ch) {
 		chx += createDef("damage", def);
 		// damage to PCs
 		def = createHeader(4, "damage-to-pcs", "Damage to PCs", "og-border");
-		def += createRef(["CCR 299", "CCR 302", "CGMG 26&ndash;27", "CGMG 35", "CGMG 71&ndash;72", "CGMG 76"],)
+		def += createRef(["CCR 299", "CCR 302", "CGMG 26&ndash;27", "CGMG 35", "CGMG 71&ndash;72", "CGMG 76", "CGMG 155"],)
 		def += getBody([["<strong>Wounds:</strong> Most creatures, NPCs, and physical hazards inflict <a href='#define-wound'>wounds</a> of a severity listed in the attacker's statistics or determined by the GM.", "<strong>Damage to Pools:</strong> Special attacks can reduce your <a href='#define-stat'>Pools</a>&mdash;for example, a numbing poison that inflicts <a href='#define-stat'>Speed</a> damage. If damage reduces a stat Pool to 0, any further damage to that stat (including any excess damage from the triggering attack) become <a href='#define-wound'>wounds</a>.", "<strong>Creature Level:</strong> NPCs typically inflict damage based on their <a href='#define-difficulty'>level</a>.", "<strong>Special Damage:</strong> Effects that linger for a round or more&mdash;for example, paralysis.", "<strong>Non-Rest Recovery:</strong> Ending some effects requires you to use one or more <a href='#define-recovery'>recoveries</a> without gaining any of their benefits, or a successful <a href='#define-defend'>defense roll</a>."]]);
 		def += createTable("Pool Damage to Wound Conversions");
 		chx += createDef("damage-to-pcs", def);
-		chx += createEdnote("You can also use the Creature Level column to damage inflicted by <a href='#differences'>Cypher System</a> creatures.");
+		chx += createEdnote("You can also use the Creature Level column to convert damage inflicted by <a href='#differences'>Cypher System</a> creatures.");
 		// special damage
 		chx += "<div class='accordion'>" // open accordion
 		chx += "<div class='accordion-item'>"; // open item
@@ -3352,7 +3357,7 @@ function getSection(ch) {
 		// damage to npcs
 		def = createHeader(4, "damage-to-npcs", "Damage to NPCs", "og-border");
 		def += createRef(["CCR 299&mdash;300", "CGMG 35", "CGMG 70"],)
-		def += getBody([["<strong>Health:</strong> NPC have a stat called <strong>health</strong>, which usually 3 &times; <a href='#define-difficulty'>Level</a>. Damage you deal is subtracted from their health, and when it health reaches 0, they're defeated&mdash;killed, knocked out, or forced to surrender.", "<strong>Armor:</strong> If an NPC has an <strong>armor</strong> stat, it's subtracted from any physical damage they take (to a minimum of 0). Mental attacks and some unusual physical attacks ignore armor.", "<strong>Increasing Damage:</strong> There are many ways to increase damage&mdash;for example, using <a href='#define-effort'>Effort</a>, <a href='#define-roll'>special rolls</a>, and <a href='#define-abilities'>abilities</a> like <a class='og-ability' href='#define-ability-combat-prowess'>Combat Prowess</a>."]]);
+		def += getBody([["<strong>Health:</strong> NPC have a stat called <strong>health</strong>, which usually 3 &times; <a href='#define-difficulty'>Level</a>. Damage you deal is subtracted from their health, and when it health reaches 0, they're defeated&mdash;killed, knocked out, or forced to surrender.", "<strong>Armor:</strong> If an NPC has an <strong>armor</strong> stat, it's subtracted from any physical damage they take (to a minimum of 0). Mental attacks and some unusual physical attacks ignore armor.", "<strong>Increasing Damage:</strong> There are many ways to increase damage inflicted to an NPC&mdash;for example, using <a href='#define-effort'>Effort</a>, <a href='#define-roll'>special rolls</a>, and <a href='#define-abilities'>abilities</a> like <a class='og-ability' href='#define-ability-combat-prowess'>Combat Prowess</a>."]]);
 		chx += createDef("damage-to-npcs", def);
 		// damage to objects
 		def = createHeader(4, "damage-to-objects", "Damage to Objects", "og-border");
@@ -3622,7 +3627,8 @@ function getSection(ch) {
 		chx += getBody(["Abilities are noted by their source&mdash;for example, a <a href='#define-type'>type</a>, a <a href='#define-focus'>focus</a> and <a href='#define-tier'>tier</a>, or an ability list associated with a <a href='#define-genre'>genre</a>.", ["<div class='og-tooltip-mb' id='define-abilities-genre-restricted'><strong>Genre-Restricted:</strong> These abilities are restricted to fantastic genress&mdash;for example, <a href='#define-genre-space-opera'>space opera</a> or <a href='#define-genre-superheroes'>superheroes</a>.</div>", "<div class='og-tooltip-mb' id='define-abilities-minor-differences'><strong>Minor Differences:</strong> These abilities have several entries in the <a href='https://www.montecookgames.com/store/product/cypher-corebooks/'>Cypher Character Rulebook</a> with different phrasing, but identical mechanics. The OG-CRD condenses these to a single entry, so you may notice small discrepancies between the two sources.</a>", "<div class='og-tooltip-mb' id='define-abilities-major-differences'><strong>Major Differences:</strong> These abilities share a name with another ability, but the exact mechanics differ depending on the source of the ability.</div>"]]);
 		// quick ref
 		alert = createHeader(4, "choose-ability-categories", "Quick-Reference: Ability Categories", "h6");
-		alert += "<p class='small mb-0'>&dagger; &mdash; <em>Ability with major differences</em></p>";
+		alert += "<p class='small mb-0'>&dagger; &mdash; <em>Ability with minor differences</em></p>";
+		alert += "<p class='small mb-0'>&ddagger; &mdash; <em>Ability with major differences</em></p>";
 		alert += "<p class='small mt-1'>&#9889; &mdash; <em>Genre-restricted ability</em></p>";
 		alert += "<ul class='list-unstyled og-qr'>";
 		alert += "<li><a href='#choose-ability-type'>Type</a></li>";
@@ -3689,7 +3695,7 @@ function getSection(ch) {
 		chx += createAlert(alert);
 		chx += createHeader(3, "differences", "Changes from the Cypher System (2015&ndash;2025)", "og-border-lg");
 		chx += createRef(["Editorial Addition"]);
-		chx += getBody(["This section can help you understand changes from the prior games&mdash;for example, <em>Numenera</em>, <em>The Strange</em> or <em>Cypher System</em>."]);
+		chx += getBody(["This section can help you understand changes from the prior games&mdash;for example, <em>Numenera</em>, <em>The Strange</em> or <em>Cypher System</em>. For more information about these games, see <a href='https://callmepartario.github.io/og-csrd/'>Old Gus' Cypher System Reference Document (OG-CSRD)</a>."]);
 		for (let d = 0; d < differenceList.length; d++) {
 			chx += createHeader(4, createID("differences-" + differenceList[d].dt), differenceList[d].dt, "h6 og-border");		
 			chx += getBody(differenceList[d].dd);
