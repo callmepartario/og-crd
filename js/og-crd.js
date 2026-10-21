@@ -3131,6 +3131,10 @@ function getSection(ch) {
 		alert += "<li><a href='#define-crafting'>Crafting, Building, and Repairing</a></li>";
 		alert += "<li><a href='#define-help'>Cooperative Actions</a></li>";
 		alert += "</ul>";
+		alert += createHeader(3, "choose-rules", "Quick-Reference: Rules Tools", "h6");
+		alert += "<ul class='list-unstyled og-qr'>";
+		alert += "<li><a href='https://actualizedadept.itch.io/sakis-cypher-2-gm-screen'>Saki's Cypher 2 GM Screen</a></li>";
+		alert += "</ul>";
 		chx += createAlert(alert);
 		// how to play
 		chx += createHeader(3, "how-to-play", "How to Play", "og-border-lg");
