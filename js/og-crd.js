@@ -2106,7 +2106,7 @@ function getSection(ch) {
 		alert += createHeader(4, "choose-character-official", "Quick-Reference: Official Tools", "h6");
 		alert += "<ul class='list-unstyled og-qr-compact'>";
 		alert += "<li><a href='https://tools.cypher-rpg.com/sheet/ccb/a4'>PDF Character Sheet (A4)</a></li>";
-		alert += "<li><a href='https://tools.cypher-rpg.com/sheet/ccb/letter</a></li>";
+		alert += "<li><a href='https://tools.cypher-rpg.com/sheet/ccb/letter'>PDF Character Sheet (Letter)</a></li>";
 		alert += "<li><a href='https://tools.cypher-rpg.com/'>Cypher Character Builder</a></li>";
 		alert += "<li><a href='https://www.montecookgames.com/store/product/consent-in-gaming/'>Consent in Gaming</a></li>";
 		alert += "</ul>";
